@@ -1,0 +1,258 @@
+Conference,Year,Paper Title,Link
+Vis,1997,Dynamic color mapping of bivariate qualitative data,http://dx.doi.org/10.1109/VISUAL.1997.663874
+InfoVis,1997,On Integrating Vislualization Techniques for Effective Software Exploration,
+InfoVis,1999,Evaluating a Visualization of Image Similarity as a Tool for Image Browsing,
+Vis,2000,Visual Cues for Imminent Object Contact in Realistic Virtual Environments,http://dx.doi.org/10.1109/VISUAL.2000.885692
+InfoVis,2001,An Empirical Comparison of Three Commercial Information Visualization Systems,
+InfoVis,2001,A Comparison of 2-D Visualizations of Hierarchies,
+InfoVis,2001,"2D vs 3D, Implications on Spatial Memory",
+InfoVis,2001,Graphic Data Display for Cardiovascular System,
+InfoVis,2002,Graphical Encoding for Information Visualization: An Empirical Study,
+InfoVis,2002,The Illusion of Perceived Metric 3D Structure,
+InfoVis,2002,"SpaceTree: Supporting Exploration in Large Node Link Tree, Design Evolution and Empirical Evaluation",
+InfoVis,2002,Beamtrees: Compact Visualization of Large Hierarchies,
+Vis,2003,Psychophysical Scaling of a Cardiovascular Information Display,http://dx.doi.org/10.1109/VISUAL.2003.1250352
+Vis,2003,Mental Registration of 2D and 3D Visualizations (An Empirical Study),http://dx.doi.org/10.1109/VISUAL.2003.1250396
+InfoVis,2003,Smooth and Efficient Zoomingand Panning,
+InfoVis,2003,Edgelens: An Interactive Method for Managing Edge Congestion in Graphs,
+InfoVis,2003,Empirical Comparison of Dynamic Query Sliders and Brushing Histograms,
+InfoVis,2003,An Experimental Evaluation of Continuous Semantic Zooming in Program Viruaiization,
+InfoVis,2003,Conveying Shape with Texture: an Experimental Investigation of the Impact of texture type on shape categorization judgments,
+InfoVis,2003,Causality Visualization Using Animated Growing Polygons,
+InfoVis,2003,Developing Architectural Lighting Representations,
+InfoVis,2004,An Evaluation of Microarray Visualization Tools for Biological Insight,
+InfoVis,2004,User Experiments with Tree Visualization Systems,
+InfoVis,2004,A Comparison of the Readability of Graphs Using Node-Link and Matrix-Based Representations,
+InfoVis,2004,Value and Relation Display forInteractive Exploration of High Dimensional Datasets,
+InfoVis,2004,Expand-Ahead: A Space-Filling Strategy for Browsing Trees,
+InfoVis,2004,"Evaluating a Systemfor Interactive Exploration of Large, Hierarchically Structured Document Repositories",
+InfoVis,2005,Dynamic Visualization of Graph with Extended Labels,
+InfoVis,2005,An Evaluation of Content Browsing Techniques for Hierarchical Space-Filling Visualizations ....,
+InfoVis,2005,Simple 3D Glyphs for Multivariate Spatial Data,
+InfoVis,2005,Multivariate Glyphs for Multi-Object Clusters,
+InfoVis,2005,Visualization of Graphs with Associated Timeseries Data,
+Vis,2006,Real-Time Illustration of Vascular Structures,http://dx.doi.org/10.1109/TVCG.2006.172
+Vis,2006,Saliency-guided Enhancement for Volume Visualization,http://dx.doi.org/10.1109/TVCG.2006.174
+Vis,2006,Using Visual Cues of Contact to Improve Interactive Manipulation of Virtual Objects in Industrial Assembly/Maintenance Simulations,http://dx.doi.org/10.1109/TVCG.2006.189
+Vis,2006,Visual Signatures in Video Visualization,http://dx.doi.org/10.1109/TVCG.2006.194
+Vis,2006,Texturing of Layered Surfaces for Optimal Viewing,http://dx.doi.org/10.1109/TVCG.2006.183
+Vis,2006,Subjective Quantification of Perceptual Interactions among some 2D Scientific Visualization Methods,http://dx.doi.org/10.1109/TVCG.2006.180
+Vis,2006,Occlusion-Free Animation of Driving Routes for Car Navigation Systems,http://dx.doi.org/10.1109/TVCG.2006.167
+InfoVis,2006,FacetMap: A Scalable Search and Browse Visualization,
+InfoVis,2006,User Interaction with Scatterplots on Small Screens - A Comparative Evaluation of Geometric-Semantic Zoom and Fisheye Distortion,
+InfoVis,2006,The Perceptual Scalability of Visualization,
+Vis,2007,Visualizing Large-Scale Uncertainty in Astrophysical Data,http://dx.doi.org/10.1109/TVCG.2007.70620
+Vis,2007,Uncertainty Visualization in Medical Volume Rendering Using Probabilistic Animation,http://dx.doi.org/10.1109/TVCG.2007.70608
+Vis,2007,Grid With a View: Optimal Texturing for Perception of Layered Surface Shape,http://dx.doi.org/10.1109/TVCG.2007.70559
+Vis,2007,Shadow-Driven 4D Haptic Visualization,http://dx.doi.org/10.1109/TVCG.2007.70593
+Vis,2007,Segmentation of Three-dimensional Retinal Image Data,http://dx.doi.org/10.1109/TVCG.2007.70590
+InfoVis,2007,AdaptiviTree: Adaptive Tree Visualization for Tournament-Style Brackets,
+InfoVis,2007,Many Eyes: A Site for Visualization at Internet Scale,
+InfoVis,2007,Show Me: Automatic Presentation for Visual Analysis,
+InfoVis,2007,Animated Transitions in Statistical Data Graphics,
+InfoVis,2007,Visualizing Causal Semantics using Animations,
+InfoVis,2007,Spatialization Design: Comparing Points and Landscapes,
+InfoVis,2007,Weaving versus Blending: A Quantitative Assessment of the Information Carrying Capacities of Two Alternative Methods for Conveying Multivariate Data with Color,
+InfoVis,2007,Overview use in multiple information resolution interfaces,
+InfoVis,2007,Visualizing Changes of Hierarchical Data Using Treemaps,
+Vis,2008,Effective Visualization of Short Routes,http://dx.doi.org/10.1109/TVCG.2008.124
+Vis,2008,Glyph-Based SPECT Visualization for the Diagnosis of Coronary Artery Disease,http://dx.doi.org/10.1109/TVCG.2008.136
+Vis,2008,A Comparison of the Perceptual Benefits of Linear Perspective and Physically-Based Illumination for Display of Dense 3D Streamtubes,http://dx.doi.org/10.1109/TVCG.2008.108
+Vis,2008,Color Design for Illustrative Visualization,http://dx.doi.org/10.1109/TVCG.2008.118
+Vis,2008,Effects of Video Placement and Spatial Context Presentation on Path Reconstruction Tasks with Contextualized Videos,http://dx.doi.org/10.1109/TVCG.2008.126
+InfoVis,2008,Balloon Focus: a Seamless Multi-Focus+Context Method for Treemaps,
+InfoVis,2008,The Shaping of Information by Visual Metaphors,
+InfoVis,2008,Evaluating the Use of Data Transformation for Information Visualization,
+InfoVis,2008,Improving the Readability of Clustered Social Networks using Node Duplication,
+InfoVis,2008,Effectiveness of Animation in Trend Visualization,
+InfoVis,2008,Perceptual Organisation in User-Generated Graph Layouts,
+Vis,2009,A User Study to Compare Four Uncertainty Visualization Methods for 1D and 2D Datasets,http://dx.doi.org/10.1109/TVCG.2009.114
+Vis,2009,Comparing 3D Vector Field Visualization Methods: A User Study,http://dx.doi.org/10.1109/TVCG.2009.126
+Vis,2009,Perception-Based Transparency Optimization for Direct Volume Rendering,http://dx.doi.org/10.1109/TVCG.2009.172
+Vis,2009,A Physiologically-based Model for Simulation of Color Vision Deficiency,http://dx.doi.org/10.1109/TVCG.2009.113
+Vis,2009,Scalable and Interactive Segmentation and Visualization of Neural Processes in EM Datasets,http://dx.doi.org/10.1109/TVCG.2009.178
+Vis,2009,Quantitative Texton Sequences for Legible Bivariate Maps,http://dx.doi.org/10.1109/TVCG.2009.175
+InfoVis,2009,A Comparison of User-Generated and Automatic Graph Layouts,
+InfoVis,2009,Visualizing Social Photos on a Hasse Diagram for Eliciting Relations and Indexing New Photos,
+InfoVis,2009,Comparing Dot and Landscape Spatializations for Visual Memory Differences,
+InfoVis,2009,ResultMaps: Visualization for Search Interfaces,
+InfoVis,2009,Protovis: A Graphical Toolkit for Visualization,
+Vis,2010,A Curved Ray Camera for Handling Occlusions through Continuous Multiperspective Visualization,http://dx.doi.org/10.1109/TVCG.2010.127
+Vis,2010,Browsing Large Image Datasets through Voronoi Diagrams,http://dx.doi.org/10.1109/TVCG.2010.136
+Vis,2010,Interactive Histology of Large-Scale Biomedical Image Stacks,http://dx.doi.org/10.1109/TVCG.2010.168
+Vis,2010,Result-Driven Exploration of Simulation Parameter Spaces for Visual Effects Design,http://dx.doi.org/10.1109/TVCG.2010.190
+Vis,2010,FI3D: Direct-Touch Interaction for the Exploration of 3D Scientific Visualization Spaces,http://dx.doi.org/10.1109/TVCG.2010.157
+InfoVis,2010,Gremlin: An Interactive Visualization Model for Analyzing Genomic Rearrangements,
+InfoVis,2010,Graphical Perception of Multiple Time Series,
+InfoVis,2010,Uncovering Strengths and Weaknesses of Radial Visualizations-an Empirical Approach,
+InfoVis,2010,Evaluating the Impact of Task Demands and Block Resolution on the Effectiveness of Pixel-based Visualization,
+InfoVis,2010,Perceptual Guidelines for Creating Rectangular Treemaps,
+InfoVis,2010,Laws of Attraction: From Perceived Forces to Conceptual Similarity,
+InfoVis,2010,Visualization of Diversity in Large Multivariate Data Sets,
+InfoVis,2010,Untangling Euler Diagrams,
+InfoVis,2010,FacetAtlas: Multifaceted Visualization for Rich Text Corpora,
+InfoVis,2010,SparkClouds: Visualizing Trends in Tag Clouds,
+InfoVis,2010,ManiWordle: Providing Flexible Control over Wordle,
+Vis,2011,Artificial Defocus for Displaying Markers in Microscopy Z-Stacks,http://dx.doi.org/10.1109/TVCG.2011.168
+Vis,2011,About the Influence of Illumination Models on Image Comprehension in Direct Volume Rendering,http://dx.doi.org/10.1109/TVCG.2011.161
+Vis,2011,The Effect of Colour and Transparency on the Perception of Overlaid Grids,http://dx.doi.org/10.1109/TVCG.2011.242
+Vis,2011,iView: A Feature Clustering Framework for Suggesting Informative Views in Volume Visualization,http://dx.doi.org/10.1109/TVCG.2011.218
+Vis,2011,Evaluation of Trend Localization with Multi-Variate Visualizations,http://dx.doi.org/10.1109/TVCG.2011.194
+Vis,2011,Distance Visualization for Interactive 3D Implant Planning,http://dx.doi.org/10.1109/TVCG.2011.189
+InfoVis,2011,Context-Preserving Visual Links,http://dx.doi.org/10.1109/TVCG.2011.183
+InfoVis,2011,"Design Study of LineSets, a Novel Set Visualization Technique",http://dx.doi.org/10.1109/TVCG.2011.186
+InfoVis,2011,Developing and Evaluating Quilts for the Depiction of Large Layered Graphs,http://dx.doi.org/10.1109/TVCG.2011.187
+InfoVis,2011,Stereoscopic Highlighting: 2D Graph Visualization on Stereo Displays,http://dx.doi.org/10.1109/TVCG.2011.234
+InfoVis,2011,"Evaluation of Traditional, Orthogonal, and Radial Tree Diagrams by an Eye Tracking Study",http://dx.doi.org/10.1109/TVCG.2011.193
+InfoVis,2011,A Study on Dual-Scale Data Charts,http://dx.doi.org/10.1109/TVCG.2011.160
+InfoVis,2011,Evaluation of Artery Visualizations for Heart Disease Diagnosis,http://dx.doi.org/10.1109/TVCG.2011.192
+InfoVis,2011,DICON: Interactive Visual Analysis of Multidimensional Clusters,http://dx.doi.org/10.1109/TVCG.2011.188
+SciVis,2012,KnotPad: Visualizing and Exploring Knot Theory with Fluid Reidemeister Moves,http://dx.doi.org/10.1109/TVCG.2012.242
+SciVis,2012,Evaluation of Fast-Forward Video Visualization,http://dx.doi.org/10.1109/TVCG.2012.222
+SciVis,2012,Human Computation in Visualization: Using Purpose Driven Games for Robust Evaluation of Visualization Algorithms,http://dx.doi.org/10.1109/TVCG.2012.234
+SciVis,2012,Evaluation of Multivariate Visualization on a Multivariate Task,http://dx.doi.org/10.1109/TVCG.2012.223
+SciVis,2012,Effects of Stereo and Screen Size on the Legibility of Three-Dimensional Streamtube Visualization,http://dx.doi.org/10.1109/TVCG.2012.216
+SciVis,2012,WYSIWYP: What You See Is What You Pick,http://dx.doi.org/10.1109/TVCG.2012.292
+SciVis,2012,Efficient Structure-Aware Selection Techniques for 3D Point Cloud Visualizations with 2DOF Input,http://dx.doi.org/10.1109/TVCG.2012.217
+SciVis,2012,A Perceptual-Statistics Shading Model,http://dx.doi.org/10.1109/TVCG.2012.188
+InfoVis,2012,How Capacity Limits of Attention Influence Information Visualization Effectiveness,http://dx.doi.org/10.1109/TVCG.2012.233
+InfoVis,2012,Different Strokes for Different Folks: Visual Presentation Design between Disciplines,http://dx.doi.org/10.1109/TVCG.2012.214
+InfoVis,2012,Does an Eye Tracker Tell the Truth about Visualizations?: Findings while Investigating Visualizations for Decision Making,http://dx.doi.org/10.1109/TVCG.2012.215
+InfoVis,2012,Graphical Tests for Power Comparison of Competing Designs,http://dx.doi.org/10.1109/TVCG.2012.230
+InfoVis,2012,A User Study on Curved Edges in Graph Visualization,http://dx.doi.org/10.1109/TVCG.2012.189
+InfoVis,2012,Memorability of Visual Features in Network Diagrams,http://dx.doi.org/10.1109/TVCG.2012.245
+InfoVis,2012,Visual Semiotics &amp; Uncertainty Visualization: An Empirical Study,http://dx.doi.org/10.1109/TVCG.2012.279
+InfoVis,2012,Perception of Visual Variables on Tiled Wall-Sized Displays for Information Visualization Applications,http://dx.doi.org/10.1109/TVCG.2012.251
+InfoVis,2012,Assessing the Effect of Visualizations on Bayesian Reasoning through Crowdsourcing,http://dx.doi.org/10.1109/TVCG.2012.199
+InfoVis,2012,An Empirical Model of Slope Ratio Comparisons,http://dx.doi.org/10.1109/TVCG.2012.196
+InfoVis,2012,"Exploring Flow, Factors, and Outcomes of Temporal Event Sequences with the Outflow Visualization",http://dx.doi.org/10.1109/TVCG.2012.225
+InfoVis,2012,RankExplorer: Visualization of Ranking Changes in Large Time Series Data,http://dx.doi.org/10.1109/TVCG.2012.253
+InfoVis,2012,Sketchy Rendering for Information Visualization,http://dx.doi.org/10.1109/TVCG.2012.262
+InfoVis,2012,An Empirical Study on Using Visual Embellishments in Visualization,http://dx.doi.org/10.1109/TVCG.2012.197
+InfoVis,2012,Evaluating Sketchiness as a Visual Variable for the Depiction of Qualitative Uncertainty,http://dx.doi.org/10.1109/TVCG.2012.220
+SciVis,2013,Acuity-Driven Gigapixel Visualization,http://dx.doi.org/10.1109/TVCG.2013.127
+SciVis,2013,Evaluation of Static and Dynamic Visualization Training Approaches for Users with Different Spatial Abilities,http://dx.doi.org/10.1109/TVCG.2013.156
+SciVis,2013,Noise-Based Volume Rendering for the Visualization of Multivariate Volumetric Data,http://dx.doi.org/10.1109/TVCG.2013.180
+InfoVis,2013,A Deeper Understanding of Sequence in Narrative Visualization,http://dx.doi.org/10.1109/TVCG.2013.119
+InfoVis,2013,DiffAni: Visualizing Dynamic Graphs with a Hybrid of Difference Maps and Animation,http://dx.doi.org/10.1109/TVCG.2013.149
+InfoVis,2013,Edge Compression Techniques for Visualization of Dense Directed Graphs,http://dx.doi.org/10.1109/TVCG.2013.151
+InfoVis,2013,Evaluation of filesystem Provenance Visualization Tools,http://dx.doi.org/10.1109/TVCG.2013.155
+InfoVis,2013,GPLOM: The Generalized Plot Matrix for Visualizing Multidimensional Multivariate Data,http://dx.doi.org/10.1109/TVCG.2013.160
+InfoVis,2013,Information Visualization and Proxemics: Design Opportunities and Empirical findings,http://dx.doi.org/10.1109/TVCG.2013.166
+InfoVis,2013,"Interactive Visualizations on Large and Small Displays: The Interrelation of Display Size, Information Space, and Scale",http://dx.doi.org/10.1109/TVCG.2013.170
+InfoVis,2013,LineUp: Visual Analysis of Multi-Attribute Rankings,http://dx.doi.org/10.1109/TVCG.2013.173
+InfoVis,2013,Perception of Average Value in Multiclass Scatterplots,http://dx.doi.org/10.1109/TVCG.2013.183
+InfoVis,2013,SketchStory: Telling More Engaging Stories with Data through Freeform Sketching,http://dx.doi.org/10.1109/TVCG.2013.191
+InfoVis,2013,Understanding Interfirm Relationships in Business Ecosystems with Interactive Visualization,http://dx.doi.org/10.1109/TVCG.2013.209
+InfoVis,2013,Visualizing Request-Flow Comparison to Aid Performance Diagnosis in Distributed Systems,http://dx.doi.org/10.1109/TVCG.2013.233
+InfoVis,2013,What Makes a Visualization Memorable?,http://dx.doi.org/10.1109/TVCG.2013.234
+InfoVis,2014,DimpVis: Exploring Time-varying Information Visualizations by Direct Manipulation,http://dx.doi.org/10.1109/TVCG.2014.2346250
+InfoVis,2014,Axis Calibration for Improving Data Attribute Estimation in Star Coordinates Plots,http://dx.doi.org/10.1109/TVCG.2014.2346258
+InfoVis,2014,Tree Colors: Color Schemes for Tree-Structured Data,http://dx.doi.org/10.1109/TVCG.2014.2346277
+InfoVis,2014,Error Bars Considered Harmful: Exploring Alternate Encodings for Mean and Error,http://dx.doi.org/10.1109/TVCG.2014.2346298
+InfoVis,2014,Four Experiments on the Perception of Bar Charts,http://dx.doi.org/10.1109/TVCG.2014.2346320
+InfoVis,2014,The Persuasive Power of Data Visualization,http://dx.doi.org/10.1109/TVCG.2014.2346419
+InfoVis,2014,Comparative Eye Tracking Study on Node-Link Visualizations of Trajectories,http://dx.doi.org/10.1109/TVCG.2014.2346420
+InfoVis,2014,"Node, Node-Link, and Node-Link-Group Diagrams: An Evaluation",http://dx.doi.org/10.1109/TVCG.2014.2346422
+InfoVis,2014,The Not-so-Staggering Effect of Staggered Animated Transitions on Visual Tracking,http://dx.doi.org/10.1109/TVCG.2014.2346424
+InfoVis,2014,The Influence of Contour on Similarity Perception of Star Glyphs,http://dx.doi.org/10.1109/TVCG.2014.2346426
+InfoVis,2014,Order of Magnitude Markers: An Empirical Study on Large Magnitude Number Detection,http://dx.doi.org/10.1109/TVCG.2014.2346428
+InfoVis,2014,How Hierarchical Topics Evolve in Large Text Corpora,http://dx.doi.org/10.1109/TVCG.2014.2346433
+InfoVis,2014,Effects of Presentation Mode and Pace Control on Performance in Image Classification,http://dx.doi.org/10.1109/TVCG.2014.2346437
+InfoVis,2014,Ranking Visualizations of Correlation Using Weber's Law,http://dx.doi.org/10.1109/TVCG.2014.2346979
+InfoVis,2014,"The relation between visualization size, grouping, and user performance",http://dx.doi.org/10.1109/TVCG.2014.2346983
+InfoVis,2014,A Principled Way of Assessing Visualization Literacy,http://dx.doi.org/10.1109/TVCG.2014.2346984
+InfoVis,2014,Reinforcing Visual Grouping Cues to Communicate Complex Informational Structure,http://dx.doi.org/10.1109/TVCG.2014.2346998
+SciVis,2014,Attractive Flicker: Guiding Attention in Dynamic Narrative Visualizations,http://dx.doi.org/10.1109/TVCG.2014.2346352
+SciVis,2014,Design and Evaluation of Interactive Proofreading Tools for Connectomics,http://dx.doi.org/10.1109/TVCG.2014.2346371
+InfoVis,2015,SchemeLens: A Content-Aware Vector-Based Fisheye Technique for Navigating Large Systems Diagrams,http://dx.doi.org/10.1109/TVCG.2015.2467035
+InfoVis,2015,Suggested Interactivity: Seeking Perceived Affordances for Information Visualization,http://dx.doi.org/10.1109/TVCG.2015.2467201
+InfoVis,2015,Off the Radar: Comparative Evaluation of Radial Visualization Solutions for Composite Indicators,http://dx.doi.org/10.1109/TVCG.2015.2467322
+InfoVis,2015,Beyond Memorability: Visualization Recognition and Recall,http://dx.doi.org/10.1109/TVCG.2015.2467732
+InfoVis,2015,TimeNotes: A Study on Effective Chart Visualization and Interaction Techniques for Time-Series Data,http://dx.doi.org/10.1109/TVCG.2015.2467751
+InfoVis,2015,Visual Encodings of Temporal Uncertainty: A Comparative User Study,http://dx.doi.org/10.1109/TVCG.2015.2467752
+InfoVis,2015,"Improving Bayesian Reasoning: The Effects of Phrasing, Visualization, and Spatial Ability",http://dx.doi.org/10.1109/TVCG.2015.2467758
+InfoVis,2015,Guidelines for Effective Usage of Text Highlighting Techniques,http://dx.doi.org/10.1109/TVCG.2015.2467759
+InfoVis,2015,Orientation-Enhanced Parallel Coordinate Plots,http://dx.doi.org/10.1109/TVCG.2015.2467872
+InfoVis,2015,A Psychophysical Investigation of Size as a Physical Variable,http://dx.doi.org/10.1109/TVCG.2015.2467951
+InfoVis,2015,Spatial Reasoning and Data Displays,http://dx.doi.org/10.1109/TVCG.2015.2469125
+SciVis,2015,A Classification of User Tasks in Visual Analysis of Volume Data,http://dx.doi.org/10.1109/SciVis.2015.7429485
+SciVis,2015,Real-time Uncertainty Visualization for B-Mode Ultrasound,http://dx.doi.org/10.1109/SciVis.2015.7429489
+SciVis,2015,CAST: Effective and Efficient User Interaction for Context-Aware Selection in 3D Particle Clouds,http://dx.doi.org/10.1109/TVCG.2015.2467202
+SciVis,2015,Glyph-Based Comparative Visualization for Diffusion Tensor Fields,http://dx.doi.org/10.1109/TVCG.2015.2467435
+SciVis,2015,Effectiveness of Structured Textures on Dynamically Changing Terrain-like Surfaces,http://dx.doi.org/10.1109/TVCG.2015.2467962
+SciVis,2016,Hairy Slices: Evaluating the Perceptual Effectiveness of Cutting Plane Glyphs for 3D Vector Fields,http://dx.doi.org/10.1109/TVCG.2016.2598448
+SciVis,2016,Comparing Cross-Sections and 3D Renderings for Surface Matching Tasks Using Physical Ground Truths,http://dx.doi.org/10.1109/TVCG.2016.2598602
+SciVis,2016,Synteny Explorer: An Interactive Visualization Application for Teaching Genome Evolution,http://dx.doi.org/10.1109/TVCG.2016.2598789
+SciVis,2016,Hybrid Tactile/Tangible Interaction for 3D Data Exploration,http://dx.doi.org/10.1109/TVCG.2016.2599217
+InfoVis,2016,Optimizing Hierarchical Visualizations with the Minimum Description Length Principle,http://dx.doi.org/10.1109/TVCG.2016.2598591
+InfoVis,2016,The Attraction Effect in Information Visualization,http://dx.doi.org/10.1109/TVCG.2016.2598594
+InfoVis,2016,Data-Driven Guides: Supporting Expressive Design for Information Graphics,http://dx.doi.org/10.1109/TVCG.2016.2598620
+InfoVis,2016,Authoring Data-Driven Videos with DataClips,http://dx.doi.org/10.1109/TVCG.2016.2598647
+InfoVis,2016,Evaluation of Graph Sampling: A Visualization Perspective,http://dx.doi.org/10.1109/TVCG.2016.2598867
+InfoVis,2016,Many-to-Many Geographically-Embedded Flow Visualisation: An Evaluation,http://dx.doi.org/10.1109/TVCG.2016.2598885
+InfoVis,2016,An Evaluation of Visual Search Support in Maps,http://dx.doi.org/10.1109/TVCG.2016.2598898
+InfoVis,2016,Colorgorical: Creating discriminable and preferable color palettes for information visualization,http://dx.doi.org/10.1109/TVCG.2016.2598918
+InfoVis,2016,VLAT: Development of a Visualization Literacy Assessment Test,http://dx.doi.org/10.1109/TVCG.2016.2598920
+InfoVis,2016,Towards Unambiguous Edge Bundling: Investigating Confluent Drawings for Network Visualization,http://dx.doi.org/10.1109/TVCG.2016.2598958
+InfoVis,2016,HindSight: Encouraging Exploration through Direct Encoding of Personal Interaction History,http://dx.doi.org/10.1109/TVCG.2016.2599058
+InfoVis,2016,Evaluating the Impact of Binning 2D Scalar Fields,http://dx.doi.org/10.1109/TVCG.2016.2599106
+InfoVis,2016,Immersive Collaborative Analysis of Network Connectivity: CAVE-style or Head-Mounted Display?,http://dx.doi.org/10.1109/TVCG.2016.2599107
+InfoVis,2017,What Would a Graph Look Like in this Layout? A Machine Learning Approach to Large Graph Visualization,http://dx.doi.org/10.1109/TVCG.2017.2743858
+InfoVis,2017,Imagining Replications: Graphical Prediction & Discrete Visualizations Improve Recall & Estimation of Effect Uncertainty,http://dx.doi.org/10.1109/TVCG.2017.2743898
+InfoVis,2017,Assessing the Graphical Perception of Time and Speed on 2D+Time Trajectories,http://dx.doi.org/10.1109/TVCG.2017.2743918
+InfoVis,2017,Visualizing Nonlinear Narratives with Story Curves,http://dx.doi.org/10.1109/TVCG.2017.2744118
+InfoVis,2017,Priming and Anchoring Effects in Visualization,http://dx.doi.org/10.1109/TVCG.2017.2744138
+InfoVis,2017,Blinded with Science or Informed by Charts? A Replication Study,http://dx.doi.org/10.1109/TVCG.2017.2744298
+InfoVis,2017,CyteGuide: Visual Guidance for Hierarchical Single-Cell Analysis,http://dx.doi.org/10.1109/TVCG.2017.2744318
+InfoVis,2017,Open vs. Closed Shapes: New Perceptual Categories?,http://dx.doi.org/10.1109/TVCG.2017.2745086
+InfoVis,2017,Conceptual and Methodological Issues in Evaluating Multidimensional Visualizations for Decision Support,http://dx.doi.org/10.1109/TVCG.2017.2745138
+InfoVis,2017,EdWordle: Consistency-Preserving Word Cloud Editing,http://dx.doi.org/10.1109/TVCG.2017.2745859
+InfoVis,2017,The Hologram in My Hand: How Effective is Interactive Exploration of 3D Visualizations in Immersive Tangible Augmented Reality?,http://dx.doi.org/10.1109/TVCG.2017.2745941
+InfoVis,2017,Active Reading of Visualizations,http://dx.doi.org/10.1109/TVCG.2017.2745958
+InfoVis,2017,Taking Word Clouds Apart: An Empirical Investigation of the Design Space for Keyword Summaries,http://dx.doi.org/10.1109/TVCG.2017.2746018
+InfoVis,2018,Face to Face: Evaluating Visual Comparison,http://dx.doi.org/10.1109/TVCG.2018.2864884
+InfoVis,2018,Looks Good To Me: Visualizations As Sanity Checks,http://dx.doi.org/10.1109/TVCG.2018.2864907
+InfoVis,2018,Hypothetical Outcome Plots Help Untrained Observers Judge Trends in Ambiguous Data,http://dx.doi.org/10.1109/TVCG.2018.2864909
+InfoVis,2018,Structure-aware Fisheye Views for Efficient Large Graph Exploration,http://dx.doi.org/10.1109/TVCG.2018.2864911
+InfoVis,2018,Optimizing Color Assignment for Perception of Class Separability in Multiclass Scatterplots,http://dx.doi.org/10.1109/TVCG.2018.2864912
+InfoVis,2018,Where's My Data? Evaluating Visualizations with Missing Data,http://dx.doi.org/10.1109/TVCG.2018.2864914
+InfoVis,2018,Embedded Merge & Split: Visual Adjustment of Data Grouping,http://dx.doi.org/10.1109/TVCG.2018.2865075
+InfoVis,2018,Comparing Similarity Perception in Time Series Visualizations,http://dx.doi.org/10.1109/TVCG.2018.2865077
+InfoVis,2018,Structure-Based Suggestive Exploration: A New Approach for Effective Exploration of Large Networks,http://dx.doi.org/10.1109/TVCG.2018.2865139
+InfoVis,2018,Glanceable Visualization: Studies of Data Comparison Performance on Smartwatches,http://dx.doi.org/10.1109/TVCG.2018.2865142
+InfoVis,2018,Mapping Color to Meaning in Colormap Data Visualizations,http://dx.doi.org/10.1109/TVCG.2018.2865147
+InfoVis,2018,Charticulator: Interactive Construction of Bespoke Chart Layouts,http://dx.doi.org/10.1109/TVCG.2018.2865158
+InfoVis,2018,Origin-Destination Flow Maps in Immersive Environments,http://dx.doi.org/10.1109/TVCG.2018.2865192
+InfoVis,2018,Visualizing Uncertain Tropical Cyclone Predictions using Representative Samples from Ensembles of Forecast Tracks,http://dx.doi.org/10.1109/TVCG.2018.2865193
+InfoVis,2018,SmartCues: A Multitouch Query Approach for Details-on-Demand through Dynamically Computed Overlays,http://dx.doi.org/10.1109/TVCG.2018.2865231
+InfoVis,2018,Mitigating the Attraction Effect with Visualizations,http://dx.doi.org/10.1109/TVCG.2018.2865233
+InfoVis,2018,Visualizing Ranges over Time on Mobile Phones: A Task-Based Crowdsourced Evaluation,http://dx.doi.org/10.1109/TVCG.2018.2865234
+InfoVis,2018,At a Glance: Pixel Approximate Entropy as a Measure of Line Chart Complexity,http://dx.doi.org/10.1109/TVCG.2018.2865264
+SciVis,2018,Deadeye: A Novel Preattentive Visualization Technique Based on Dichoptic Presentation,http://dx.doi.org/10.1109/TVCG.2018.2864498
+InfoVis,2019,"Biased Average Position Estimates in Line and Bar Graphs: Underestimation, Overestimation, and Perceptual Pull",https://doi.org/10.1109/TVCG.2019.2934400
+InfoVis,2019,Measures of the benefit of direct encoding of data deltas for data pair relation perception,https://doi.org/10.1109/TVCG.2019.2934801
+InfoVis,2019,Pattern-Driven Navigation in 2D Multiscale Visualizations with Scalable Insets,https://doi.org/10.1109/TVCG.2019.2934555
+InfoVis,2019,Toward Objective Evaluation of Working Memory in Visualizations: A Case Study Using Pupillometry and a Dual-Task Paradigm,https://doi.org/10.1109/TVCG.2019.2934286
+InfoVis,2019,A Comparative Evaluation of Animation and Small Multiples for Trend Visualization on Mobile Phones,https://doi.org/10.1109/TVCG.2019.2934397
+InfoVis,2019,A Comparison of Visualizations for Identifying Correlation Over Time and Space,https://doi.org/10.1109/TVCG.2019.2934807
+InfoVis,2019,Common Fate for Animated Transitions in Visualization,https://doi.org/10.1109/TVCG.2019.2934288
+InfoVis,2019,Decoding a Complex Visualization in a Science Museum – An Empirical Study,https://doi.org/10.1109/TVCG.2019.2934401
+InfoVis,2019,Evaluating an Immersive Space-Time Cube Geovisualization for Intuitive Trajectory Data Exploration,https://doi.org/10.1109/TVCG.2019.2934415
+InfoVis,2019,The Impact of Immersion on Cluster Identification Tasks,https://doi.org/10.1109/TVCG.2019.2934395
+InfoVis,2019,"There Is No Spoon: Evaluating Performance, Space Use, and Presence with Expert Domain Users in Immersive Analytics",https://doi.org/10.1109/TVCG.2019.2934803
+InfoVis,2019,OntoPlot: A Novel Visualisation for Non-hierarchical Associations in Large Ontologies,https://doi.org/10.1109/TVCG.2019.2934557
+InfoVis,2019,RSATree: Distribution-Aware Data Representation of Large-Scale Tabular Datasets for Flexible Visual Query,https://doi.org/10.1109/TVCG.2019.2934800
+InfoVis,2019,Data Sampling in Multi-view and Multi-class Scatterplots via Set Cover Optimization,https://doi.org/10.1109/TVCG.2019.2934799
+InfoVis,2019,Improving the Robustness of Scagnostics,https://doi.org/10.1109/TVCG.2019.2934796
+InfoVis,2019,Winglets: Visualizing Association with Uncertainty in Multi-class Scatterplots,https://doi.org/10.1109/TVCG.2019.2934811
+InfoVis,2019,Illusion of Causality in Visualized Data,https://doi.org/10.1109/TVCG.2019.2934399
+InfoVis,2019,CerebroVis: Designing an Abstract yet Spatially Contextualized Cerebral Arteries Network Visualization,https://doi.org/10.1109/TVCG.2019.2934402
+InfoVis,2019,The Perceptual Proxies of Visual Comparison,https://doi.org/10.1109/TVCG.2019.2934786
+InfoVis,2019,BarcodeTree: Scalable Comparison of Multiple Hierarchies,https://doi.org/10.1109/TVCG.2019.2934535
+InfoVis,2019,Comparison of Radial and Linear charts for Visualizing Daily Patterns,https://doi.org/10.1109/TVCG.2019.2934784
+InfoVis,2019,Color Crafting: Automating the Construction of Designer Quality Color Ramps,https://doi.org/10.1109/TVCG.2019.2934284
+InfoVis,2019,Estimating color-concept associations from image statistics,https://doi.org/10.1109/TVCG.2019.2934536
+InfoVis,2019,Searching the Visual Style and Structure of D3 Visualizations,https://doi.org/10.1109/TVCG.2019.2934431
+InfoVis,2019,The Role of Latency and Task Complexity in Predicting Visual Search Behavior,https://doi.org/10.1109/TVCG.2019.2934556
+SciVis,2019,Deadeye Visualization Revisited: Investigation of Preattentiveness and Applicability in Virtual Environments,https://doi.org/10.1109/TVCG.2019.2934370

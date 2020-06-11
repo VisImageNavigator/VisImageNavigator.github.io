@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>IEEE InfoVis Citations</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet' href='public/stylesheets//corners3.css'></link>
+    <link href="public/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='public/stylesheets//index.css'></link>
+    <link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+<!--  libs -->
+<script src="public/lib/jquery-3.3.1.min.js"></script>
+<script src="public/lib/bootstrap.bundle.min.js"></script>
+<script src="public/lib/underscore.js"></script>
+<script src='public/lib/jquery.hotkeys.js'></script>
+<script src='public/lib/d3.v3.min.js'></script>
+<script src='public/lib/d3-tip.js'></script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-inverse fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="#page-top">
+            <span>PubVisImg</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#Getting Started">Getting Started</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Explore</a>
+                </li>
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="#Memorability">Memorability</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#Code & Data">Code & Data</a>
+                </li> -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="visCite.html">VisCite</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div style="position: relative; top: 60px;">
+    <h3>IEEE VIS Citations</h3>
+</div>
+
+
+
+<div style="position: relative; top: 50px;">
+
+    <div style="padding:10px">
+        <div class='hlabel hconcept'><b>Concepts:</b> <select id="concepts"></select></div>
+        <div style='display: inline;' class='hlabel hauthor'><b>Authors:</b> <select id="authors"></select></div>
+        <div style='display: inline;' class='hlabel hkeyword'><b>Title Search:</b> <input id='keywords'></input></div>
+        <div style='display: inline;' class=''><label>Group:</label></div>
+        <form action="" style="display:inline">
+            <input type="radio" name="mode" value="0"><label>All </label>
+            <input type="radio" name="mode" value="1"><label>By Conference </label>
+            <input type="radio" name="mode" value="2" checked="checked"><label>By Conference and Year </label>
+        </form>
+        &nbsp;&nbsp;
+        <div style='display: inline;' class=''><label>Filter:</label></div>
+        <form action="" style="display:inline">
+            <input type="radio" name="filter" value="0" ><label>All </label>
+            <input type="radio" name="filter" value="1" checked="checked"><label>Selected 7 years </label>
+        </form>
+        <h5 style="display:inline; color: #fff">....</h5>
+        <a href="#" id='clear' class="button">Clear All</a>
+        <a href="#" id='shading' class="button"></a>
+        <a href="legend.htm" class="button"><i class="fa fa-info"></i> Help</a>
+        <a href="http://www.cc.gatech.edu/gvu/ii/citevis/VIS25/" class="button"><i class="fa fa-home"></i> Back to VIS
+            25 home</a>
+    </div>
+    <br/>
+    <div id='canvas'></div>
+    <br/>
+    <div id='details'></div>
+    <div id='selection'></div>
+</div>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-42385548-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+    <!--<script type="text/javascript" src="../static/javascripts/vis_global.js"></script>-->
+    <script src='public/javascripts/citeview_div.js'></script>
+    <script type="text/javascript" src="public/javascripts/citeview_stack.js"></script>
+    <script type="text/javascript" src="public/javascripts/citeview_stack2.js"></script>
+    <script type="text/javascript" src="public/javascripts/citeview_stack3.js"></script>
+    <script type="text/javascript" src="public/javascripts/citeview_stack_control.js"></script>
+    <script type="text/javascript" src="public/javascripts/citeview_image_utils.js"></script>
+
+</body>
+</html>

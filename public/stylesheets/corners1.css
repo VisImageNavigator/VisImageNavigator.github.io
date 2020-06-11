@@ -1,0 +1,23 @@
+.corners.hauthor{
+  background-color: red;
+}
+
+.corners.hconcept{
+  background-color: red;
+}
+
+.corners.hkeyword{
+  background-color: red;
+}
+
+.papercircle.hauthor{
+  border: 2px red solid;
+}
+
+.papercircle.hconcept{
+  border: 2px red solid;
+}
+
+.papercircle.hkeyword{
+  border: 2px red solid;
+}

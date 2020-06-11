@@ -1,0 +1,35 @@
+.corners.hauthor{
+  background-color: rgb(232, 120, 0);
+}
+
+.corners.hconcept{
+  background-color: rgb(255,50,0);
+}
+
+.corners.hkeyword{
+  background-color: rgb(232, 0, 97);
+}
+
+.papercircle.hauthor{
+  border: 2px rgb(232, 120, 0) solid;
+}
+
+.papercircle.hconcept{
+  border: 2px rgb(255,50,0) solid;
+}
+
+.papercircle.hkeyword{
+  border: 2px rgb(232, 0, 97) solid;
+}
+
+.hlabel.hauthor{
+  color: rgb(232, 120, 0);
+}
+
+.hlabel.hconcept{
+  color: rgb(255,50,0);
+}
+
+.hlabel.hkeyword{
+  color: rgb(232, 0, 97);
+}
