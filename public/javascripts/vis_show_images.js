@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-12 22:26:32
+ * @LastEditTime: 2020-06-13 01:10:36
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -115,8 +115,8 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         type_info.innerHTML = imgData[id]['Paper type'];
         let urlArr = imgData[id].url.split('/');
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
-        let oriImageName = urlArr[urlArr.length - 1].toString();
         //set email content
+        let oriImageName = urlArr[urlArr.length - 1].toString();
         let email_text = "mailto:chen.8028@osu.edu?subject="+
         "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
         oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
@@ -174,7 +174,12 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         year_info.innerHTML = imgData[gIndex]['Year'];
         type_info.innerHTML = imgData[gIndex]['Paper type'];
         let urlArr = imgData[gIndex].url.split('/');
+        let oriImageName = urlArr[urlArr.length - 1].toString();
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let email_text = "mailto:chen.8028@osu.edu?subject="+
+        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
+        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href",email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (imgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
@@ -472,6 +477,11 @@ function presentUPPapers(paperData, totalCount) {
         type_info.innerHTML = paperImgData[gIndex]['Paper type'];
         let urlArr = paperImgData[gIndex].url.split('/');
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let oriImageName = urlArr[urlArr.length - 1].toString();
+        let email_text = "mailto:chen.8028@osu.edu?subject="+
+        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
+        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href",email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
