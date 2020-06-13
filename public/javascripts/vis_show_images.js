@@ -1,9 +1,9 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-11 18:27:34
+ * @LastEditTime: 2020-06-12 22:16:51
  * @Description: 
- * @FilePath: /VisPubFigures/public/javascripts/vis_show_images.js
+ * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
 
 //global variables
@@ -110,11 +110,17 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         paper_info.innerHTML = imgData[id]['Paper Title'];
         author_info.innerHTML = imgData[id]['Author'].replace(/;/g, '; ');
         link_info.href = imgData[id]['paper_url'];
-        link_info.innerHTML = imgData[id]['paper_url'];
+        link_info.innerHTML = imgData[id]['paper_url'].toString();
         year_info.innerHTML = imgData[id]['Year'];
         type_info.innerHTML = imgData[id]['Paper type'];
         let urlArr = imgData[id].url.split('/');
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let oriImageName = urlArr[urlArr.length - 1].toString();
+        //set email content
+        let email_text = "mailto:chen.8028@osu.edu?subject="+
+        "VisImageNavigator: Update "+oriImageName+"&body=May I request to update the image file "+
+        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href",email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (imgData[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
@@ -407,6 +413,12 @@ function presentUPPapers(paperData, totalCount) {
         type_info.innerHTML = imgDataDic[id]['Paper type'];
         let urlArr = imgDataDic[id].url.split('/');
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let oriImageName = urlArr[urlArr.length - 1].toString();
+        //set email content
+        let email_text = "mailto:chen.8028@osu.edu?subject="+
+        "VisImageNavigator: Update "+oriImageName+"&body=May I request to update the image file "+
+        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href",email_text);
         if (imgDataDic[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";

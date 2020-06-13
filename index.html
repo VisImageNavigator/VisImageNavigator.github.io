@@ -86,24 +86,27 @@
                         <input id="search-box" type="text" class="form-control search_input"
                             placeholder="e.g. biomedical">
                     </div>
-                    
+
                     <!--        <input id="search-box" type="text" class="form-control search_input" placeholder="e.g. biomedical">&nbsp;&nbsp;&nbsp;&nbsp;-->
                     <button type="button" id="search-btn" class="btn btn-success">Submit</button>&nbsp;&nbsp;&nbsp;
                     <!--  -->
                     <form class="form-inline justify-content-center">
-                        -&nbsp;<input type="range" id="image-size-slider" data-toggle="tooltip" data-html="true" title="change figure size" class="custom-range" value="25" min="12" max="100" />+
+                        -&nbsp;<input type="range" id="image-size-slider" data-toggle="tooltip" data-html="true"
+                            title="change figure size" class="custom-range" value="25" min="12" max="100" />+
                     </form>
-                    <img src="public/images/brick.png" class="mode-icon" id="image-mode" data-toggle="tooltip" data-html="true" title="Figure view">
+                    <img src="public/images/brick.png" class="mode-icon" id="image-mode" data-toggle="tooltip"
+                        data-html="true" title="Figure view">
                     &nbsp;&nbsp;
-                    <img src="public/images/list.png" class="mode-icon" id="paper-mode" data-toggle="tooltip" data-html="true" title="Paper view">
-        
+                    <img src="public/images/list.png" class="mode-icon" id="paper-mode" data-toggle="tooltip"
+                        data-html="true" title="Paper view">
+
                 </div>
             </div>
             <div class="col-1">
 
             </div>
         </div>
-        
+
 
 
 
@@ -144,7 +147,7 @@
                             <!-- class="selectpicker" data-live-search="true" -->
                             <select class="selectpicker" data-live-search="true" id="authors">
                                 <option>All</option>
-                                
+
                             </select>
                             &nbsp; &nbsp;
                             <!-- <select id="authors"></select> -->
@@ -189,17 +192,21 @@
                             </div>
 
                         </div>
-                        
+
                     </div>
-                    
-                    
+
+
 
 
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-12 gray-font" style="font-size:0.5rem;">
-                        © 2020 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.
+                        © 2020 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained
+                        for all other uses, in any current or future media, including reprinting/republishing this
+                        material for advertising or promotional purposes, creating new collective works, for resale or
+                        redistribution to servers or lists, or reuse of any copyrighted component of this work in other
+                        works.
                     </div>
                 </div>
 
@@ -224,13 +231,13 @@
                 <option>Ketchup</option>
                 <option>Relish</option>
               </select> -->
-              
-              
+
+
             <div id="pagination" class="pagination"></div>
         </div>
         <div class="container">
-            
-            
+
+
 
         </div>
 
@@ -262,23 +269,35 @@
                             <!-- <span class="blue-font">Journal: </span><span id="journal-info" class="caption">
                                     IEEE Transactions on Visualization and Computer Graphics</span><br> -->
                             <span class="blue-font">Year: </span><span id="year-info" class="caption"></span><br>
-                            <span class="blue-font">Paper URL : </span><a id="link-info" class="caption" target="blank"></a><br>
-                            <span class="blue-font">Paper Type: </span><span id="paper-type-info" class="caption"></span><br>
-                            <span class="blue-font">Author Keywords: </span><span id="keyword-info" class="caption"></span><br>
-                            <span class="gray-font">Imagename: </span><span id="imagename-info" class="caption"></span>
+                            <span class="blue-font">Paper URL : </span><a id="link-info" class="caption"
+                                target="blank"></a><br>
+                            <span class="blue-font">Paper Type: </span><span id="paper-type-info"
+                                class="caption"></span><br>
+                            <span class="blue-font">Author Keywords: </span><span id="keyword-info"
+                                class="caption"></span><br>
+                            <span class="gray-font">Imagename: </span><span id="imagename-info" class="caption"></span><br>
+                            <a id="email-btn" href=""><button class="btn btn-secondary btn-sm">Report Image Error</button></a>
+                            <!-- <input type="submit" class="btn btn-secondary btn-sm" id="mail-submit" value="Report Image Error"></button>
+                            <form id="send-mail-form" enctype="text/plain" action="mailto:chen.8028@osu.edu" method="GET">
+                                <input name="subject" id="mail-subject" type="text" />
+                                <input name="body" id="mail-body"></input>
+                                <input type="submit" class="btn btn-secondary btn-sm" id="mail-submit" value="Report Image Error"></button>
+                            </form> -->
                         </div>
                     </div>
                     <div class="col-md-8"></div>
-                    <div class="col-md-4" >
-                        <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-previous"><</button>
-            
-                        <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-next">></button>
+                    <div class="col-md-4">
+                        <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-previous">
+                            < </button>
+
+                                <button class="btn btn-light" style="left: 60%; position: relative;"
+                                    id="modal-next">></button>
                     </div>
                 </div>
             </div>
 
-            
-            
+
+
             <!--        show other images-->
             <div class="container">
 

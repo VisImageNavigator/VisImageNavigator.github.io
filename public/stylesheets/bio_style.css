@@ -14,6 +14,10 @@ body {
     border-color: #ced4da;
 }
 
+#link-info{
+    word-wrap:break-word;
+}
+
 .red-font {
     color: #b90c14;
 }
@@ -818,4 +822,23 @@ input[type=submit] {
   .content h3 {
     font-style: italic;
     color: #96a2a7;
+  }
+
+
+  #mail-subject{
+      display:none;
+  }
+
+  #mail-body{
+      display: none;
+  }
+
+  #mail-submit{
+      cursor: pointer;
+      background-color: #6c757d !important;
+  }
+
+  #send-mail-form{
+      /* display: inline !important; */
+      padding-top: 3px;
   }
