@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-12 22:16:51
+ * @LastEditTime: 2020-06-12 22:26:32
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -118,7 +118,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         let oriImageName = urlArr[urlArr.length - 1].toString();
         //set email content
         let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=May I request to update the image file "+
+        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
         oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href",email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
@@ -416,7 +416,7 @@ function presentUPPapers(paperData, totalCount) {
         let oriImageName = urlArr[urlArr.length - 1].toString();
         //set email content
         let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=May I request to update the image file "+
+        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
         oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href",email_text);
         if (imgDataDic[id]['Keywords Author'].replace(/,/g, '; ') == "") {
