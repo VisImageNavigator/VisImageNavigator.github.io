@@ -8,6 +8,7 @@
 var ifDB = 0; //if use database
 var G_PAP_DATA = new Object(); // paper dataset
 var G_IMG_DATA = new Object(); // image dataset
+var G_IMG_FULL_DATA = new Object(); //image dataset with null images
 var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
 var ifAllImage = 1;  //if all image are presented
@@ -78,14 +79,22 @@ async function dbStart() {
     // G_PAP_DATA = await d3.csv('public/dataset/paperData.csv');
     G_IMG_DATA = await d3.csv("public/dataset/vispubData30.csv");
     G_IMG_DATA = sortImageByYear(G_IMG_DATA);  //sort images by year, then sort by conference, the sort by first page.
+    //group images to paper dataset
+    G_IMG_FULL_DATA = [...G_IMG_DATA];
+    G_PAP_DATA = extractPaperData(G_IMG_FULL_DATA);
+    //remove null images from image dataset, i.e. papers without image
+    G_IMG_DATA = G_IMG_DATA.filter(function (item) {
+        let flag = item['paperImageName'] != 'N/A';
+        return flag;
+    });
+
     countImageByYear(G_IMG_DATA); //update image data
 
     //params of image numbers
     var img_count = G_IMG_DATA.length;
     var total_pages = Math.ceil(img_count / img_per_page);
 
-    //group images to paper dataset
-    G_PAP_DATA = extractPaperData(G_IMG_DATA);
+
     //console.log(G_PAP_DATA);
 
     //create the dictionary to store the scent information, i.e. 1990: 1, 1995: 5, year: pageIndex
@@ -152,11 +161,11 @@ async function dbStart() {
 
 
     //set up keywords
-    G_KEYWORDS = getAllKeywords(G_IMG_DATA);
+    G_KEYWORDS = getAllKeywords(G_IMG_FULL_DATA);
     autocomplete(document.getElementById("search-box"), G_KEYWORDS);
 
     //set up author filters
-    G_AUTHORS = getAllAuthors(G_IMG_DATA);
+    G_AUTHORS = getAllAuthors(G_IMG_FULL_DATA);
     G_AUTHORS = G_AUTHORS.filter(function (el) {
         return el != "";
     });
@@ -334,44 +343,42 @@ async function dbStart() {
 function filterData() {
     console.log(currentYearRange, currentConferences, currentKeywords, currentAuthors, currentFigures);
 
-    //1. filtering data by conference
-    data = filterDataByConference(G_IMG_DATA, currentConferences);
-    //2. filtering data by keywords, determine whether show year scent
-    if (currentKeywords == '') {
-        ifAllImage = 1;
-    }
-    else {
-        ifAllImage = 0;
-        data = filterDataByKeywords(data, currentKeywords);
-    }
-    //3. filtering data by authors
-    if (currentAuthors == 'All') {
-        ifAllImage = 1;
-    }
-    else {
-        ifAllImage = 0;
-        data = filterDataByAuthors(data, currentAuthors);
-    }
-    //4. filtering data by figure type (figure or table)
-    data = filterDataByFigureType(data, currentFigures);
-
-    //create the scent data
-    countImageByYear(data);
-
-    //4. filtering data by year
-    let minYear = currentYearRange[0];
-    let maxYear = currentYearRange[1];
-    data = filterDataByYear(data, minYear, maxYear);
-
-    console.log(data.length);
-
-
-    var paperData = extractPaperData(data);
-
-    //4. reset year index dictionary
-    resetYearIndexDic(data);
-    //5. update the interface
+    //update the interface
     if (visMode == 1) {
+
+        //1. filtering data by conference
+        var data = filterDataByConference(G_IMG_DATA, currentConferences);
+        //2. filtering data by keywords, determine whether show year scent
+        if (currentKeywords == '') {
+            ifAllImage = 1;
+        }
+        else {
+            ifAllImage = 0;
+            data = filterDataByKeywords(data, currentKeywords);
+        }
+        //3. filtering data by authors
+        if (currentAuthors == 'All') {
+            ifAllImage = 1;
+        }
+        else {
+            ifAllImage = 0;
+            data = filterDataByAuthors(data, currentAuthors);
+        }
+        //4. filtering data by figure type (figure or table)
+        data = filterDataByFigureType(data, currentFigures);
+
+        //create the scent data
+        countImageByYear(data);
+
+        //5. filtering data by year
+        let minYear = currentYearRange[0];
+        let maxYear = currentYearRange[1];
+        data = filterDataByYear(data, minYear, maxYear);
+
+        //6. reset year index dictionary
+        resetYearIndexDic(data);
+
+
         var img_count = data.length;
         var total_pages = Math.ceil(img_count / img_per_page);
 
@@ -388,6 +395,40 @@ function filterData() {
         presentImg(currentData, 0, 0, 1, 0);
     }
     else if (visMode == 2) {
+
+        //1. filtering data by conference
+        var data = filterDataByConference(G_IMG_FULL_DATA, currentConferences);
+        //2. filtering data by keywords, determine whether show year scent
+        if (currentKeywords == '') {
+            ifAllImage = 1;
+        }
+        else {
+            ifAllImage = 0;
+            data = filterDataByKeywords(data, currentKeywords);
+        }
+        //3. filtering data by authors
+        if (currentAuthors == 'All') {
+            ifAllImage = 1;
+        }
+        else {
+            ifAllImage = 0;
+            data = filterDataByAuthors(data, currentAuthors);
+        }
+        //4. filtering data by figure type (figure or table)
+        data = filterDataByFigureType(data, currentFigures);
+
+        //create the scent data
+        countImageByYearPaperMode(data);
+
+        //5. filtering data by year
+        let minYear = currentYearRange[0];
+        let maxYear = currentYearRange[1];
+        data = filterDataByYear(data, minYear, maxYear);
+
+        //6. reset year index dictionary
+        resetYearIndexDic(data);
+        var paperData = extractPaperData(data);
+
         ifAllImage = 0;
         let img_count = paperData.length;
         //paper_per_page = 20;
@@ -419,6 +460,38 @@ function countImageByYear(data) {
     data.forEach((d, i) => {
         let year = d.Year;
         scentData[year] += 1;
+    })
+    let minYear = currentYearRange[0];
+    let maxYear = currentYearRange[1];
+    //console.log(minYear, maxYear);
+    scentDataArr = [];
+    Object.keys(scentData).forEach((d, i) => {
+        let subData = {};
+        if (parseInt(d) >= minYear & parseInt(d) <= maxYear) {
+            subData['year'] = d;
+            subData['val'] = scentData[d];
+            subData['ifSelected'] = 1;
+        }
+        else {
+            subData['year'] = d;
+            subData['val'] = scentData[d];
+            subData['ifSelected'] = 0;
+        }
+        scentDataArr.push(subData);
+    });
+    //console.log(scentDataArr);
+}
+
+function countImageByYearPaperMode(data) {
+    //console.log(scentData);
+    //reset scent data
+    Object.keys(scentData).forEach((d, i) => {
+        scentData[d] = 0;
+    });
+    data.forEach((d, i) => {
+        let year = d.Year;
+        if(d.paperImageName != 'N/A')
+            scentData[year] += 1;
     })
     let minYear = currentYearRange[0];
     let maxYear = currentYearRange[1];

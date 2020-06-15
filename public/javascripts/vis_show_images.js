@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-13 01:10:36
+ * @LastEditTime: 2020-06-14 22:57:53
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -37,6 +37,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     d3.selectAll(".image-div").remove();
     d3.selectAll(".paper-div").remove();
     scrollTo(0, 0);
+
 
     //convert data to json format
     imgDataDic = {};
@@ -117,10 +118,10 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
         //set email content
         let oriImageName = urlArr[urlArr.length - 1].toString();
-        let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
-        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
-        $("#email-btn").attr("href",email_text);
+        let email_text = "mailto:chen.8028@osu.edu?subject=" +
+            "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
+            oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (imgData[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
@@ -176,10 +177,10 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         let urlArr = imgData[gIndex].url.split('/');
         let oriImageName = urlArr[urlArr.length - 1].toString();
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
-        let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
-        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
-        $("#email-btn").attr("href",email_text);
+        let email_text = "mailto:chen.8028@osu.edu?subject=" +
+            "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
+            oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (imgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
@@ -329,20 +330,21 @@ function presentUPPapers(paperData, totalCount) {
         document.getElementById("image-gallery").appendChild(paper_div);
         let imgData = paperData[paperIndex]['Figures'];
         for (let i = 0; i < imgData.length; i++) {
-            paperImgData.push(imgData[i]);
-            let img_thumburl = imgData[i].url;
-            let imageID = imgData[i].imageID;
-            let img_width = imgData[i].img_width;
-            let img_height = imgData[i].img_height;
-            let asp = img_width / img_height;  //aspect ratio
-            let div_width = asp * img_size;
-            let actual_width = div_width - 6;
-            let conf = imgData[i]['Conference'];
-            let image_div = document.createElement("div");
-            image_div.className = "image-div";
+            if (imgData[i]['paperImageName'] != 'N/A') {
+                paperImgData.push(imgData[i]);
+                let img_thumburl = imgData[i].url;
+                let imageID = imgData[i].imageID;
+                let img_width = imgData[i].img_width;
+                let img_height = imgData[i].img_height;
+                let asp = img_width / img_height;  //aspect ratio
+                let div_width = asp * img_size;
+                let actual_width = div_width - 6;
+                let conf = imgData[i]['Conference'];
+                let image_div = document.createElement("div");
+                image_div.className = "image-div";
 
-            //box-shadow: inset 0px 0px 0px 1px ${confDic[conf]};
-            image_div.innerHTML = `
+                //box-shadow: inset 0px 0px 0px 1px ${confDic[conf]};
+                image_div.innerHTML = `
             <div class="img-panel image-grid" id="img-grid-${img_count}-${imageID}" 
             style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
                 <div class="image-a" id="thumb${i}">
@@ -350,9 +352,16 @@ function presentUPPapers(paperData, totalCount) {
                 </div>
             </div>  
             `;
-            img_count = img_count + 1;
-            //console.log("p-"+paperIndex);
-            document.getElementById("p-" + paperIndex).appendChild(image_div);
+                img_count = img_count + 1;
+                //console.log("p-"+paperIndex);
+                document.getElementById("p-" + paperIndex).appendChild(image_div);
+            }
+            else{
+                let image_div = document.createElement("div");
+                image_div.innerHTML = `<span class='paperKeywords'>N/A</span>`;
+                document.getElementById("p-" + paperIndex).appendChild(image_div);
+            }
+
         }
         imgPerPagePaper = img_count;
     }
@@ -420,10 +429,10 @@ function presentUPPapers(paperData, totalCount) {
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
         let oriImageName = urlArr[urlArr.length - 1].toString();
         //set email content
-        let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
-        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
-        $("#email-btn").attr("href",email_text);
+        let email_text = "mailto:chen.8028@osu.edu?subject=" +
+            "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
+            oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href", email_text);
         if (imgDataDic[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
@@ -478,10 +487,10 @@ function presentUPPapers(paperData, totalCount) {
         let urlArr = paperImgData[gIndex].url.split('/');
         imagename_info.innerHTML = urlArr[urlArr.length - 1];
         let oriImageName = urlArr[urlArr.length - 1].toString();
-        let email_text = "mailto:chen.8028@osu.edu?subject="+
-        "VisImageNavigator: Update "+oriImageName+"&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file "+
-        oriImageName+" please?%0D%0A%0D%0A best regards,%0D%0A"
-        $("#email-btn").attr("href",email_text);
+        let email_text = "mailto:chen.8028@osu.edu?subject=" +
+            "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
+            oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
+        $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
         if (paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
