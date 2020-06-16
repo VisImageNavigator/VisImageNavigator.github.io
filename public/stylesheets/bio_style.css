@@ -844,3 +844,9 @@ input[type=submit] {
       /* display: inline !important; */
       padding-top: 3px;
   }
+
+  #stat-img{
+      width: 60%;
+      margin: auto;
+
+  }
