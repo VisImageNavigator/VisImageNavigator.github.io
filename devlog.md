@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-18 18:07:29
+ * @LastEditTime: 2020-06-23 23:03:38
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -110,3 +110,44 @@ idea: for the paper, create a global array, then find image in this array based 
 1. reupload images
 2. 更新vin的数据库
 3. 更新网页，显示1-6的内容
+
+
+06/23/2020
+
+
+> visannotation
+
+1. model markdown document
+add a tab to VIN called "how the model works"?
+"Try our model"
+
+2. About
+change the figure with the new figures in the paper, and set its' width the whole screen.
+
+3. change the background color of navigator to keyvis
+
+4. add the abstract
+
+5. about page, enlarge font size
+
+6. add getting started.
+Intro to Vis29k.
+insert figure here
+> (1) What image (figure and table) data can you find here?
+insert data statistics, can be found in the paper
+> (2) What are the image data? 
+Download the data.
+> (3) What image extraction methods we designed? 
+we combine CNN-based figure extraction and human curation. 
+Our models combine F-RCNN and YOLOv3 and you can try it here (give a hyperlink to here).
+
+7. change the icons, list and gallaery
+
+8. write a program to update the meta files to catch up the real figure size (1990 and 1995)
+
+9. store the page status.
+
+
+06/23/2020 logs
+
+* Redesigned the style of the navigation bar to keep it consistent with keyvis.

@@ -51,6 +51,43 @@ body {
     border: 0;
 }
 
+
+
+/* navigator panel */
+.nav-bg-custom{
+    background-color: #e6e8e8 !important ;
+    background-image: url(../images/HeaderNoise.png);
+    background-repeat: repeat;
+}
+
+.orange-font{
+    color: #ee503f;
+}
+
+.black-font{
+    color: #000000;
+}
+
+.nav-text{
+    color: #000000 !important;
+    padding-bottom: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 0.5rem;
+}
+
+.nav-item{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.active-custom{
+    border-bottom: solid 4px #ee503f;
+}
+.non-active-custom:hover{
+    border-bottom: solid 4px #ee503f;
+}
+
 /* explore visualizations */
 
 .image-div {
@@ -850,3 +887,5 @@ input[type=submit] {
       margin: auto;
 
   }
+
+
