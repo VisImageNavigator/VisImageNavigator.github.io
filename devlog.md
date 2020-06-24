@@ -1,9 +1,9 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-11 18:21:23
+ * @LastEditTime: 2020-06-18 18:07:29
  * @Description: 
- * @FilePath: /VisPubFigures/devlog.md
+ * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
 python -m http.server 10028
 
@@ -105,3 +105,8 @@ idea: for the paper, create a global array, then find image in this array based 
 9. 修复scale的bug
 
 2010 data is not complete
+
+
+1. reupload images
+2. 更新vin的数据库
+3. 更新网页，显示1-6的内容
