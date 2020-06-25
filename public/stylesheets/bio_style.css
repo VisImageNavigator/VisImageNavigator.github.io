@@ -2,7 +2,7 @@ body {
     /*padding: 50px;*/
     /*background: #3c3b38;*/
     /* background: #eaebeb; */
-    padding-top: 4.5rem;
+    padding-top: 5rem;
 }
 
 .search-bar{
@@ -86,6 +86,10 @@ body {
 }
 .non-active-custom:hover{
     border-bottom: solid 4px #ee503f;
+}
+
+.navbar-brand{
+    font-size: 1.5rem !important;
 }
 
 /* explore visualizations */
