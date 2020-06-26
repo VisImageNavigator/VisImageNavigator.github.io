@@ -92,7 +92,7 @@ Page.prototype = {
         li.className = 'totalPage';
         let span = document.createElement('span');
         if (visMode == 1) 
-            span.innerHTML = 'figures per page&nbsp';
+            span.innerHTML = 'images per page&nbsp';
         else if (visMode = 2) 
             span.innerHTML = 'papers per page&nbsp';
         li.appendChild(span);
