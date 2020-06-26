@@ -23,6 +23,13 @@ var currentAuthors = 'All';
 var img_per_page = 200;
 var paper_per_page = 20;
 
+var confDic = {
+    'Vis': '#FBAF3F',
+    'InfoVis': '#EF4036',
+    'SciVis': '#1B75BB',
+    'VAST': '#38B449'
+}
+
 
 var pageUI = new Object();
 var scentData = {
@@ -212,7 +219,7 @@ async function dbStart() {
     $('input[name="visOptions"]').click(function () {
         let activeConf = [];
         if ($('#vis-check').prop("checked")) {
-            $('#vis-check-label').css('background', '#c0392b');
+            $('#vis-check-label').css('background', confDic['Vis']);
             $('#vis-check-label').css('border', '0px');
             activeConf.push('Vis');
         }
@@ -222,7 +229,7 @@ async function dbStart() {
         }
 
         if ($('#scivis-check').prop("checked")) {
-            $('#scivis-check-label').css('background', '#2980b9');
+            $('#scivis-check-label').css('background', confDic['SciVis']);
             $('#scivis-check-label').css('border', '0px');
             activeConf.push('SciVis');
         }
@@ -232,7 +239,7 @@ async function dbStart() {
         }
 
         if ($('#infovis-check').prop("checked")) {
-            $('#infovis-check-label').css('background', '#f39c12');
+            $('#infovis-check-label').css('background', confDic['InfoVis']);
             $('#infovis-check-label').css('border', '0px');
             activeConf.push('InfoVis');
         }
@@ -242,7 +249,7 @@ async function dbStart() {
         }
 
         if ($('#vast-check').prop("checked")) {
-            $('#vast-check-label').css('background', '#8e44ad');
+            $('#vast-check-label').css('background', confDic['VAST']);
             $('#vast-check-label').css('border', '0px');
             activeConf.push('VAST');
         }

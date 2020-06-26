@@ -1,18 +1,18 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-14 22:57:53
+ * @LastEditTime: 2020-06-26 15:27:54
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
 
 //global variables
-confDic = {
-    'Vis': '#c0392b',
-    'InfoVis': '#f39c12',
-    'SciVis': '#2980b9',
-    'VAST': '#8e44ad'
-}
+// confDic = {
+//     'Vis': '#FBAF3F',
+//     'InfoVis': '#EF4036',
+//     'SciVis': '#1B75BB',
+//     'VAST': '#38B449'
+// }
 
 var imgDataDic = {};
 
