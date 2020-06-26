@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-24 09:29:53
+ * @LastEditTime: 2020-06-25 23:06:00
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -144,8 +144,8 @@ Our models combine F-RCNN and YOLOv3 and you can try it here (give a hyperlink t
 7. change the icons, list and gallaery
 
 10. add the social platform share function
-
-8. write a program to update the meta files to catch up the real figure size (1990 and 1995)
+https://sharingbuttons.io/
+8. write a program to update the meta files to catch up the real figure size (1990 and 1995) (done)
 
 9. store the page status.
 
@@ -153,3 +153,8 @@ Our models combine F-RCNN and YOLOv3 and you can try it here (give a hyperlink t
 06/23/2020 logs
 
 * Redesigned the style of the navigation bar to keep it consistent with keyvis.
+
+
+dataset:  
+
+add new column to indicate whether it is a table or figure
