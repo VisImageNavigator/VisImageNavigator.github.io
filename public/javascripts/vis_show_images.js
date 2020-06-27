@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-26 15:27:54
+ * @LastEditTime: 2020-06-26 23:32:10
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -320,9 +320,48 @@ function presentUPPapers(paperData, totalCount) {
             keywords = 'none supplied';
             keywordsClass = 'keywords-0';
         }
+        let sharePosLeft = $(window).width() / 2 - 320;
+        let sharePosTop = $(window).height() / 2 - 240;
+        let shareText = encodeURIComponent(paperTitle) + '&amp;url=' + encodeURIComponent(paperUrl);
+        let shareUrl = encodeURIComponent(paperUrl);
+        let email_text = "mailto:?subject=" +
+            paperTitle + "&body=" + shareUrl;
         paper_div.innerHTML = `
         <div class='paper-panel row' id=${paper_div_id}>
-            <a href=${paperUrl} target="_blank" class='paperTitle'>${paperTitle}</a>
+            <div class="col-md-10" style="padding-top:8px; padding-left:5px !important">
+                <a href=${paperUrl} target="_blank" class='paperTitle'>${paperTitle}</a>
+            </div>
+            <div class="col-md-2" style="padding-top:8px; text-align:right;">
+                <!-- Sharingbutton Twitter -->
+                <a class="resp-sharing-button__link"
+                    href="https://twitter.com/intent/tweet/?text=${shareText}"
+                    target="_blank" rel="noopener" aria-label="" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480,left=${sharePosLeft},top=${sharePosTop}'); return false;">
+                    <div
+                        class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+                        <div aria-hidden="true"
+                            class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path
+                                    d="M23.44 4.83c-.8.37-1.5.38-2.22.02.93-.56.98-.96 1.32-2.02-.88.52-1.86.9-2.9 1.1-.82-.88-2-1.43-3.3-1.43-2.5 0-4.55 2.04-4.55 4.54 0 .36.03.7.1 1.04-3.77-.2-7.12-2-9.36-4.75-.4.67-.6 1.45-.6 2.3 0 1.56.8 2.95 2 3.77-.74-.03-1.44-.23-2.05-.57v.06c0 2.2 1.56 4.03 3.64 4.44-.67.2-1.37.2-2.06.08.58 1.8 2.26 3.12 4.25 3.16C5.78 18.1 3.37 18.74 1 18.46c2 1.3 4.4 2.04 6.97 2.04 8.35 0 12.92-6.92 12.92-12.93 0-.2 0-.4-.02-.6.9-.63 1.96-1.22 2.56-2.14z" />
+                                </svg>
+                        </div>
+                    </div>
+                </a>
+                <!-- Sharingbutton Facebook -->
+                <a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" rel="noopener" aria-label="" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=640,height=480,left=${sharePosLeft},top=${sharePosTop}'); return false;">
+                <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+                    </div>
+                </div>
+                </a>
+                <!-- Sharing through email -->
+                <a class="resp-sharing-button__link" href="${email_text}" target="_blank" rel="noopener" aria-label="">
+                <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="1 2 18 18"><path d="M16.999,4.975L16.999,4.975C16.999,4.975,16.999,4.975,16.999,4.975c-0.419-0.4-0.979-0.654-1.604-0.654H4.606c-0.584,0-1.104,0.236-1.514,0.593C3.076,4.928,3.05,4.925,3.037,4.943C3.034,4.945,3.035,4.95,3.032,4.953C2.574,5.379,2.276,5.975,2.276,6.649v6.702c0,1.285,1.045,2.329,2.33,2.329h10.79c1.285,0,2.328-1.044,2.328-2.329V6.649C17.724,5.989,17.441,5.399,16.999,4.975z M15.396,5.356c0.098,0,0.183,0.035,0.273,0.055l-5.668,4.735L4.382,5.401c0.075-0.014,0.145-0.045,0.224-0.045H15.396z M16.688,13.351c0,0.712-0.581,1.294-1.293,1.294H4.606c-0.714,0-1.294-0.582-1.294-1.294V6.649c0-0.235,0.081-0.445,0.192-0.636l6.162,5.205c0.096,0.081,0.215,0.122,0.334,0.122c0.118,0,0.235-0.041,0.333-0.12l6.189-5.171c0.099,0.181,0.168,0.38,0.168,0.6V13.351z"></path></svg>
+                    </div>
+                </div>
+                </a>
+            </div>
             <span class='paperAuthors'>${author.replace(/;/g, '; ')}, ${firstPage}-${lastPage}, ${conf}, ${year}</span>
             <span class='paperKeywords'>Keyword(s): <label  class='${keywordsClass}'>${keywords.replace(/,/g, '; ')}</label></span>
         </div>

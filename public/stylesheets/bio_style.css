@@ -189,7 +189,7 @@ body {
 
 .paperTitle{
     padding-top: 10px;
-    padding-left: 5px;
+    /* padding-left: 5px; */
     width: 100%;
     font-size: 1.2rem;
     font-weight: bold;
@@ -902,13 +902,13 @@ input[type=submit] {
 .resp-sharing-button__link {
   text-decoration: none;
   color: #fff;
-  margin: 0.5em
+  /* margin: 0.5em */
 }
 
 .resp-sharing-button {
   border-radius: 5px;
   transition: 25ms ease-out;
-  padding: 0.5em 0.75em;
+  padding: 0.1em 0.25em;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif
 }
 
@@ -954,11 +954,11 @@ input[type=submit] {
 }
 
 .resp-sharing-button--facebook {
-  background-color: #3b5998
+  background-color: #9aa6ad
 }
 
 .resp-sharing-button--facebook:hover {
-  background-color: #2d4373
+  background-color: #dee2e6
 }
 
 .resp-sharing-button--tumblr {
@@ -1031,14 +1031,14 @@ background-color: #FF6600
 }
 
 .resp-sharing-button--twitter {
-  background-color: #55acee;
-  border-color: #55acee;
+  background-color: #9aa6ad;
+  border-color: #9aa6ad;
 }
 
 .resp-sharing-button--twitter:hover,
 .resp-sharing-button--twitter:active {
-  background-color: #2795e9;
-  border-color: #2795e9;
+  background-color: #dee2e6;
+  border-color: #dee2e6;
 }
 
 

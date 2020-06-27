@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-25 23:06:00
+ * @LastEditTime: 2020-06-26 23:39:35
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -141,9 +141,9 @@ Download the data.
 we combine CNN-based figure extraction and human curation. 
 Our models combine F-RCNN and YOLOv3 and you can try it here (give a hyperlink to here).
 
-7. change the icons, list and gallaery
+7. change the icons, list and gallaery (done)
 
-10. add the social platform share function
+10. add the social platform share function  (done)
 https://sharingbuttons.io/
 8. write a program to update the meta files to catch up the real figure size (1990 and 1995) (done)
 
