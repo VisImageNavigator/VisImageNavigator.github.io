@@ -1,0 +1,124 @@
+<!--
+ * @Author: Rui Li
+ * @Date: 2020-06-27 09:57:03
+ * @LastEditTime: 2020-06-27 10:50:06
+ * @Description: 
+ * @FilePath: /VisImageNavigator.github.io/getStarted.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>VisImageNavigator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="public/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="public/stylesheets/bio_style.css" rel="stylesheet">
+    <link href="public/stylesheets/myPagination.css" rel="stylesheet">
+    <link rel="stylesheet" href="public/stylesheets/ion.rangeSlider.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+
+
+</head>
+
+
+<body>
+
+    <!--  libs -->
+    <script src="public/lib/jquery-3.3.1.min.js"></script>
+    <script src="public/lib/d3.min.js"></script>
+    <script src="public/lib/d3-tip.js"></script>
+    <script src="public/lib/bootstrap.bundle.min.js"></script>
+    <script src="public/lib/underscore-min.js"></script>
+    <script src="public/lib/myPagination.js"></script>
+    <script src="public/lib/ion.rangeSlider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bg-custom navbar-inverse fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="orange-font">V</span><span class="black-font">IS</span><span
+                    class="orange-font">I</span><span class="black-font">mage</span><span
+                    class="orange-font">N</span><span class="black-font">avigator</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link nav-text active-custom" href="about.html">Getting started</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link nav-text non-active-custom" href="index.html">Explore</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link nav-text non-active-custom" href="about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container">
+        <br>
+        <h2>Introduction to <span style="color: #ec5247;">VIS30K</span>:</h2>
+        <br>
+        <div class="data-stat-div">
+            <div id="total-img-div">
+                <img class="stat-figure" src="public/images/total-img-by-year.png">
+            </div>
+            Total # of images (figures and tables), by year.
+            <div id="avg-img-div">
+                <img class="stat-figure" src="public/images/avg-img-by-year.png">
+            </div>
+            Average # of images (figures and tables) per page, by year.
+        </div>
+        <br>
+        <h2>What image (figure and table) data can you find here?</h2>
+
+        Images from the IEEE VIS conference:<br>
+        - VAST: 2006-2019<br>
+        - InfoVis: 2004-2019 <br>
+        - Vis: 1990-2013 <br>
+        - SciVis: 2014-2019 <br><br>
+
+        <h2>What are the image data? </h2>
+
+        We collected the VIS30K dataset, a new collection of 29,635 images including every figure and table for 30 years
+        spanning each track of the IEEE Visualization conference series (Vis, SciVis, InfoVis, and VAST).<br><br>
+
+        <h2>What image extraction methods we designed? </h2>
+
+        We combine CNN-based figure extraction and human curation. <br>
+        Our models combine F-RCNN and YOLOv3 and you can try it <a href="CNNmodel.html" target="_blank">here</a>.
+
+    </div>
+
+    <br>
+
+
+
+    <div id="footer">
+
+        <span style="font-size: 1rem;">Copyright © VisImageNavigator Team 2020</span>
+
+    </div>
+
+    <script type="text/javascript" src="public/javascripts/utils.js"></script>
+    <script type="text/javascript" src="public/javascripts/getStarted.js"></script>
+
+
+</body>
+
+</html>
