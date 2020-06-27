@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-26 23:32:10
+ * @LastEditTime: 2020-06-26 23:43:32
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -328,7 +328,7 @@ function presentUPPapers(paperData, totalCount) {
             paperTitle + "&body=" + shareUrl;
         paper_div.innerHTML = `
         <div class='paper-panel row' id=${paper_div_id}>
-            <div class="col-md-10" style="padding-top:8px; padding-left:5px !important">
+            <div class="col-md-10" style="padding-top:8px; padding-left:5px !important; text-align:left;">
                 <a href=${paperUrl} target="_blank" class='paperTitle'>${paperTitle}</a>
             </div>
             <div class="col-md-2" style="padding-top:8px; text-align:right;">
@@ -362,8 +362,8 @@ function presentUPPapers(paperData, totalCount) {
                 </div>
                 </a>
             </div>
-            <span class='paperAuthors'>${author.replace(/;/g, '; ')}, ${firstPage}-${lastPage}, ${conf}, ${year}</span>
-            <span class='paperKeywords'>Keyword(s): <label  class='${keywordsClass}'>${keywords.replace(/,/g, '; ')}</label></span>
+            <span class='paperAuthors' style="text-align:left;">${author.replace(/;/g, '; ')}, ${firstPage}-${lastPage}, ${conf}, ${year}</span>
+            <span class='paperKeywords' style="text-align:left;">Keyword(s): <label  class='${keywordsClass}'>${keywords.replace(/,/g, '; ')}</label></span>
         </div>
         `;
         document.getElementById("image-gallery").appendChild(paper_div);
