@@ -1,9 +1,9 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-01-16 12:03:29
- * @LastEditTime: 2020-06-10 22:51:02
+ * @LastEditTime: 2020-06-27 17:53:49
  * @Description: 
- * @FilePath: /VisPubFigures/public/javascripts/image_filter.js
+ * @FilePath: /VisImageNavigator.github.io/public/javascripts/image_filter.js
  */ 
 
 /**
@@ -13,7 +13,7 @@
 function getAllKeywords(data){
     var keyword_list = [];
     for(let i = 0;i < data.length;i++){
-        let keywords = data[i]["Keywords Author"].split(',');
+        let keywords = data[i]["Keywords Author"].split(/[;,]+/);
         for(let j = 0; j < keywords.length; j++){
             keyword_list.push(keywords[j].toLowerCase());
         }

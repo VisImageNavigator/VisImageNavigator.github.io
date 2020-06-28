@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-26 23:39:35
+ * @LastEditTime: 2020-06-28 16:26:44
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -158,3 +158,30 @@ https://sharingbuttons.io/
 dataset:  
 
 add new column to indicate whether it is a table or figure
+
+infovis and scivis year not correct  (done)
+We used two CNN models, Faster
+
+What is our image extraction method?
+change the link in the configuaration to the short link.
+
+you can download pretrained model to test on new papers
+
+Cnn model (delete s) configurations.
+
+
+author
+Have you tried VIN <...>?
+
+Title add to email sharing.
+Have you tried VIN <...>?
+
+workflow: matching
+1. can't find it.
+2. offset > 20.
+use the original
+
+or, update the size.
+
+
+

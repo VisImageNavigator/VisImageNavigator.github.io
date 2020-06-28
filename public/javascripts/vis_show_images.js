@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-26 23:43:32
+ * @LastEditTime: 2020-06-28 17:16:32
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -322,8 +322,10 @@ function presentUPPapers(paperData, totalCount) {
         }
         let sharePosLeft = $(window).width() / 2 - 320;
         let sharePosTop = $(window).height() / 2 - 240;
-        let shareText = encodeURIComponent(paperTitle) + '&amp;url=' + encodeURIComponent(paperUrl);
-        let shareUrl = encodeURIComponent(paperUrl);
+        let broadcastText = encodeURIComponent("Have you tried VIN? ") + encodeURIComponent('https://visimagenavigator.github.io/');
+        let shareText = encodeURIComponent(paperTitle) + '&amp;url=' + encodeURIComponent(paperUrl) + '%0A%0A' + broadcastText;
+        //console.log(shareText);
+        let shareUrl = encodeURIComponent(paperTitle) + encodeURIComponent('\n') + encodeURIComponent(paperUrl) + encodeURIComponent("\n\nHave you tried VIN? ") + encodeURIComponent('https://visimagenavigator.github.io/');
         let email_text = "mailto:?subject=" +
             paperTitle + "&body=" + shareUrl;
         paper_div.innerHTML = `
