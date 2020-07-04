@@ -6,8 +6,9 @@
 
 //global variables
 var ifDB = 0; //if use database
-var G_PAP_DATA = new Object(); // paper dataset
+var G_PAP_DATA = new Object(); // image-paper dataset
 var G_IMG_DATA = new Object(); // image dataset
+var G_PAPER; //paper dataset
 var G_IMG_FULL_DATA = new Object(); //image dataset with null images
 var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
@@ -85,6 +86,8 @@ async function dbStart() {
 
     // G_PAP_DATA = await d3.csv('public/dataset/paperData.csv');
     G_IMG_DATA = await d3.csv("public/dataset/vispubData30.csv");
+    G_PAPER = await d3.csv("public/dataset/paperData.csv");
+    G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA);  //sort images by year, then sort by conference, the sort by first page.
     //group images to paper dataset
     G_IMG_FULL_DATA = [...G_IMG_DATA];
@@ -609,6 +612,20 @@ function extractPaperData(imgData) {
 
     return paperData;
 
+}
+
+
+/**
+ * convert the array of papers to object by paper doi
+ * @param {Array} paperData - the array to store paper objects
+ */
+function stratifyPaperData(paperData){
+    var paperDic = {};
+    paperData.forEach((d,i)=>{
+        doi = d.DOI;
+        paperDic[doi] = d;
+    })
+    return paperDic;
 }
 
 

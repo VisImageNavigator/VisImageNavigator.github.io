@@ -1,10 +1,10 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-06-01 22:20:12
- * @LastEditTime: 2020-06-01 22:20:20
+ * @LastEditTime: 2020-07-04 12:56:30
  * @Description: 
- * @FilePath: /VisPubFigures/public/javascripts/backup.js
- */ 
+ * @FilePath: /VisImageNavigator.github.io/public/javascripts/backup.js
+ */
 function showYearScent() {
     //Add scent to the page navigator
     // if (ifAllImage == 1) {
@@ -25,7 +25,7 @@ function showYearScent() {
     //             // `;
     //             let html_text = `
     //                 <div class="year-scent-inner">
-                        
+
     //                 </div>
     //             `;
     //             // var div = d3.select("body").append("div")
@@ -54,3 +54,28 @@ function showYearScent() {
     //     d3.selectAll('.year-scent').remove();
     // }
 }
+
+
+
+
+< !--Citation -->
+    <a class="resp-sharing-button__link cite-icon" id="cite-${doi}">
+        <div
+            class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+            <div aria-hidden="true"
+                class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28"><defs><style>.cls-1{font - size:18px;fill:#fff;stroke-width:0.75px;}.cls-1,.cls-2{stroke:#fff;stroke-miterlimit:10;}.cls-2{fill:none;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><text class="cls-1" transform="translate(5.61 18.05)">C</text><circle class="cls-2" cx="12.03" cy="12.03" r="11.03" /></g></g></svg>
+            </div>
+        </div>
+    </a>
+
+    <!--Reference -->
+        <a class="resp-sharing-button__link cite-icon" id="ref-${doi}">
+            <div
+                class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+                <div aria-hidden="true"
+                    class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28"><defs><style>.cls-1{font - size:18px;fill:#fff;stroke-width:0.75px;}.cls-1,.cls-2{stroke:#fff;stroke-miterlimit:10;}.cls-2{fill:none;stroke-width:2px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><text class="cls-1" transform="translate(6.61 18.05)">R</text><circle class="cls-2" cx="12.03" cy="12.03" r="11.03" /></g></g></svg>
+                </div>
+            </div>
+        </a>

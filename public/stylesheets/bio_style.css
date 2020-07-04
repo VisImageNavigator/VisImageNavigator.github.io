@@ -898,6 +898,7 @@ input[type=submit] {
 .resp-sharing-button__link {
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
     /* margin: 0.5em */
 }
 
@@ -1040,6 +1041,9 @@ input[type=submit] {
     border-color: #dee2e6;
 }
 
+
+
+
 /* get started page */
 .data-stat-div{
     width: 100%;
@@ -1078,3 +1082,5 @@ input[type=submit] {
 .h2, h2{
     margin-bottom: 1rem !important;
 }
+
+

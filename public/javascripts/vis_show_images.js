@@ -1,7 +1,7 @@
 /*
  * @Author: Rui Li
  * @Date: 2020-02-22 22:37:33
- * @LastEditTime: 2020-06-28 17:16:32
+ * @LastEditTime: 2020-07-04 12:56:14
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/vis_show_images.js
  */
@@ -305,6 +305,7 @@ function presentUPPapers(paperData, totalCount) {
         let paperUrl = paperData[paperIndex]['paper_url'];
         let author = paperData[paperIndex]['Author'];
         let conf = paperData[paperIndex]['Conference'];
+        let doi = paperData[paperIndex]['Paper DOI'];
         let year = paperData[paperIndex]['Year'];
         let firstPage = paperData[paperIndex]['Paper FirstPage'];
         let lastPage = paperData[paperIndex]['Paper LastPage'];
@@ -328,12 +329,21 @@ function presentUPPapers(paperData, totalCount) {
         let shareUrl = encodeURIComponent(paperTitle) + encodeURIComponent('\n') + encodeURIComponent(paperUrl) + encodeURIComponent("\n\nHave you tried VIN? ") + encodeURIComponent('https://visimagenavigator.github.io/');
         let email_text = "mailto:?subject=" +
             paperTitle + "&body=" + shareUrl;
+        /*
+        <img src="public/images/brick.png" class="cite-icon" id="cite-${doi}" data-toggle="tooltip"
+                data-html="true" title="Citation">
+                <img src="public/images/list.png" class="cite-icon" id="ref-${doi}" data-toggle="tooltip"
+                data-html="true" title="Reference">
+        */
         paper_div.innerHTML = `
         <div class='paper-panel row' id=${paper_div_id}>
             <div class="col-md-10" style="padding-top:8px; padding-left:5px !important; text-align:left;">
                 <a href=${paperUrl} target="_blank" class='paperTitle'>${paperTitle}</a>
             </div>
-            <div class="col-md-2" style="padding-top:8px; text-align:right;">
+            <div class="col-md-2" style="padding-top:8px; text-align:right;">   
+                
+                
+            
                 <!-- Sharingbutton Twitter -->
                 <a class="resp-sharing-button__link"
                     href="https://twitter.com/intent/tweet/?text=${shareText}"
@@ -397,7 +407,7 @@ function presentUPPapers(paperData, totalCount) {
                 //console.log("p-"+paperIndex);
                 document.getElementById("p-" + paperIndex).appendChild(image_div);
             }
-            else{
+            else {
                 let image_div = document.createElement("div");
                 image_div.innerHTML = `<span class='paperKeywords'>N/A</span>`;
                 document.getElementById("p-" + paperIndex).appendChild(image_div);
@@ -430,6 +440,14 @@ function presentUPPapers(paperData, totalCount) {
         });
 
     });
+
+
+    // //show the citation
+    // $('.cite-icon').unbind('click').click(function () { });
+    // $(".cite-icon").click(function () {
+    //     let doi = this.id.slice(5);
+    //     console.log(doi);
+    // });
 
     //show the thumbnail
     var modal = document.getElementById('myModal');

@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-06-28 16:26:44
+ * @LastEditTime: 2020-07-03 21:53:21
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -183,5 +183,15 @@ use the original
 
 or, update the size.
 
+
+07/01/2020
+1. run the python code to generate citation and reference list
+2. show lollipop chart for the statistics
+3. show a list for details
+
+
+meeting notes
+1. if the type has 15-6
+2. if the capIdx
 
 
