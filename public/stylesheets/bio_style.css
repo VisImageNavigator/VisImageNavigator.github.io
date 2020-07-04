@@ -224,6 +224,14 @@ body {
     background: #cacaca;
 }
 
+.author-name{
+    color: #737474;
+}
+
+.affiliation{
+    color: #ee503f;
+}
+
 /* image model for displaying original model */
 
 .modal {
