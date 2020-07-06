@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-06-27 09:57:03
- * @LastEditTime: 2020-06-28 16:43:16
+ * @LastEditTime: 2020-07-05 23:16:46
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/getStarted.html
 -->
@@ -79,18 +79,19 @@
             <div id="total-img-div">
                 <img class="stat-figure" src="public/images/total-img-by-year.png">
             </div>
-            
+
             <br><br>
             Average # of images (figures and tables) per page, by year.
             <div id="avg-img-div">
                 <img class="stat-figure" src="public/images/avg-img-by-year.png">
             </div>
-            
+
         </div>
+        <br>
         <br>
         <h2>What image (figure and table) data can you find here?</h2>
 
-        Images from the IEEE VIS conference:<br>
+        Images from every year of the IEEE VIS conferences:<br>
         - VAST: 2006-2019<br>
         - InfoVis: 1995-2019 <br>
         - Vis: 1990-2013 <br>
@@ -98,18 +99,38 @@
 
         <h2>What are the image data? </h2>
 
-        We collected the VIS30K dataset, a new collection of 29,635 images including every figure and table for 30 years
+        We collected the VIS30K dataset, a new collection of 29,546 images including every figure and table for 30 years
         spanning each track of the IEEE Visualization conference series (Vis, SciVis, InfoVis, and VAST).<br><br>
 
-        <h2>How to extract image automatically? </h2>
+        <h2>How to extract images automatically? </h2>
 
-        We combine CNN-based automatic image extraction and human curation. We have used <a href="http://go.osu.edu/vis30kfrcnn" target="_blank">Faster-RCNN</a><a href="https://arxiv.org/abs/1506.01497" target="_blank"> [1]</a> and <a href="http://go.osu.edu/vis30kYOLO" target="_blank">YOLOv3</a><a href="https://arxiv.org/abs/1804.02767" target="_blank"> [2]</a> to reduce the subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels" target="_blank">here</a> <a href="CNNmodel.html" target="_blank">(usage).</a>
+        We used a CNN-based solution and end-to-end framework to extract
+        figures and tables in research paper pages. The main idea behind
+        our approach is to train a CNN with synthesized dummy papers,
+        created with existing visualization image corpora. Equipped with
+        the resulting training set creation, we then automatically extracted
+        figures from paper pages. We have used <a href="https://arxiv.org/abs/1506.01497"
+            target="_blank">Faster-RCNN</a> and <a href="https://arxiv.org/abs/1804.02767" target="_blank">YOLOv3</a> to
+        reduce the
+        subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels"
+            target="_blank">here.</a> <br><br>
 
-        
+        <h2>What Data are Released for Reproducible Research?</h2>
+
+        - <a href="http://go.osu.edu/vis30ktrainingdata" target="_blank">training data</a><br>
+
+        - <a href="go.osu.edu/vis30k" target="_blank">VIS30K database</a>
+
+        <br><br>
+
+        Interested in source code? Please contact chen.8028@osu.edu. 
 
 
 
-        
+
+
+
+
 
     </div>
 
