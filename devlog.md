@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-07-03 21:53:21
+ * @LastEditTime: 2020-07-06 20:25:39
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -194,4 +194,8 @@ meeting notes
 1. if the type has 15-6
 2. if the capIdx
 
+
+##### 07/06/2020
+
+1. 
 
