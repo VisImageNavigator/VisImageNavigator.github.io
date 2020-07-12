@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-05-13 20:47:58
- * @LastEditTime: 2020-07-06 20:25:39
+ * @LastEditTime: 2020-07-06 20:34:00
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/devlog.md
  -->
@@ -197,5 +197,5 @@ meeting notes
 
 ##### 07/06/2020
 
-1. 
+1. mouse over, show all coders, and show their annotation date.
 
