@@ -1055,23 +1055,27 @@ input[type=submit] {
 /* get started page */
 .data-stat-div{
     width: 100%;
-    height: 480px;
+    height: 420px;
     /* border: 1px solid #333; */
     text-align: center;
 }
 
 #total-img-div{
     width: 100%;
-    height: 200px;
+    height: 180px;
 }
 
 #avg-img-div{
     width: 100%;
-    height: 200px;
+    height: 180px;
 }
 
 .stat-figure{
-    width: 100%;
+    width: 80%;
+}
+
+.footnote{
+    font-size: 0.7rem;
 }
 
 #footer{

@@ -1,7 +1,7 @@
 <!--
  * @Author: Rui Li
  * @Date: 2020-06-27 09:57:03
- * @LastEditTime: 2020-07-12 21:45:04
+ * @LastEditTime: 2020-07-13 21:00:49
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/getStarted.html
 -->
@@ -75,8 +75,10 @@
         <h2>Introduction to <span style="color: #ec5247;">VIS30K</span>:</h2>
         VIS30K is a collection of 29,546 images including every figure and table for 30 years spanning each track of the IEEE Visualization conference series (Vis, SciVis, InfoVis, and VAST).
         <br><br>
-        How are the images distributed over the years?
-        <br>
+
+
+        <h2>How are the images distributed over the years?</h2>
+
         <br>
         <div class="data-stat-div">
             Total # of images (figures and tables), by year.
@@ -84,7 +86,7 @@
                 <img class="stat-figure" src="public/images/total-img-by-year.png">
             </div>
 
-            <br><br>
+            <br>
             Average # of images (figures and tables) per page, by year.
             <div id="avg-img-div">
                 <img class="stat-figure" src="public/images/avg-img-by-year.png">
@@ -106,18 +108,7 @@
         We collected the VIS30K dataset, a new collection of 29,546 images including every figure and table for 30 years
         spanning each track of the IEEE Visualization conference series (Vis, SciVis, InfoVis, and VAST).<br><br> -->
 
-        <h2>How to extract images automatically? </h2>
-
-        We used a CNN-based solution and end-to-end framework to extract
-        figures and tables in research paper pages. The main idea behind
-        our approach is to train a CNN with synthesized dummy papers,
-        created with existing visualization image corpora. Equipped with
-        the resulting training set creation, we then automatically extracted
-        figures from paper pages. We have used <a href="https://arxiv.org/abs/1506.01497"
-            target="_blank">Faster-RCNN</a> and <a href="https://arxiv.org/abs/1804.02767" target="_blank">YOLOv3</a> to
-        reduce the
-        subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels"
-            target="_blank">here.</a> <br><br>
+        
 
         <h2>What Data are Released for Reproducible Research?</h2>
 
@@ -133,12 +124,26 @@
         
         <br>
 
-        - For source code, please contact Prof. Jian Chen at chen.8028@osu.edu. 
+        <span class="footnote">* For source code, please contact <a href="http://web.cse.ohio-state.edu/~chen.8028/Home.html" target="_blank">Prof. Jian Chen</a> at chen.8028@osu.edu. </span>
 
         <br><br>
+
+        <h2>How to extract images automatically? </h2>
+
+        We used a CNN-based solution and end-to-end framework to extract
+        figures and tables in research paper pages. The main idea behind
+        our approach is to train a CNN with synthesized dummy papers,
+        created with existing visualization image corpora. Equipped with
+        the resulting training set creation, we then automatically extracted
+        figures from paper pages. We have used <a href="https://arxiv.org/abs/1506.01497"
+            target="_blank">Faster-RCNN</a> and <a href="https://arxiv.org/abs/1804.02767" target="_blank">YOLOv3</a> to
+        reduce the
+        subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels"
+            target="_blank">here.</a> <br><br>
         
         <h2>How to cite this work?</h2>
-        For dataset, please cite: Jian Chen, Meng Ling, Rui Li, Petra Isenberg, Tobias Isenberg, Michael Sedlmair, Torsten Möller, Robert S. Laramee, Han-Wei Shen, Katharina Wünsche, and Qiru Wang. 30K Figures: A collection of figures from IEEE Visualization Conference Publications. Submitted to IEEE Transactions on Visualization and Computer Graphics (under review).
+        For dataset, please cite: <br>
+        Jian Chen, Meng Ling, Rui Li, Petra Isenberg, Tobias Isenberg, Michael Sedlmair, Torsten Möller, Robert S. Laramee, Han-Wei Shen, Katharina Wünsche, and Qiru Wang. <i>VIS30K: A Collection of Figures and Tables from IEEE Visualization Conference Publications.</i> Submitted to IEEE Transactions on Visualization and Computer Graphics (submitted July 2020, under review).
         
         
         
