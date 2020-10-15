@@ -1,8 +1,8 @@
 /**
-* @Description The global control of the system
-* @Author: Rui Li
-* @Date: 9/10/19
-*/
+ * @Description The global control of the system
+ * @Author: Rui Li
+ * @Date: 9/10/19
+ */
 
 //global variables
 var ifDB = 0; //if use database
@@ -12,10 +12,10 @@ var G_PAPER; //paper dataset
 var G_IMG_FULL_DATA = new Object(); //image dataset with null images
 var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
-var ifAllImage = 1;  //if all image are presented
+var ifAllImage = 1; //if all image are presented
 var visMode = 1; //1: image mode, 2: paper mode
 var yearPageDic = {}; //store the page index of each year for images
-var yearPageDicPaper = {};  //store the 
+var yearPageDicPaper = {}; //store the 
 var currentKeywords = ''; //store the current keywords results
 var currentYearRange = [1990, 2019]; //store the current year range
 var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
@@ -68,11 +68,10 @@ var scentData = {
 var scentDataArr = [];
 
 
-$(document).ready(function () {
+$(document).ready(function() {
     if (ifDB == 0) {
         dbStart();
-    }
-    else {
+    } else {
 
     }
 });
@@ -88,12 +87,12 @@ async function dbStart() {
     G_IMG_DATA = await d3.csv("public/dataset/vispubData30.csv");
     G_PAPER = await d3.csv("public/dataset/paperData.csv");
     G_PAPER = stratifyPaperData(G_PAPER);
-    G_IMG_DATA = sortImageByYear(G_IMG_DATA);  //sort images by year, then sort by conference, the sort by first page.
+    G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
     //group images to paper dataset
     G_IMG_FULL_DATA = [...G_IMG_DATA];
     G_PAP_DATA = extractPaperData(G_IMG_FULL_DATA);
     //remove null images from image dataset, i.e. papers without image
-    G_IMG_DATA = G_IMG_DATA.filter(function (item) {
+    G_IMG_DATA = G_IMG_DATA.filter(function(item) {
         let flag = item['paperImageName'] != 'N/A';
         return flag;
     });
@@ -114,7 +113,7 @@ async function dbStart() {
     //back to top ui
     var btn = $('#back-to-top-button');
 
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(window).scrollTop() > 300) {
             btn.addClass('show');
         } else {
@@ -122,7 +121,7 @@ async function dbStart() {
         }
     });
 
-    btn.on('click', function (e) {
+    btn.on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, '300');
     });
@@ -133,26 +132,30 @@ async function dbStart() {
     pageUI = new Page({
         id: 'pagination',
         pageTotal: total_pages, //total pages
-        pageAmount: img_per_page,  //numbers of items per page
+        pageAmount: img_per_page, //numbers of items per page
         dataTotal: img_count, //number of all items
         curPage: 1, //initial page number
         pageSize: 10, //how many papes divides
         showPageTotalFlag: true, //show data statistics
         showSkipInputFlag: true, //show skip
-        getPage: function (page) {
+        getPage: function(page) {
             //get current page number
             let currentData = G_IMG_DATA.slice(img_per_page * (page - 1), img_per_page * page);
             presentImg(currentData, 0, 0, 1, 0);
         }
     });
 
+
+    //DEBUG:
+    //visMode = 3;
+
+
     //present images
     if (visMode == 1) {
         ifAllImage = 1;
         var currentData = G_IMG_DATA.slice(img_per_page * 0, img_per_page * 1);
         presentImg(currentData, 0, 0, 1, 0);
-    }
-    else if (visMode == 2) {
+    } else if (visMode == 2) {
         ifAllImage = 0;
         let img_count = G_PAP_DATA.length;
         let img_per_page = 20;
@@ -160,13 +163,15 @@ async function dbStart() {
         pageUI.pageTotal = total_pages;
         pageUI.pageAmount = img_per_page;
         pageUI.dataTotal = img_count;
-        pageUI.getPage = function (page) {
+        pageUI.getPage = function(page) {
             let currentData = G_PAP_DATA.slice(img_per_page * (page - 1), img_per_page * page);
             presentUPPapers(currentData, img_count);
         };
         pageUI.init();
         var currentData = G_PAP_DATA.slice(img_per_page * 0, img_per_page * 1);
         presentUPPapers(currentData, img_count);
+    } else if (visMode == 3) {
+        filterData();
     }
 
 
@@ -176,7 +181,7 @@ async function dbStart() {
 
     //set up author filters
     G_AUTHORS = getAllAuthors(G_IMG_FULL_DATA);
-    G_AUTHORS = G_AUTHORS.filter(function (el) {
+    G_AUTHORS = G_AUTHORS.filter(function(el) {
         return el != "";
     });
 
@@ -184,7 +189,7 @@ async function dbStart() {
     //     return a.toLowerCase().localeCompare(b.toLowerCase());
     // });
     G_AUTHORS = swapArrayString(G_AUTHORS);
-    G_AUTHORS = G_AUTHORS.sort(function (a, b) {
+    G_AUTHORS = G_AUTHORS.sort(function(a, b) {
         return a.toLowerCase().localeCompare(b.toLowerCase());
     });
     //console.log(G_AUTHORS);
@@ -194,39 +199,36 @@ async function dbStart() {
     auth.selectAll("option")
         .data(G_AUTHORS)
         .enter().append('option')
-        .attr('value', function (d) {
+        .attr('value', function(d) {
             return d
         })
-        .text(function (d) { return d });
+        .text(function(d) { return d });
 
     $("#authors").selectpicker("refresh");
     //filter authors
-    auth.on('change', function () {
+    auth.on('change', function() {
         currentAuthors = this.options[this.selectedIndex].value;
         filterData();
     })
 
 
     //filter keywords
-    $('#search-btn').unbind('click').click(function () {
-    });
-    $("#search-btn").click(function () {
+    $('#search-btn').unbind('click').click(function() {});
+    $("#search-btn").click(function() {
         var keyword = $('#search-box').val();
         currentKeywords = keyword;
         filterData();
     });
 
     //filter conferences
-    $('input[name="visOptions"]').unbind('click').click(function () {
-    });
-    $('input[name="visOptions"]').click(function () {
+    $('input[name="visOptions"]').unbind('click').click(function() {});
+    $('input[name="visOptions"]').click(function() {
         let activeConf = [];
         if ($('#vis-check').prop("checked")) {
             $('#vis-check-label').css('background', confDic['Vis']);
             $('#vis-check-label').css('border', '0px');
             activeConf.push('Vis');
-        }
-        else {
+        } else {
             $('#vis-check-label').css('background', '#fff');
             $('#vis-check-label').css('border', '1px solid #95a5a6');
         }
@@ -235,8 +237,7 @@ async function dbStart() {
             $('#scivis-check-label').css('background', confDic['SciVis']);
             $('#scivis-check-label').css('border', '0px');
             activeConf.push('SciVis');
-        }
-        else {
+        } else {
             $('#scivis-check-label').css('background', '#fff');
             $('#scivis-check-label').css('border', '1px solid #95a5a6');
         }
@@ -245,8 +246,7 @@ async function dbStart() {
             $('#infovis-check-label').css('background', confDic['InfoVis']);
             $('#infovis-check-label').css('border', '0px');
             activeConf.push('InfoVis');
-        }
-        else {
+        } else {
             $('#infovis-check-label').css('background', '#fff');
             $('#infovis-check-label').css('border', '1px solid #95a5a6');
         }
@@ -255,8 +255,7 @@ async function dbStart() {
             $('#vast-check-label').css('background', confDic['VAST']);
             $('#vast-check-label').css('border', '0px');
             activeConf.push('VAST');
-        }
-        else {
+        } else {
             $('#vast-check-label').css('background', '#fff');
             $('#vast-check-label').css('border', '1px solid #95a5a6');
         }
@@ -265,16 +264,14 @@ async function dbStart() {
     });
 
     //filter conferences
-    $('input[name="figureOptions"]').unbind('click').click(function () {
-    });
-    $('input[name="figureOptions"]').click(function () {
+    $('input[name="figureOptions"]').unbind('click').click(function() {});
+    $('input[name="figureOptions"]').click(function() {
         let activeFigure = [];
         if ($('#figure-check').prop("checked")) {
             $('#figure-check-label').css('background', '#359bd7');
             $('#figure-check-label').css('border', '0px');
             activeFigure.push('Figure');
-        }
-        else {
+        } else {
             $('#figure-check-label').css('background', '#fff');
             $('#figure-check-label').css('border', '1px solid #95a5a6');
         }
@@ -283,8 +280,7 @@ async function dbStart() {
             $('#table-check-label').css('background', '#359bd7');
             $('#table-check-label').css('border', '0px');
             activeFigure.push('Table');
-        }
-        else {
+        } else {
             $('#table-check-label').css('background', '#fff');
             $('#table-check-label').css('border', '1px solid #95a5a6');
         }
@@ -304,10 +300,10 @@ async function dbStart() {
         step: 1,
         skin: "square",
         prettify: yearString,
-        onChange: function (data) {
+        onChange: function(data) {
 
         },
-        onFinish: function (data) {
+        onFinish: function(data) {
             // fired on every range slider update
             let leftVal = data.from;
             let rightVal = data.to;
@@ -318,31 +314,43 @@ async function dbStart() {
     });
 
 
-    //choose mode, image mode or paper mode
-    $('#image-mode').unbind('click').click(function () {
-    });
-    $("#image-mode").click(function () {
+    //switch mode, image mode or paper mode
+    $('#image-mode').unbind('click').click(function() {});
+    $("#image-mode").click(function() {
         visMode = 1;
         ifAllImage = 1;
         $("#image-mode").css('border', 'solid 2px #333');
+        $("#card-mode").css('border', '0px');
         $("#paper-mode").css('border', '0px');
         filterData();
 
 
     });
-    $('#paper-mode').unbind('click').click(function () {
-    });
-    $("#paper-mode").click(function () {
+    $('#paper-mode').unbind('click').click(function() {});
+    $("#paper-mode").click(function() {
         visMode = 2;
         ifAllImage = 0;
         $("#image-mode").css('border', '0px');
+        $("#card-mode").css('border', '0px');
         $("#paper-mode").css('border', 'solid 2px #333');
         filterData();
     });
 
+    $('#card-mode').unbind('click').click(function() {});
+    $("#card-mode").click(function() {
+        visMode = 3;
+        ifAllImage = 0;
+        $("#image-mode").css('border', '0px');
+        $("#card-mode").css('border', 'solid 2px #333');
+        $("#paper-mode").css('border', '0px');
+        filterData();
+    });
+
+
     //tooltip register
     $("#image-mode").tooltip();
     $("#paper-mode").tooltip();
+    $("#card-mode").tooltip();
     //$("#image-size-slider").tooltip();
 }
 
@@ -361,16 +369,14 @@ function filterData() {
         //2. filtering data by keywords, determine whether show year scent
         if (currentKeywords == '') {
             ifAllImage = 1;
-        }
-        else {
+        } else {
             ifAllImage = 0;
             data = filterDataByKeywords(data, currentKeywords);
         }
         //3. filtering data by authors
         if (currentAuthors == 'All') {
             ifAllImage = 1;
-        }
-        else {
+        } else {
             ifAllImage = 0;
             data = filterDataByAuthors(data, currentAuthors);
         }
@@ -396,31 +402,28 @@ function filterData() {
         pageUI.pageAmount = img_per_page;
         pageUI.dataTotal = img_count;
         pageUI.curPage = 1;
-        pageUI.getPage = function (page) {
+        pageUI.getPage = function(page) {
             let currentData = data.slice(img_per_page * (page - 1), img_per_page * page);
             presentImg(currentData, 0, 0, 1, 0);
         };
         pageUI.init();
         var currentData = data.slice(img_per_page * 0, img_per_page * 1);
         presentImg(currentData, 0, 0, 1, 0);
-    }
-    else if (visMode == 2) {
+    } else if (visMode == 2) {
 
         //1. filtering data by conference
         var data = filterDataByConference(G_IMG_FULL_DATA, currentConferences);
         //2. filtering data by keywords, determine whether show year scent
         if (currentKeywords == '') {
             ifAllImage = 1;
-        }
-        else {
+        } else {
             ifAllImage = 0;
             data = filterDataByKeywords(data, currentKeywords);
         }
         //3. filtering data by authors
         if (currentAuthors == 'All') {
             ifAllImage = 1;
-        }
-        else {
+        } else {
             ifAllImage = 0;
             data = filterDataByAuthors(data, currentAuthors);
         }
@@ -447,13 +450,54 @@ function filterData() {
         pageUI.pageAmount = paper_per_page;
         pageUI.dataTotal = img_count;
         pageUI.curPage = 1;
-        pageUI.getPage = function (page) {
+        pageUI.getPage = function(page) {
             let currentData = paperData.slice(paper_per_page * (page - 1), paper_per_page * page);
             presentUPPapers(currentData, img_count);
         };
         pageUI.init();
         var currentData = paperData.slice(paper_per_page * 0, paper_per_page * 1);
         presentUPPapers(currentData, img_count);
+    } else if (visMode == 3) {
+        //1. filtering data by conference
+        var data = filterDataByConference(G_IMG_FULL_DATA, currentConferences);
+        //2. filtering data by keywords, determine whether show year scent
+        if (currentKeywords == '') {
+            ifAllImage = 1;
+        } else {
+            ifAllImage = 0;
+            data = filterDataByKeywords(data, currentKeywords);
+        }
+        //3. filtering data by authors
+        if (currentAuthors == 'All') {
+            ifAllImage = 1;
+        } else {
+            ifAllImage = 0;
+            data = filterDataByAuthors(data, currentAuthors);
+        }
+        //4. filtering data by figure type (figure or table)
+        data = filterDataByFigureType(data, currentFigures);
+
+        //create the scent data
+        countImageByYearPaperMode(data);
+
+        //5. filtering data by year
+        let minYear = currentYearRange[0];
+        let maxYear = currentYearRange[1];
+        data = filterDataByYear(data, minYear, maxYear);
+
+        //6. reset year index dictionary
+        resetYearIndexDic(data);
+        var paperData = extractPaperData(data);
+
+        ifAllImage = 0;
+        let img_count = paperData.length;
+
+        //group dataset by year
+        let paperByYear = paperData.reduce((r, a) => {
+            r[a.Year] = [...r[a.Year] || [], a];
+            return r;
+        }, {});
+        presentPaperCards(paperByYear, img_count);
     }
 
 }
@@ -481,8 +525,7 @@ function countImageByYear(data) {
             subData['year'] = d;
             subData['val'] = scentData[d];
             subData['ifSelected'] = 1;
-        }
-        else {
+        } else {
             subData['year'] = d;
             subData['val'] = scentData[d];
             subData['ifSelected'] = 0;
@@ -500,7 +543,7 @@ function countImageByYearPaperMode(data) {
     });
     data.forEach((d, i) => {
         let year = d.Year;
-        if(d.paperImageName != 'N/A')
+        if (d.paperImageName != 'N/A')
             scentData[year] += 1;
     })
     let minYear = currentYearRange[0];
@@ -513,8 +556,7 @@ function countImageByYearPaperMode(data) {
             subData['year'] = d;
             subData['val'] = scentData[d];
             subData['ifSelected'] = 1;
-        }
-        else {
+        } else {
             subData['year'] = d;
             subData['val'] = scentData[d];
             subData['ifSelected'] = 0;
@@ -557,7 +599,7 @@ function resetYearIndexDicPaper(data) {
  * @param {} arr 
  */
 function sortImageByYear(arr) {
-    arr.sort(function (a, b) {
+    arr.sort(function(a, b) {
         let imageIDA = a.recodeRank;
         let imageIDB = b.recodeRank;
         return imageIDA - imageIDB;
@@ -584,8 +626,7 @@ function extractPaperData(imgData) {
 
             // }
             paperDic[paperTitle]['Figures'].push(d);
-        }
-        else {
+        } else {
             let subDataDic = {}; //store the paper information
             subDataDic['Paper Title'] = d['Paper Title'];
             subDataDic['Conference'] = d['Conference'];
@@ -619,17 +660,11 @@ function extractPaperData(imgData) {
  * convert the array of papers to object by paper doi
  * @param {Array} paperData - the array to store paper objects
  */
-function stratifyPaperData(paperData){
+function stratifyPaperData(paperData) {
     var paperDic = {};
-    paperData.forEach((d,i)=>{
+    paperData.forEach((d, i) => {
         doi = d.DOI;
         paperDic[doi] = d;
     })
     return paperDic;
 }
-
-
-
-
-
-

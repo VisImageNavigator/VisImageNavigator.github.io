@@ -36,6 +36,9 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     //console.log(imgData);
     d3.selectAll(".image-div").remove();
     d3.selectAll(".paper-div").remove();
+    d3.selectAll(".card").remove();
+    d3.selectAll(".card-credit").remove();
+    $('#pagination').css('display', 'block');
     scrollTo(0, 0);
 
 
@@ -55,7 +58,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         let imageID = imgData[i].imageID;
         let img_width = imgData[i].sizeW;
         let img_height = imgData[i].sizeH;
-        let asp = img_width / img_height;  //aspect ratio
+        let asp = img_width / img_height; //aspect ratio
         let div_width = asp * img_size;
         let actual_width = div_width - 6;
         let conf = imgData[i]['Conference'];
@@ -89,7 +92,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     var type_info = document.getElementById("paper-type-info");
     var keyword_info = document.getElementById("keyword-info");
     var imagename_info = document.getElementById('imagename-info');
-    $('.image-a').click(function (e) {
+    $('.image-a').click(function(e) {
         var id = this.id.slice(5);
         gIndex = parseInt(id);
         modal.style.display = "block";
@@ -104,8 +107,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             let asp = imageWidth / imageHeight;
             let max_width = 600 * asp;
             $("#ori-img").css("max-width", max_width);
-        }
-        else {
+        } else {
             $('#ori-img').attr('class', 'origin-img-tall');
         }
         paper_info.innerHTML = imgData[id]['Paper Title'];
@@ -126,22 +128,21 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         if (imgData[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
-        }
-        else {
+        } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgData[id]['Keywords Author'].replace(/,/g, '; ');
         }
 
         //previous and next button
-        $('#modal-previous').unbind('click').click(function () { });
-        $("#modal-previous").click(async function () {
+        $('#modal-previous').unbind('click').click(function() {});
+        $("#modal-previous").click(async function() {
             if (gIndex >= 1) {
                 gIndex = gIndex - 1;
                 updateModalImage();
             }
         });
-        $('#modal-next').unbind('click').click(function () { });
-        $("#modal-next").click(async function () {
+        $('#modal-next').unbind('click').click(function() {});
+        $("#modal-next").click(async function() {
             if (gIndex < img_per_page - 1) {
                 gIndex = gIndex + 1;
                 updateModalImage();
@@ -151,7 +152,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     });
 
     //update the modal image based on the id
-    var updateModalImage = function () {
+    var updateModalImage = function() {
         modal.style.display = "block";
         modalImg.src = imgData[gIndex].url;
         //determine the style of the vis-image
@@ -164,8 +165,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             let asp = imageWidth / imageHeight;
             let max_width = 600 * asp;
             $("#ori-img").css("max-width", max_width);
-        }
-        else {
+        } else {
             $('#ori-img').attr('class', 'origin-img-tall');
         }
         paper_info.innerHTML = imgData[gIndex]['Paper Title'];
@@ -185,22 +185,21 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         if (imgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
-        }
-        else {
+        } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgData[gIndex]['Keywords Author'].replace(/,/g, '; ');
         }
 
         //previous and next button
-        $('#modal-previous').unbind('click').click(function () { });
-        $("#modal-previous").click(async function () {
+        $('#modal-previous').unbind('click').click(function() {});
+        $("#modal-previous").click(async function() {
             if (gIndex >= 1) {
                 gIndex = gIndex - 1;
                 updateModalImage();
             }
         });
-        $('#modal-next').unbind('click').click(function () { });
-        $("#modal-next").click(async function () {
+        $('#modal-next').unbind('click').click(function() {});
+        $("#modal-next").click(async function() {
             if (gIndex < img_per_page - 1) {
                 gIndex = gIndex + 1;
                 updateModalImage();
@@ -212,16 +211,16 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
+    span.onclick = function() {
         modal.style.display = "none";
     }
 
     // Change the image size as the range slider changes
-    $(document).on('input', '#image-size-slider', function () {
+    $(document).on('input', '#image-size-slider', function() {
         let size = $(this).val() * 4;
         slider_img_size = size;
         $(".img-panel").css("height", size + 'px');
-        $(".img-panel").each(function () {
+        $(".img-panel").each(function() {
             //according to the id to determine the width of the div and the image
             let divID = $(this).attr("id");
 
@@ -230,7 +229,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             let imageIDprefix = $(this).attr("id").slice(9);
             let img_width = imgDataDic[imageID].sizeW;
             let img_height = imgDataDic[imageID].sizeH;
-            let asp = img_width / img_height;  //aspect ratio
+            let asp = img_width / img_height; //aspect ratio
             let adjust_width = asp * size;
             let actual_width = adjust_width - 6;
             let actual_height = size - 6;
@@ -245,7 +244,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
 
     //rescale all images
     $(".img-panel").css("height", slider_img_size + 'px');
-    $(".img-panel").each(function () {
+    $(".img-panel").each(function() {
         //according to the id to determine the width of the div and the image
         let divID = $(this).attr("id");
         let imageID = $(this).attr("id").split('-')[3];
@@ -253,7 +252,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         let imageIDprefix = $(this).attr("id").slice(9);
         let img_width = imgDataDic[imageID].sizeW;
         let img_height = imgDataDic[imageID].sizeH;
-        let asp = img_width / img_height;  //aspect ratio
+        let asp = img_width / img_height; //aspect ratio
         let adjust_width = asp * slider_img_size;
         let actual_width = adjust_width - 6;
         let actual_height = slider_img_size - 6;
@@ -263,14 +262,222 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     });
 
 
-    $(window).resize(function () {
+    $(window).resize(function() {
         showYearScent();
     });
 
 }
 
+/**
+ * create the paperCard
+ * lazy loading: https://web.dev/browser-level-image-lazy-loading/
+ * @param {*} paperData 
+ * @param {*} totalCount 
+ */
+function presentPaperCards(paperData, totalCount) {
+
+    d3.selectAll(".paper-div").remove();
+    d3.selectAll(".image-div").remove();
+
+    d3.selectAll(".card").remove();
+    d3.selectAll(".card-credit").remove();
+    $('#pagination').css('display', 'none');
+    $('#totalPageText').text(totalCount + ' paper(s) in total');
+    $('#timeline-div').css('display', 'block');
+    dragTimeLine();
+
+    //debug_mode = 1: only keep 5 years
+    //2: only keep first 10 papers
+    var DEBUG_MODE = 0;
+
+    if (DEBUG_MODE == 1) {
+        Object.keys(paperData).forEach((year) => {
+            if (year >= 1995) {
+                delete paperData[year];
+            }
+        })
+    } else if (DEBUG_MODE == 2) {
+        Object.keys(paperData).forEach((year) => {
+            paperData[year] = paperData[year].slice(0, 5);
+        })
+    } else if (DEBUG_MODE == 3) {
+        Object.keys(paperData).forEach((year) => {
+            if (year <= 2016) {
+                delete paperData[year];
+            }
+        })
+    } else if (DEBUG_MODE == 4) {
+        console.log(1);
+        Object.keys(paperData).forEach((year) => {
+            year = parseInt(year);
+            if ([1990, 1995, 2000, 2005, 2010, 2015, 2019].includes(year) == false) {
+                delete paperData[year];
+            }
+        })
+    }
 
 
+    console.log(paperData);
+
+    let years = Object.keys(paperData);
+
+    //add sharing button (only used for server version)
+    // var sharing_div = document.createElement("div");
+    // sharing_div.className = "sharing";
+    // sharing_div.innerHTML = `
+
+    // `;
+    // document.getElementById("timeline-div").appendChild(sharing_div);
+    // $('#capture-papercard').unbind('click').click(function() {});
+    // $("#capture-papercard").click(function() {
+
+    //     html2canvas(document.querySelector("#timeline-container"), { allowTaint: true }).then(canvas => {
+    //         //document.body.appendChild(canvas)
+    //         canvas.toBlob(function(blob) {
+    //             saveAs(blob, "Dashboard.png");
+    //         });
+    //     });
+
+    //     // html2canvas($("#horizontal-timeline-div"), {
+    //     //     onrendered: function(canvas) {
+    //     //         theCanvas = canvas;
+    //     // canvas.toBlob(function(blob) {
+    //     //     saveAs(blob, "Dashboard.png");
+    //     // });
+    //     //     }
+    //     // });
+    // });
+
+
+    years.forEach((year) => {
+
+        //console.log(year);
+
+        //determine how many conferences in each year
+        let conferences = paperData[year].map(item => item.Conference)
+            .filter((value, index, self) => self.indexOf(value) === index);
+
+        //console.log(conferences);
+
+        //step 1: for each year, create the card box
+        var card_div = document.createElement("div");
+        card_div.className = "card";
+        card_div.id = "card-" + year;
+        card_div.innerHTML = `
+    <div class="card-title">&nbsp;${year}</div>
+    <div class="papercard-body">
+        <div class="card-pointer">
+            <button role="button" class="btn-year-toggle" data-toggle="collapse" data-target="#card-content-${year}"></button>
+        </div>
+        <!-- the width of this div should be determined by the number of conference-->
+        <div id="card-content-${year}" class="card-content collapse show width">
+            
+        </div>
+    </div>
+    `;
+        document.getElementById("timeline-container").appendChild(card_div);
+
+        //step 2: determine how many conferences in each year, create n columns
+        //set the width of card-content
+        let width = conferences.length * 102 + 2;
+        //console.log(conferences.length, width);
+        $("#card-content-" + year).css("width", width + "px");
+        conferences.forEach((conf) => {
+            var conf_div = document.createElement("div");
+            conf_div.className = "conf-div";
+            conf_div.id = conf + "-" + year;
+            conf_div.innerHTML = `
+        <div class="conf-div-title">${conf}</div>
+        `;
+            document.getElementById("card-content-" + year).appendChild(conf_div);
+        })
+
+        //step 3: add paper cards
+        paperData[year].forEach((paper, i) => {
+            //console.log(paper);
+            let conf = paper['Conference'];
+            var doi = paper['Paper DOI'].replace('/', '-');
+            let title = paper['Paper Title'];
+            let author = paper['Author'];
+            doi = doi.replaceAll('.', '-');
+
+            //step 4: for each paper, create a paper card box
+            var paper_div = document.createElement("div");
+            paper_div.className = "papercard-div row";
+            paper_div.id = "papercard-div-" + doi;
+            paper_div.innerHTML = `
+            <p class="cardtooltiptext">${title}<br${author}
+            </p>
+            `;
+            document.getElementById(conf + "-" + year).appendChild(paper_div);
+
+            //step 4: add figures into the box
+            let imgData = paper['Figures'];
+            //determine the height of paper div
+            // let height = Math.ceil(imgData.length / 2) * 20;
+            // $("#papercard-div-" + doi).css("height", height + "px");
+            let cardImageSize = 20;
+            // console.log(imgData, height);
+            for (let i = 0; i < imgData.length; i++) {
+                if (imgData[i]['paperImageName'] != 'N/A') {
+
+                    paperImgData.push(imgData[i]);
+                    let img_thumburl = imgData[i].thumb_url;
+                    let imageID = imgData[i].imageID;
+                    let img_width = imgData[i].sizeW;
+                    let img_height = imgData[i].sizeH;
+                    let asp = img_width / img_height; //aspect ratio
+                    //console.log(img_width, asp);
+                    let div_width = asp * cardImageSize;
+                    if (div_width > 98) {
+                        div_width = 98;
+                    }
+                    let actual_width = div_width - 2;
+                    let conf = imgData[i]['Conference'];
+                    let image_div = document.createElement("div");
+                    image_div.className = "card-image-div";
+
+                    //box-shadow: inset 0px 0px 0px 1px ${confDic[conf]};
+                    image_div.innerHTML = `
+        <div class="card-img-panel card-image-grid" id="img-grid-${imageID}" 
+        style="border: solid 0px ${confDic[conf]}; width:${div_width}px; ">
+            <div class="image-a" id="thumb${i}">
+                <img class="card-vis-img" loading="lazy"  id="img-thumb-${imageID}" style="width:${actual_width}px; height:${cardImageSize - 2}px" src = ${img_thumburl} alt="">
+            </div>
+        </div>  
+
+        `;
+                    //console.log("p-"+paperIndex);
+                    document.getElementById("papercard-div-" + doi).appendChild(image_div);
+
+                }
+            }
+        })
+
+
+
+
+    })
+
+    //step 4: add credit information
+    var credit_div = document.createElement("div");
+    credit_div.className = "card-credit inline";
+    credit_div.innerHTML = `
+        Have you tried VIN?
+        <img class="QRCode" src="public/images/QRcode.png" />
+    `;
+    document.getElementById("timeline-container").appendChild(credit_div);
+
+    //register the mouse event
+    // $(".card-image-div").mouseover(function() {
+    //     let captionText = data['caption_text'];
+    // });
+    // $(".card-image-div").mouseout(function() {
+    //     $(this).next('.caption-tooltip').remove();
+    // });
+
+
+}
 
 
 /**
@@ -280,6 +487,9 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
 function presentUPPapers(paperData, totalCount) {
     d3.selectAll(".paper-div").remove();
     d3.selectAll(".image-div").remove();
+    d3.selectAll(".card").remove();
+    d3.selectAll(".card-credit").remove();
+    $('#pagination').css('display', 'block');
     $('#totalPageText').text(totalCount + ' paper(s) in total');
 
     scrollTo(0, 0);
@@ -387,7 +597,7 @@ function presentUPPapers(paperData, totalCount) {
                 let imageID = imgData[i].imageID;
                 let img_width = imgData[i].img_width;
                 let img_height = imgData[i].img_height;
-                let asp = img_width / img_height;  //aspect ratio
+                let asp = img_width / img_height; //aspect ratio
                 let div_width = asp * img_size;
                 let actual_width = div_width - 6;
                 let conf = imgData[i]['Conference'];
@@ -406,8 +616,7 @@ function presentUPPapers(paperData, totalCount) {
                 img_count = img_count + 1;
                 //console.log("p-"+paperIndex);
                 document.getElementById("p-" + paperIndex).appendChild(image_div);
-            }
-            else {
+            } else {
                 let image_div = document.createElement("div");
                 image_div.innerHTML = `<span class='paperKeywords'>N/A</span>`;
                 document.getElementById("p-" + paperIndex).appendChild(image_div);
@@ -418,11 +627,11 @@ function presentUPPapers(paperData, totalCount) {
     }
 
     // Change the image size as the range slider changes
-    $(document).on('input', '#image-size-slider', function () {
+    $(document).on('input', '#image-size-slider', function() {
         let size = $(this).val() * 4;
         slider_img_size = size;
         $(".img-panel").css("height", size + 'px');
-        $(".img-panel").each(function () {
+        $(".img-panel").each(function() {
             //according to the id to determine the width of the div and the image
             let divID = $(this).attr("id");
             let imageID = $(this).attr("id").split('-')[3];
@@ -430,7 +639,7 @@ function presentUPPapers(paperData, totalCount) {
             //console.log(imageIDprefix);
             let img_width = imgDataDic[imageID].sizeW;
             let img_height = imgDataDic[imageID].sizeH;
-            let asp = img_width / img_height;  //aspect ratio
+            let asp = img_width / img_height; //aspect ratio
             let adjust_width = asp * size;
             let actual_width = adjust_width - 6;
             let actual_height = size - 6;
@@ -459,7 +668,7 @@ function presentUPPapers(paperData, totalCount) {
     var type_info = document.getElementById("paper-type-info");
     var keyword_info = document.getElementById("keyword-info");
     var imagename_info = document.getElementById('imagename-info')
-    $('.vis-img').click(function (e) {
+    $('.vis-img').click(function(e) {
         var id = this.id.split('-')[3];
         let currentIndex = this.id.split('-')[2];
         gIndex = parseInt(currentIndex);
@@ -473,8 +682,7 @@ function presentUPPapers(paperData, totalCount) {
             let asp = imageWidth / imageHeight;
             let max_width = 600 * asp;
             $("#ori-img").css("max-width", max_width);
-        }
-        else {
+        } else {
             $('#ori-img').attr('class', 'origin-img-tall');
         }
         modalImg.src = imgDataDic[id].url;
@@ -495,22 +703,21 @@ function presentUPPapers(paperData, totalCount) {
         if (imgDataDic[id]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
-        }
-        else {
+        } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgDataDic[id]['Keywords Author'].replace(/,/g, '; ');
         }
 
         //previous and next button
-        $('#modal-previous').unbind('click').click(function () { });
-        $("#modal-previous").click(async function () {
+        $('#modal-previous').unbind('click').click(function() {});
+        $("#modal-previous").click(async function() {
             if (gIndex >= 1) {
                 gIndex = gIndex - 1;
                 updateModalImage();
             }
         });
-        $('#modal-next').unbind('click').click(function () { });
-        $("#modal-next").click(async function () {
+        $('#modal-next').unbind('click').click(function() {});
+        $("#modal-next").click(async function() {
             if (gIndex < imgPerPagePaper - 1) {
                 gIndex = gIndex + 1;
                 updateModalImage();
@@ -520,7 +727,7 @@ function presentUPPapers(paperData, totalCount) {
 
 
     //update the modal image based on the id
-    var updateModalImage = function () {
+    var updateModalImage = function() {
         modal.style.display = "block";
         modalImg.src = paperImgData[gIndex].url;
         //determine the style of the vis-image
@@ -533,8 +740,7 @@ function presentUPPapers(paperData, totalCount) {
             let asp = imageWidth / imageHeight;
             let max_width = 600 * asp;
             $("#ori-img").css("max-width", max_width);
-        }
-        else {
+        } else {
             $('#ori-img').attr('class', 'origin-img-tall');
         }
         paper_info.innerHTML = paperImgData[gIndex]['Paper Title'];
@@ -554,22 +760,21 @@ function presentUPPapers(paperData, totalCount) {
         if (paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
-        }
-        else {
+        } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ');
         }
 
         //previous and next button
-        $('#modal-previous').unbind('click').click(function () { });
-        $("#modal-previous").click(async function () {
+        $('#modal-previous').unbind('click').click(function() {});
+        $("#modal-previous").click(async function() {
             if (gIndex >= 1) {
                 gIndex = gIndex - 1;
                 updateModalImage();
             }
         });
-        $('#modal-next').unbind('click').click(function () { });
-        $("#modal-next").click(async function () {
+        $('#modal-next').unbind('click').click(function() {});
+        $("#modal-next").click(async function() {
             if (gIndex < imgPerPagePaper - 1) {
                 gIndex = gIndex + 1;
                 updateModalImage();
@@ -581,7 +786,7 @@ function presentUPPapers(paperData, totalCount) {
     var span = document.getElementsByClassName("close")[0];
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
+    span.onclick = function() {
         modal.style.display = "none";
     }
 
@@ -590,13 +795,13 @@ function presentUPPapers(paperData, totalCount) {
     //show year scent
     showYearScent();
 
-    $(window).resize(function () {
+    $(window).resize(function() {
         showYearScent();
     });
 
     //rescale all images
     $(".img-panel").css("height", slider_img_size + 'px');
-    $(".img-panel").each(function () {
+    $(".img-panel").each(function() {
         //according to the id to determine the width of the div and the image
         let divID = $(this).attr("id");
         let imageID = $(this).attr("id").split('-')[3];
@@ -604,7 +809,7 @@ function presentUPPapers(paperData, totalCount) {
         //console.log(imageIDprefix);
         let img_width = imgDataDic[imageID].sizeW;
         let img_height = imgDataDic[imageID].sizeH;
-        let asp = img_width / img_height;  //aspect ratio
+        let asp = img_width / img_height; //aspect ratio
         let adjust_width = asp * slider_img_size;
         let actual_width = adjust_width - 6;
         let actual_height = slider_img_size - 6;
@@ -667,7 +872,7 @@ function renderYearStatistics(divID, divWidth, divHeight) {
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
-    tip = d3.tip().attr('class', 'd3-tip').html(function (d) {
+    tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
         return "<strong>" + d.year + ": </strong> <span style='color:#0088f3'>" + d.val + " figures</span>";
     });
 
@@ -680,7 +885,7 @@ function renderYearStatistics(divID, divWidth, divHeight) {
         .paddingInner(0.4);
 
     var y = d3.scaleLinear()
-        .domain([0, Math.max.apply(Math, scentDataArr.map(function (o) { return o.val; }))])
+        .domain([0, Math.max.apply(Math, scentDataArr.map(function(o) { return o.val; }))])
         .range([height, 0]);
     // svg.append("g")
     //     .attr("transform", "translate(0," + height + ")")
@@ -690,27 +895,26 @@ function renderYearStatistics(divID, divWidth, divHeight) {
         .data(scentDataArr)
         .enter()
         .append("rect")
-        .attr("x", function (d, i) {
+        .attr("x", function(d, i) {
             return x(d.year);
         })
-        .attr("y", function (d, i) {
+        .attr("y", function(d, i) {
             return y(d.val);
         })
         .attr("width", x.bandwidth())
-        .attr("height", function (d) { return height - y(d.val); })
-        .attr("fill", function (d, i) {
+        .attr("height", function(d) { return height - y(d.val); })
+        .attr("fill", function(d, i) {
             if (d.ifSelected == 1) {
                 return '#99a6ad';
-            }
-            else {
+            } else {
                 return '#dee2e6';
             }
         })
         .attr('cursor', 'pointer')
-        .on("mouseover", function (d) {
+        .on("mouseover", function(d) {
             tip.show(d);
         })
-        .on("mouseout", function () {
+        .on("mouseout", function() {
             tip.hide();
         })
 
@@ -722,5 +926,44 @@ function convertRemToPixels(rem) {
 }
 
 
+function dragTimeLine() {
+    const slider = document.querySelector(".horizontal-timeline");
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
 
+    //scroll the timeline horizontally
+    // $('.horizontal-timeline').mousewheel(function(e, delta) {
+    //     this.scrollLeft -= (delta * 20);
+    //     e.preventDefault();
+    // });
+
+
+    slider.addEventListener("mousedown", e => {
+        isDown = true;
+        slider.classList.add("active");
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener("mouseleave", () => {
+        setTimeout(function() {
+            isDown = false;
+            slider.classList.remove("active");
+        }, 50);
+    });
+    slider.addEventListener("mouseup", () => {
+        setTimeout(function() {
+            isDown = false;
+            slider.classList.remove("active");
+        }, 50);
+    });
+    slider.addEventListener("mousemove", e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1; //scroll-fast
+        slider.scrollLeft = scrollLeft - walk;
+        //console.log(walk);
+    });
+}

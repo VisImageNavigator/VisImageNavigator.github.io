@@ -55,13 +55,13 @@ Page.prototype = {
         //上一页
         that.lastPage();
         //分页
-        that.getPages().forEach(function (item) {
+        that.getPages().forEach(function(item) {
             var li = document.createElement('li');
             if (item == that.curPage) {
                 li.className = 'active';
 
             } else {
-                li.onclick = function () {
+                li.onclick = function() {
                     that.curPage = parseInt(this.innerHTML);
                     that.init();
                     that.getPage(that.curPage);
@@ -91,17 +91,17 @@ Page.prototype = {
         var li = document.createElement('li');
         li.className = 'totalPage';
         let span = document.createElement('span');
-        if (visMode == 1) 
+        if (visMode == 1)
             span.innerHTML = 'images per page&nbsp';
-        else if (visMode = 2) 
+        else if (visMode == 2)
             span.innerHTML = 'papers per page&nbsp';
         li.appendChild(span);
         var selectList = document.createElement("select");
         selectList.id = "imageCountPerPage";
         var options;
-        if (visMode == 1) 
+        if (visMode == 1)
             options = [200, 240, 300, 400, 1000];
-        else if (visMode = 2) 
+        else if (visMode == 2)
             options = [20, 24, 30, 40, 100];
         //Create and append the options
         for (let i = 0; i < options.length; i++) {
@@ -116,15 +116,15 @@ Page.prototype = {
         //console.log(that.pageAmount);
         $('#imageCountPerPage').val(that.pageAmount);
         //add change event
-        $('#imageCountPerPage').on('change', function () {
+        $('#imageCountPerPage').on('change', function() {
             let figureCount = this.value;
-            if (visMode == 1) 
+            if (visMode == 1)
                 img_per_page = figureCount;
-            else if (visMode = 2) 
+            else if (visMode == 2)
                 paper_per_page = figureCount;
             filterData();
         })
-        
+
 
     },
     //首页
@@ -134,7 +134,7 @@ Page.prototype = {
         li.innerHTML = 'First Page';
         this.ul.appendChild(li);
         //showYearScent();
-        li.onclick = function () {
+        li.onclick = function() {
             var val = parseInt(1);
             that.curPage = val;
             that.getPage(that.curPage);
@@ -147,7 +147,7 @@ Page.prototype = {
         var li = document.createElement('li');
         li.innerHTML = '<';
         if (parseInt(that.curPage) > 1) {
-            li.onclick = function () {
+            li.onclick = function() {
                 that.curPage = parseInt(that.curPage) - 1;
                 that.init();
                 that.getPage(that.curPage);
@@ -195,7 +195,7 @@ Page.prototype = {
         var li = document.createElement('li');
         li.innerHTML = '>';
         if (parseInt(that.curPage) < parseInt(that.pageTotal)) {
-            li.onclick = function () {
+            li.onclick = function() {
                 that.curPage = parseInt(that.curPage) + 1;
                 that.init();
                 that.getPage(that.curPage);
@@ -212,7 +212,7 @@ Page.prototype = {
         li.innerHTML = 'Last page';
         this.ul.appendChild(li);
         //showYearScent();
-        li.onclick = function () {
+        li.onclick = function() {
             var yyfinalPage = that.pageTotal;
             var val = parseInt(yyfinalPage);
             that.curPage = val;
@@ -230,7 +230,7 @@ Page.prototype = {
         li.appendChild(span1);
         var input = document.createElement('input');
         input.setAttribute("type", "number");
-        input.onkeydown = function (e) {
+        input.onkeydown = function(e) {
             var oEvent = e || event;
             if (oEvent.keyCode == '13') {
                 var val = parseInt(oEvent.target.value);
