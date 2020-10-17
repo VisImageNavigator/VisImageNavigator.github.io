@@ -73,7 +73,12 @@
                 <div class="form-group form-inline justify-content-center search-bar">
                     <a href="http://keyvis.org/index.php" target="_blank"><img src="public/images/keyvisicon2.png" id="keyvis-icon"></a>
                     &nbsp;&nbsp;
-                    <label>Paper keyword(s) search: </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <!-- <label>Paper keyword(s) search: </label> &nbsp;&nbsp;&nbsp;&nbsp; -->
+                    <select class="selectpicker" id="searchModeSelect">
+                        <option value="1">Paper keyword(s) search</option>
+                        <option value="2">Title & Abstract search</option>
+                      </select>&nbsp;&nbsp;
+
                     <div class="autocomplete">
                         <input id="search-box" type="text" class="form-control search_input" placeholder="e.g. biomedical">
                     </div>

@@ -4,17 +4,17 @@
  * @LastEditTime: 2020-06-27 17:53:49
  * @Description: 
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/image_filter.js
- */ 
+ */
 
 /**
  * find all keywords
  * @param data
  */
-function getAllKeywords(data){
+function getAllKeywords(data) {
     var keyword_list = [];
-    for(let i = 0;i < data.length;i++){
+    for (let i = 0; i < data.length; i++) {
         let keywords = data[i]["Keywords Author"].split(/[;,]+/);
-        for(let j = 0; j < keywords.length; j++){
+        for (let j = 0; j < keywords.length; j++) {
             keyword_list.push(keywords[j].toLowerCase());
         }
     }
@@ -24,12 +24,12 @@ function getAllKeywords(data){
 }
 
 
-function getAllAuthors(data){
+function getAllAuthors(data) {
     var author_list = [];
-    for(let i = 0;i < data.length;i++){
+    for (let i = 0; i < data.length; i++) {
         let authors = data[i]["Author"].split(';');
-        for(let j = 0; j < authors.length; j++){
-            if(authors[j] == 'Torsten Möller'){
+        for (let j = 0; j < authors.length; j++) {
+            if (authors[j] == 'Torsten Möller') {
                 authors[j] = 'Torsten Möller';
             }
             author_list.push(authors[j]);
@@ -43,12 +43,39 @@ function getAllAuthors(data){
  * return a subset of datasets based on the given keyword
  * @param keyword
  */
-function filterDataByKeywords(data, keyword){
-    var filterData = data.filter(function(item) {
-        //console.log(item['Keywords Author']);
-        return item['Keywords Author'].toLowerCase().includes(keyword);
-    });
-    return filterData;
+function filterDataByKeywords(data, keyword) {
+    if (searchMode == 1) {
+        var filterData = data.filter(function(item) {
+            //console.log(item['Keywords Author']);
+            return item['Keywords Author'].toLowerCase().includes(keyword);
+        });
+        //console.log(filterData);
+        return filterData;
+    } else if (searchMode == 2) {
+
+        //1. using regex: \b token \b to filter paper dois
+        //regex testing: https://regex101.com/
+        var filterPaper = G_PAPER.filter((item) => {
+                let paragraph = (item['Title'] + ' ' + item['Abstract']).toLowerCase();
+                let regex = new RegExp("\\b" + keyword + "\\b");
+                //let regex = new RegExp(keyword);
+                let found = paragraph.match(regex);
+                return found != null;
+            })
+            .map((obj) => {
+                return obj['DOI'];
+            });
+        //console.log(filterPaper);
+        //2. based on paper dois to get the images
+        var filterData = data.filter(function(item) {
+            //console.log(item['Keywords Author']);
+            return filterPaper.includes(item['Paper DOI']);
+        });
+        //console.log(filterData);
+        return filterData;
+    }
+
+
 }
 
 /**
@@ -56,7 +83,7 @@ function filterDataByKeywords(data, keyword){
  * @param {} data 
  * @param {*} author 
  */
-function filterDataByAuthors(data, author){
+function filterDataByAuthors(data, author) {
     var filterData = data.filter(function(item) {
         let authorList = swapArrayString(item['Author'].split(';'));
         return authorList.includes(author);
@@ -69,24 +96,21 @@ function filterDataByAuthors(data, author){
  * @param {*} data 
  * @param {*} type 
  */
-function filterDataByFigureType(data, type){
-    if(type.length == 2){
+function filterDataByFigureType(data, type) {
+    if (type.length == 2) {
         return data;
-    }
-    else if(type.length == 0){
+    } else if (type.length == 0) {
         return [];
-    }
-    else if(type.length == 1){
-        if(type[0] == 'Figure'){
+    } else if (type.length == 1) {
+        if (type[0] == 'Figure') {
             var filterData = data.filter(function(item) {
-                let boolean = parseInt(item['vis_type']) != 16; 
+                let boolean = parseInt(item['vis_type']) != 16;
                 return boolean;
             });
             return filterData;
-        }
-        else if (type[0] == 'Table'){
+        } else if (type[0] == 'Table') {
             var filterData = data.filter(function(item) {
-                let boolean = (parseInt(item['vis_type']) == 16); 
+                let boolean = (parseInt(item['vis_type']) == 16);
                 return boolean;
             });
             return filterData;
@@ -99,7 +123,7 @@ function filterDataByFigureType(data, type){
  * return conference subset
  * @param {selected conferences} confs 
  */
-function filterDataByConference(data, confs){
+function filterDataByConference(data, confs) {
     var filterData = data.filter(function(item) {
         return confs.includes(item['Conference']);
     });
@@ -111,7 +135,7 @@ function filterDataByConference(data, confs){
  * @param {*} minYear 
  * @param {*} maxYear 
  */
-function filterDataByYear(data, minYear, maxYear){
+function filterDataByYear(data, minYear, maxYear) {
     var filterData = data.filter(function(item) {
         return (minYear <= item['Year']) & (item['Year'] <= maxYear);
     });

@@ -12,6 +12,7 @@ var G_PAPER; //paper dataset
 var G_IMG_FULL_DATA = new Object(); //image dataset with null images
 var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
+var searchModel = 1; //1: keywords search, 2: word search (title and abstract)
 var ifAllImage = 1; //if all image are presented
 var visMode = 1; //1: image mode, 2: paper mode
 var yearPageDic = {}; //store the page index of each year for images
@@ -86,7 +87,7 @@ async function dbStart() {
     // G_PAP_DATA = await d3.csv('public/dataset/paperData.csv');
     G_IMG_DATA = await d3.csv("public/dataset/vispubData30.csv");
     G_PAPER = await d3.csv("public/dataset/paperData.csv");
-    G_PAPER = stratifyPaperData(G_PAPER);
+    //G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
     //group images to paper dataset
     G_IMG_FULL_DATA = [...G_IMG_DATA];
@@ -209,6 +210,16 @@ async function dbStart() {
     auth.on('change', function() {
         currentAuthors = this.options[this.selectedIndex].value;
         filterData();
+    })
+
+    //change search mode
+    d3.select("#searchModeSelect").on('change', function() {
+        searchMode = parseInt(this.options[this.selectedIndex].value);
+        if (searchMode == 1) {
+            autocomplete(document.getElementById("search-box"), G_KEYWORDS);
+        } else {
+            autocomplete(document.getElementById("search-box"), []);
+        }
     })
 
 
@@ -371,7 +382,9 @@ function filterData() {
             ifAllImage = 1;
         } else {
             ifAllImage = 0;
+            console.time("search begins");
             data = filterDataByKeywords(data, currentKeywords);
+            console.timeEnd("search begins");
         }
         //3. filtering data by authors
         if (currentAuthors == 'All') {
