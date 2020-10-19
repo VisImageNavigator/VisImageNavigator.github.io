@@ -1379,11 +1379,11 @@ div.card-title {
     width: 100%;
 }
 
-.collapse {
+.card-collapse {
     visibility: hidden;
 }
 
-.collapse.show {
+.card-collapse.show {
     visibility: visible;
     display: block;
 }
@@ -1414,13 +1414,13 @@ div.card-title {
     font-size: 14px;
     /* width: 206px; */
     /* height: 400px; */
-    border-radius: 0.25rem;
-    border: 1px solid #c1c1c1;
-    background-color: #3c3c3c;
+    /* border-radius: 0.25rem; */
+    /* border: 1px solid #c1c1c1;
+    background-color: #3c3c3c; */
 }
 
 .conf-div {
-    border-radius: 0.25rem;
+    /* border-radius: 0.25rem; */
     border: 1px #c1c1c1 solid;
     width: 100px;
     /* height: 600px; */
@@ -1429,25 +1429,45 @@ div.card-title {
     float: left;
 }
 
+.conf-div-Vis {
+    border: 2px #FBAF3F solid;
+}
+
+.conf-div-SciVis {
+    border: 2px #1B75BB solid;
+}
+
+.conf-div-InfoVis {
+    border: 2px #EF4036 solid;
+}
+
+.conf-div-VAST {
+    border: 2px #38B449 solid;
+}
+
 .conf-div-title {
     height: 22px;
     text-align: center;
     padding-top: 2px;
     background: #eee;
     font-size: 12px;
+    /* border-radius: 0.25rem; */
 }
 
 .papercard-div {
-    margin-top: 4px;
+    /* margin-top: 4px; */
     background-color: #d9e3f2;
-    width: 98px;
-    border: 1px solid #eee;
+    width: 96px;
+    border-top: 2px solid #023047;
+    /* border-bottom: 0px;
+    border-left: 0px; */
     /* height: 100px; */
     margin-left: 0 !important;
     margin-right: 0 !important;
     cursor: pointer;
     position: relative;
     white-space: normal;
+    /* border-radius: 0.25rem; */
 }
 
 .card-img-panel {
@@ -1522,4 +1542,8 @@ div.card-title {
 
 #capture-papercard {
     margin-bottom: 20px;
+}
+
+.bootstrap-select {
+    width: 230px !important;
 }

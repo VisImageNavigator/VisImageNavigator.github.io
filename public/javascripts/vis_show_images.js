@@ -55,29 +55,33 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     //show the images
     for (let i = 0; i < imgData.length; i++) {
         let img_thumburl = imgData[i].url;
-        let imageID = imgData[i].imageID;
-        let img_width = imgData[i].sizeW;
-        let img_height = imgData[i].sizeH;
-        let asp = img_width / img_height; //aspect ratio
-        let div_width = asp * img_size;
-        let actual_width = div_width - 6;
-        let conf = imgData[i]['Conference'];
-        var sorted_score = null;
-        if (showAnnotation == 1) {
-            sorted_score = parseFloat(data[i].score).toFixed(2);
+        //console.log(img_thumburl);
+        if (img_thumburl != "") {
+            let imageID = imgData[i].imageID;
+            let img_width = imgData[i].sizeW;
+            let img_height = imgData[i].sizeH;
+            let asp = img_width / img_height; //aspect ratio
+            let div_width = asp * img_size;
+            let actual_width = div_width - 6;
+            let conf = imgData[i]['Conference'];
+            var sorted_score = null;
+            if (showAnnotation == 1) {
+                sorted_score = parseFloat(data[i].score).toFixed(2);
+            }
+            var image_div = document.createElement("div");
+            image_div.className = "image-div";
+            //box-shadow: inset 0px 0px 0px 1px ${confDic[conf]};
+            image_div.innerHTML = `
+            <div class="img-panel image-grid" id="img-grid-${i}-${imageID}" 
+            style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
+                <div class="image-a" id="thumb${i}">
+                    <img class="vis-img" id="img-thumb-${i}-${imageID}" style="width:${actual_width}px; height:${img_size - 6}px" src = ${img_thumburl} alt="">
+                </div>
+            </div>  
+            `;
+            document.getElementById("image-gallery").appendChild(image_div);
         }
-        var image_div = document.createElement("div");
-        image_div.className = "image-div";
-        //box-shadow: inset 0px 0px 0px 1px ${confDic[conf]};
-        image_div.innerHTML = `
-        <div class="img-panel image-grid" id="img-grid-${i}-${imageID}" 
-        style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
-            <div class="image-a" id="thumb${i}">
-                <img class="vis-img" id="img-thumb-${i}-${imageID}" style="width:${actual_width}px; height:${img_size - 6}px" src = ${img_thumburl} alt="">
-            </div>
-        </div>  
-        `;
-        document.getElementById("image-gallery").appendChild(image_div);
+
     }
 
 
@@ -317,7 +321,7 @@ function presentPaperCards(paperData, totalCount) {
     }
 
 
-    console.log(paperData);
+    //console.log(paperData);
 
     let years = Object.keys(paperData);
 
@@ -370,7 +374,7 @@ function presentPaperCards(paperData, totalCount) {
             <button role="button" class="btn-year-toggle" data-toggle="collapse" data-target="#card-content-${year}"></button>
         </div>
         <!-- the width of this div should be determined by the number of conference-->
-        <div id="card-content-${year}" class="card-content collapse show width">
+        <div id="card-content-${year}" class="card-content card-collapse in show width">
             
         </div>
     </div>
@@ -384,11 +388,22 @@ function presentPaperCards(paperData, totalCount) {
         $("#card-content-" + year).css("width", width + "px");
         conferences.forEach((conf) => {
             var conf_div = document.createElement("div");
-            conf_div.className = "conf-div";
+
             conf_div.id = conf + "-" + year;
+            if (conf == "Vis") {
+                conf_div.className = "conf-div conf-div-Vis";
+            } else if (conf == "SciVis") {
+                conf_div.className = "conf-div conf-div-SciVis";
+            } else if (conf == "InfoVis") {
+                conf_div.className = "conf-div conf-div-InfoVis";
+            } else if (conf == "VAST") {
+                conf_div.className = "conf-div conf-div-VAST";
+            }
+
             conf_div.innerHTML = `
         <div class="conf-div-title">${conf}</div>
         `;
+
             document.getElementById("card-content-" + year).appendChild(conf_div);
         })
 
@@ -398,7 +413,9 @@ function presentPaperCards(paperData, totalCount) {
             let conf = paper['Conference'];
             var doi = paper['Paper DOI'].replace('/', '-');
             let title = paper['Paper Title'];
-            let author = paper['Author'];
+            let author = paper['Author'].replace(/;/g, '; ');
+            let year = paper['Year'];
+            let url = paper['paper_url'];
             doi = doi.replaceAll('.', '-');
 
             //step 4: for each paper, create a paper card box
@@ -406,12 +423,18 @@ function presentPaperCards(paperData, totalCount) {
             paper_div.className = "papercard-div row";
             paper_div.id = "papercard-div-" + doi;
             paper_div.innerHTML = `
-            <p class="cardtooltiptext">${title}<br${author}
+            <p class="cardtooltiptext">${title}<br>${author},&nbsp;${year}
             </p>
             `;
             document.getElementById(conf + "-" + year).appendChild(paper_div);
 
-            //step 4: add figures into the box
+            //add click event
+            paper_div.addEventListener("click", () => {
+                window.open(url);
+            });
+
+
+            //step 5: add figures into the box
             let imgData = paper['Figures'];
             //determine the height of paper div
             // let height = Math.ceil(imgData.length / 2) * 20;
@@ -419,7 +442,7 @@ function presentPaperCards(paperData, totalCount) {
             let cardImageSize = 20;
             // console.log(imgData, height);
             for (let i = 0; i < imgData.length; i++) {
-                if (imgData[i]['paperImageName'] != 'N/A') {
+                if ((imgData[i]['paperImageName'] != 'N/A') && (imgData[i]['url'] != "")) {
 
                     paperImgData.push(imgData[i]);
                     let img_thumburl = imgData[i].thumb_url;
@@ -429,8 +452,8 @@ function presentPaperCards(paperData, totalCount) {
                     let asp = img_width / img_height; //aspect ratio
                     //console.log(img_width, asp);
                     let div_width = asp * cardImageSize;
-                    if (div_width > 98) {
-                        div_width = 98;
+                    if (div_width > 94) {
+                        div_width = 94;
                     }
                     let actual_width = div_width - 2;
                     let conf = imgData[i]['Conference'];
@@ -455,7 +478,12 @@ function presentPaperCards(paperData, totalCount) {
         })
 
 
+        //show year scent
+        showYearScent();
 
+        $(window).resize(function() {
+            showYearScent();
+        });
 
     })
 
@@ -466,7 +494,7 @@ function presentPaperCards(paperData, totalCount) {
         Have you tried VIN?
         <img class="QRCode" src="public/images/QRcode.png" />
     `;
-    document.getElementById("timeline-container").appendChild(credit_div);
+    // document.getElementById("timeline-container").appendChild(credit_div);
 
     //register the mouse event
     // $(".card-image-div").mouseover(function() {
@@ -591,9 +619,10 @@ function presentUPPapers(paperData, totalCount) {
         document.getElementById("image-gallery").appendChild(paper_div);
         let imgData = paperData[paperIndex]['Figures'];
         for (let i = 0; i < imgData.length; i++) {
-            if (imgData[i]['paperImageName'] != 'N/A') {
+            if (imgData[i]['paperImageName'] != 'N/A' && imgData[i]['url'] != "") {
                 paperImgData.push(imgData[i]);
                 let img_thumburl = imgData[i].url;
+
                 let imageID = imgData[i].imageID;
                 let img_width = imgData[i].img_width;
                 let img_height = imgData[i].img_height;
@@ -873,7 +902,7 @@ function renderYearStatistics(divID, divWidth, divHeight) {
             "translate(" + margin.left + "," + margin.top + ")");
 
     tip = d3.tip().attr('class', 'd3-tip').html(function(d) {
-        return "<strong>" + d.year + ": </strong> <span style='color:#0088f3'>" + d.val + " figures</span>";
+        return "<strong>" + d.year + ": </strong> <span style='color:#0088f3'>" + d.val + "</span>";
     });
 
     svg.call(tip);

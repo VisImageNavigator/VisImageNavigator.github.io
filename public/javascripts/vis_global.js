@@ -12,7 +12,7 @@ var G_PAPER; //paper dataset
 var G_IMG_FULL_DATA = new Object(); //image dataset with null images
 var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
-var searchModel = 1; //1: keywords search, 2: word search (title and abstract)
+var searchMode = 1; //1: keywords search, 2: word search (title and abstract)
 var ifAllImage = 1; //if all image are presented
 var visMode = 1; //1: image mode, 2: paper mode
 var yearPageDic = {}; //store the page index of each year for images
