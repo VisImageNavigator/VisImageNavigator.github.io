@@ -24,6 +24,7 @@ var imgPerPagePaper = 0; //number of images in each page, under paper mode.
 var unicycle;
 var slider_img_size = 100;
 
+
 /**
  * present the image in the page
  * @param imgData: the image dataset
@@ -296,7 +297,7 @@ function presentPaperCards(paperData, totalCount) {
 
     if (DEBUG_MODE == 1) {
         Object.keys(paperData).forEach((year) => {
-            if (year >= 1995) {
+            if (parseInt(year) != 1995) {
                 delete paperData[year];
             }
         })
@@ -371,15 +372,32 @@ function presentPaperCards(paperData, totalCount) {
     <div class="card-title">&nbsp;${year}</div>
     <div class="papercard-body">
         <div class="card-pointer">
-            <button role="button" class="btn-year-toggle" data-toggle="collapse" data-target="#card-content-${year}"></button>
+            <button role="button" id="card-toggle-btn-${year}" class="btn-year-toggle" data-toggle="collapse" data-target="#card-content-${year}"></button>
         </div>
         <!-- the width of this div should be determined by the number of conference-->
         <div id="card-content-${year}" class="card-content card-collapse in show width">
-            
+
         </div>
     </div>
     `;
         document.getElementById("timeline-container").appendChild(card_div);
+
+        for (let i = 1990; i < 2020; i++) {
+            if (timelineStatus[year] == 1) {
+                $("#card-content-" + year).collapse('hide');
+            }
+        }
+
+        //register the event for card collapse button, record which year has been collapsed
+        $('.btn-year-toggle').unbind('click').click(function() {});
+        $(".btn-year-toggle").click(function() {
+            let year = this.id.slice(16);
+            if ($("#card-content-" + year).hasClass('show') == true) {
+                timelineStatus[year] = 1; //after clicking, this going to be the collapsed one
+            } else {
+                timelineStatus[year] = 0; //after clicking, this going to be the collapsed one
+            }
+        });
 
         //step 2: determine how many conferences in each year, create n columns
         //set the width of card-content
@@ -488,21 +506,15 @@ function presentPaperCards(paperData, totalCount) {
     })
 
     //step 4: add credit information
-    var credit_div = document.createElement("div");
-    credit_div.className = "card-credit inline";
-    credit_div.innerHTML = `
-        Have you tried VIN?
-        <img class="QRCode" src="public/images/QRcode.png" />
-    `;
+    // var credit_div = document.createElement("div");
+    // credit_div.className = "card-credit inline";
+    // credit_div.innerHTML = `
+    //     Have you tried VIN?
+    //     <img class="QRCode" src="public/images/QRcode.png" />
+    // `;
     // document.getElementById("timeline-container").appendChild(credit_div);
 
-    //register the mouse event
-    // $(".card-image-div").mouseover(function() {
-    //     let captionText = data['caption_text'];
-    // });
-    // $(".card-image-div").mouseout(function() {
-    //     $(this).next('.caption-tooltip').remove();
-    // });
+
 
 
 }

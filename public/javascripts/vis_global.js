@@ -24,6 +24,7 @@ var currentFigures = ['Figure', 'Table'];
 var currentAuthors = 'All';
 var img_per_page = 200;
 var paper_per_page = 20;
+var showCaption = 0; //if show figure with caption
 
 var confDic = {
     'Vis': '#FBAF3F',
@@ -35,38 +36,12 @@ var confDic = {
 
 var pageUI = new Object();
 var scentData = {
-    '1990': 0,
-    '1991': 0,
-    '1992': 0,
-    '1993': 0,
-    '1994': 0,
-    '1995': 0,
-    '1996': 0,
-    '1997': 0,
-    '1998': 0,
-    '1999': 0,
-    '2000': 0,
-    '2001': 0,
-    '2002': 0,
-    '2003': 0,
-    '2004': 0,
-    '2005': 0,
-    '2006': 0,
-    '2007': 0,
-    '2008': 0,
-    '2009': 0,
-    '2010': 0,
-    '2011': 0,
-    '2012': 0,
-    '2013': 0,
-    '2014': 0,
-    '2015': 0,
-    '2016': 0,
-    '2017': 0,
-    '2018': 0,
-    '2019': 0
+
 };
 var scentDataArr = [];
+
+//used for timeline papercard: if user hide one time dot, set it to 1
+var timelineStatus = {};
 
 
 $(document).ready(function() {
@@ -84,7 +59,6 @@ $(document).ready(function() {
  */
 async function dbStart() {
 
-    // G_PAP_DATA = await d3.csv('public/dataset/paperData.csv');
     G_IMG_DATA = await d3.csv("public/dataset/vispubData30.csv");
     G_PAPER = await d3.csv("public/dataset/paperData.csv");
     //G_PAPER = stratifyPaperData(G_PAPER);
@@ -97,6 +71,9 @@ async function dbStart() {
         let flag = item['paperImageName'] != 'N/A';
         return flag;
     });
+
+    //initialize variables
+    initializeGlobalVariables();
 
     countImageByYear(G_IMG_DATA); //update image data
 
@@ -226,6 +203,7 @@ async function dbStart() {
     //filter keywords
     $('#search-btn').unbind('click').click(function() {});
     $("#search-btn").click(function() {
+        //resetTimelineStatus();  //if we want to reset the timeline collapse status
         var keyword = $('#search-box').val();
         currentKeywords = keyword;
         filterData();
@@ -297,6 +275,22 @@ async function dbStart() {
         }
         currentFigures = activeFigure;
         filterData();
+    });
+
+    //determine if used caption version
+    $('input[name="captionCheck"]').unbind('click').click(function() {});
+    $('input[name="captionCheck"]').click(function() {
+        if ($('#caption-check').prop("checked")) {
+            $('#caption-check-label').css('background', '#34495e');
+            $('#caption-check-label').css('border', '0px');
+            showCaption = 1;
+        } else {
+            $('#caption-check-label').css('background', '#fff');
+            $('#caption-check-label').css('border', '1px solid #95a5a6');
+            showCaption = 0;
+        }
+
+
     });
 
     //filter years
@@ -680,4 +674,24 @@ function stratifyPaperData(paperData) {
         paperDic[doi] = d;
     })
     return paperDic;
+}
+
+
+/**
+ * initialize global variables used in the program
+ */
+function initializeGlobalVariables() {
+    for (let year = 1990; year < 2020; year++) {
+        scentData[year] = 0;
+        timelineStatus[year] = 0;
+    }
+}
+
+/**
+ * when starting a new search, all status for timeline should be reset
+ */
+function resetTimelineStatus() {
+    for (let year = 1990; year < 2020; year++) {
+        timelineStatus[year] = 0;
+    }
 }

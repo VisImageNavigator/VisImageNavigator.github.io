@@ -21,8 +21,7 @@
     <link href="public/stylesheets/bio_style.css" rel="stylesheet">
     <link href="public/stylesheets/myPagination.css" rel="stylesheet">
     <link rel="stylesheet" href="public/stylesheets/ion.rangeSlider.css">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
 
 
@@ -45,12 +44,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark nav-bg-custom navbar-inverse fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="orange-font">V</span><span class="black-font">IS</span><span
-                    class="orange-font">I</span><span class="black-font">mage</span><span
-                    class="orange-font">N</span><span class="black-font">avigator</span>
+                <span class="orange-font">V</span><span class="black-font">IS</span><span class="orange-font">I</span><span class="black-font">mage</span><span class="orange-font">N</span><span class="black-font">avigator</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -86,8 +82,7 @@
                 <img class="stat-figure" src="public/images/total-img-by-year.png">
             </div>
 
-            <br>
-            Average # of images (figures and tables) per page, by year.
+            <br> Average # of images (figures and tables) per page, by year.
             <div id="avg-img-div">
                 <img class="stat-figure" src="public/images/avg-img-by-year.png">
             </div>
@@ -97,31 +92,29 @@
         <br>
         <h2>What image (figure and table) data can you find here?</h2>
 
-        Images from every year of the IEEE VIS conferences:<br>
-        - VAST: 2006-2019<br>
-        - InfoVis: 1995-2019 <br>
-        - Vis: 1990-2013 <br>
-        - SciVis: 2012-2019 <br><br>
+        Images from every year of the IEEE VIS conferences:<br> - VAST: 2006-2019<br> - InfoVis: 1995-2019 <br> - Vis: 1990-2013 <br> - SciVis: 2012-2019 <br><br>
+
+        <h2>Which Tool for Exploring VIS30K?</h2>
+
+        - VIN (visualization image navigator)<br> - The <a href="http://go.osu.edu/vis30k" target="_blank">meta data</a> stored in google spread sheet.<br><br>
+
+
 
         <!-- <h2>What are the image data? </h2>
 
         We collected the VIS30K dataset, a new collection of 29,546 images including every figure and table for 30 years
         spanning each track of the IEEE Visualization conference series (Vis, SciVis, InfoVis, and VAST).<br><br> -->
 
-        
+
 
         <h2>What Data are Released for Reproducible Research?</h2>
 
         - 29,546 images in <a href="http://doi.org/10.21227/4hy6-vh52" target="_blank">VIS30K</a>.
 
-        <br>
+        <br> - 10K <a href="https://drive.google.com/drive/folders/12YP1rbPLEw3hACPVC7cGQPmb6zrQl4yT?usp=sharing" target="_blank">Training</a> and 3K <a href="https://drive.google.com/drive/folders/1ma1u0ktQK2Yy-NZe68UWY7S-i-Ij_16Z?usp=sharing" target="_blank">validation</a>        datasets used in our CNN algorithms
 
-        - 10K <a href="https://drive.google.com/drive/folders/12YP1rbPLEw3hACPVC7cGQPmb6zrQl4yT?usp=sharing" target="_blank">Training</a> and 3K <a href="https://drive.google.com/drive/folders/1ma1u0ktQK2Yy-NZe68UWY7S-i-Ij_16Z?usp=sharing" target="_blank">validation</a> datasets used in our CNN algorithms
+        <br> - The <a href="https://drive.google.com/drive/folders/1kcwJH7_EwTJbsJtAl8uqCNL0uMq6MfdN?usp=sharing" target="_blank">image corpus</a> and the <a href="https://drive.google.com/drive/folders/11dJztO_Q7aKNt-zWtvIWHxm9-VqH5Clk?usp=sharing" target="_blank">text corpus</a>        for pseudo paper generation.
 
-        <br>
-
-        - The <a href="https://drive.google.com/drive/folders/1kcwJH7_EwTJbsJtAl8uqCNL0uMq6MfdN?usp=sharing" target="_blank">image corpus</a> and the <a href="https://drive.google.com/drive/folders/11dJztO_Q7aKNt-zWtvIWHxm9-VqH5Clk?usp=sharing" target="_blank">text corpus</a> for pseudo paper generation. 
-        
         <br>
 
         <span class="footnote">* For source code, please contact <a href="http://web.cse.ohio-state.edu/~chen.8028/Home.html" target="_blank">Prof. Jian Chen</a> at chen.8028@osu.edu. </span>
@@ -130,25 +123,17 @@
 
         <h2>How to extract images automatically? </h2>
 
-        We used a CNN-based solution and end-to-end framework to extract
-        figures and tables in research paper pages. The main idea behind
-        our approach is to train a CNN with synthesized dummy papers,
-        created with existing visualization image corpora. Equipped with
-        the resulting training set creation, we then automatically extracted
-        figures from paper pages. We have used <a href="https://arxiv.org/abs/1506.01497"
-            target="_blank">Faster-RCNN</a> and <a href="https://arxiv.org/abs/1804.02767" target="_blank">YOLOv3</a> to
-        reduce the
-        subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels"
-            target="_blank">here.</a> <br><br>
-        
+        We used a CNN-based solution and end-to-end framework to extract figures and tables in research paper pages. The main idea behind our approach is to train a CNN with synthesized dummy papers, created with existing visualization image corpora. Equipped
+        with the resulting training set creation, we then automatically extracted figures from paper pages. We have used <a href="https://arxiv.org/abs/1506.01497" target="_blank">Faster-RCNN</a> and <a href="https://arxiv.org/abs/1804.02767"
+            target="_blank">YOLOv3</a> to reduce the subsequent human effort. Please try our pre-trained model <a href="http://go.osu.edu/vis30kpretrainedmodels" target="_blank">here.</a> <br><br>
+
         <h2>How to cite this work?</h2>
-        For dataset, please cite: <br>
-        Jian Chen, Meng Ling, Rui Li, Petra Isenberg, Tobias Isenberg, Michael Sedlmair, Torsten Möller, Robert S. Laramee, Han-Wei Shen, Katharina Wünsche, and Qiru Wang. <i>VIS30K: A Collection of Figures and Tables from IEEE Visualization Conference Publications.</i> Submitted to IEEE Transactions on Visualization and Computer Graphics (submitted July 2020, under review).
-        
-        
-        
-        
-       
+        For dataset, please cite: <br> Jian Chen, Meng Ling, Rui Li, Petra Isenberg, Tobias Isenberg, Michael Sedlmair, Torsten Möller, Robert S. Laramee, Han-Wei Shen, Katharina Wünsche, and Qiru Wang. <i>VIS30K: A Collection of Figures and Tables from IEEE Visualization Conference Publications.</i>        Submitted to IEEE Transactions on Visualization and Computer Graphics (submitted July 2020, under review).
+
+
+
+
+
 
 
 
