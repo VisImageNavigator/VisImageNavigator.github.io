@@ -558,6 +558,9 @@ function presentUPPapers(paperData, totalCount) {
         let doi = paperData[paperIndex]['Paper DOI'];
         let year = paperData[paperIndex]['Year'];
         let firstPage = paperData[paperIndex]['Paper FirstPage'];
+        if (firstPage == 6666) {
+            firstPage = "";
+        }
         let lastPage = paperData[paperIndex]['Paper LastPage'];
         let paper_div_id = 'p-' + paperIndex;
         var paper_div = document.createElement("div");
