@@ -118,6 +118,41 @@ function filterDataByFigureType(data, type) {
     }
 }
 
+/**
+ * 
+ * @param {} data 
+ * @param {*} type 
+ */
+function filterDataByAlgoEquaType(data, type) {
+    if (type.length == 2) {
+        var filterData = data.filter(function(item) {
+            let boolean = parseInt(item['vis_type']) == 18 || parseInt(item['vis_type']) == 19;
+            return boolean;
+        });
+        return filterData;
+    } else if (type.length == 0) {
+        var filterData = data.filter(function(item) {
+            let boolean = parseInt(item['vis_type']) != 18 && parseInt(item['vis_type']) != 19;
+            return boolean;
+        });
+        return filterData;
+    } else if (type.length == 1) {
+        if (type[0] == 'Algorithm') {
+            var filterData = data.filter(function(item) {
+                let boolean = parseInt(item['vis_type']) == 18;
+                return boolean;
+            });
+            return filterData;
+        } else if (type[0] == 'Equation') {
+            var filterData = data.filter(function(item) {
+                let boolean = (parseInt(item['vis_type']) == 19);
+                return boolean;
+            });
+            return filterData;
+        }
+    }
+}
+
 
 /**
  * return conference subset

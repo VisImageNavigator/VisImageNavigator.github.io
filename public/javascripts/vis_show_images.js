@@ -293,7 +293,7 @@ function presentPaperCards(paperData, totalCount) {
 
     //debug_mode = 1: only keep 5 years
     //2: only keep first 10 papers
-    var DEBUG_MODE = 0;
+    var DEBUG_MODE = 5;
 
     if (DEBUG_MODE == 1) {
         Object.keys(paperData).forEach((year) => {

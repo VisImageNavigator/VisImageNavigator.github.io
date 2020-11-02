@@ -14,7 +14,7 @@ var G_KEYWORDS = null;
 var G_AUTHORS = null; //all authors
 var searchMode = 1; //1: keywords search, 2: word search (title and abstract)
 var ifAllImage = 1; //if all image are presented
-var visMode = 1; //1: image mode, 2: paper mode
+var visMode = 1; //1: image mode, 2: paper mode, 3: paper card mode
 var yearPageDic = {}; //store the page index of each year for images
 var yearPageDicPaper = {}; //store the 
 var currentKeywords = ''; //store the current keywords results
@@ -22,6 +22,7 @@ var currentYearRange = [1990, 2019]; //store the current year range
 var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
 var currentFigures = ['Figure', 'Table'];
 var currentAuthors = 'All';
+var currentAlgEquas = [];
 var img_per_page = 200;
 var paper_per_page = 20;
 var showCaption = 0; //if show figure with caption
@@ -131,8 +132,9 @@ async function dbStart() {
     //present images
     if (visMode == 1) {
         ifAllImage = 1;
-        var currentData = G_IMG_DATA.slice(img_per_page * 0, img_per_page * 1);
-        presentImg(currentData, 0, 0, 1, 0);
+        filterData();
+        //var currentData = G_IMG_DATA.slice(img_per_page * 0, img_per_page * 1);
+        //presentImg(currentData, 0, 0, 1, 0);
     } else if (visMode == 2) {
         ifAllImage = 0;
         let img_count = G_PAP_DATA.length;
@@ -252,7 +254,7 @@ async function dbStart() {
         filterData();
     });
 
-    //filter conferences
+    //filter tables and figures
     $('input[name="figureOptions"]').unbind('click').click(function() {});
     $('input[name="figureOptions"]').click(function() {
         let activeFigure = [];
@@ -274,6 +276,31 @@ async function dbStart() {
             $('#table-check-label').css('border', '1px solid #95a5a6');
         }
         currentFigures = activeFigure;
+        filterData();
+    });
+
+    //filter equations and algorithms
+    $('input[name="algoEquaOptions"]').unbind('click').click(function() {});
+    $('input[name="algoEquaOptions"]').click(function() {
+        let activeTags = [];
+        if ($('#algo-check').prop("checked")) {
+            $('#algo-check-label').css('background', '#34495e');
+            $('#algo-check-label').css('border', '0px');
+            activeTags.push('Algorithm');
+        } else {
+            $('#algo-check-label').css('background', '#fff');
+            $('#algo-check-label').css('border', '1px solid #95a5a6');
+        }
+
+        if ($('#equa-check').prop("checked")) {
+            $('#equa-check-label').css('background', '#34495e');
+            $('#equa-check-label').css('border', '0px');
+            activeTags.push('Equation');
+        } else {
+            $('#equa-check-label').css('background', '#fff');
+            $('#equa-check-label').css('border', '1px solid #95a5a6');
+        }
+        currentAlgEquas = activeTags;
         filterData();
     });
 
@@ -365,7 +392,6 @@ async function dbStart() {
  */
 function filterData() {
     console.log(currentYearRange, currentConferences, currentKeywords, currentAuthors, currentFigures);
-
     //update the interface
     if (visMode == 1) {
 
@@ -389,6 +415,7 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
+        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYear(data);
@@ -436,6 +463,7 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
+        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYearPaperMode(data);
@@ -483,6 +511,7 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
+        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYearPaperMode(data);
