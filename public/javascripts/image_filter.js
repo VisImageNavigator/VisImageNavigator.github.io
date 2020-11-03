@@ -6,7 +6,7 @@
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/image_filter.js
  */
 
-var figureIndex = [-1, 7, 8, 9, 10, 11, 12, 13, 14, 15, 50, 51, 100];
+var figureIndex = [-1, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 50, 51, 100];
 var tableIndex = [16];
 var algoIndex = [18];
 var equaIndex = [19];
