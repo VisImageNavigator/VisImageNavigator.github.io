@@ -322,7 +322,7 @@ function presentPaperCards(paperData, totalCount) {
     }
 
 
-    //console.log(paperData);
+    console.log(paperData);
 
     let years = Object.keys(paperData);
 

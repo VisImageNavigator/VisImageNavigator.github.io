@@ -6,6 +6,11 @@
  * @FilePath: /VisImageNavigator.github.io/public/javascripts/image_filter.js
  */
 
+var figureIndex = [-1, 7, 8, 9, 10, 11, 12, 13, 14, 15, 50, 51, 100];
+var tableIndex = [16];
+var algoIndex = [18];
+var equaIndex = [19];
+
 /**
  * find all keywords
  * @param data
@@ -93,29 +98,33 @@ function filterDataByAuthors(data, author) {
 
 /**
  * return a subset of datasets based on the given figure types
+ * Figure, Table, Algorithm (18), Equation
  * @param {*} data 
  * @param {*} type 
  */
 function filterDataByFigureType(data, type) {
-    if (type.length == 2) {
-        return data;
-    } else if (type.length == 0) {
-        return [];
-    } else if (type.length == 1) {
-        if (type[0] == 'Figure') {
-            var filterData = data.filter(function(item) {
-                let boolean = parseInt(item['vis_type']) != 16;
-                return boolean;
-            });
-            return filterData;
-        } else if (type[0] == 'Table') {
-            var filterData = data.filter(function(item) {
-                let boolean = (parseInt(item['vis_type']) == 16);
-                return boolean;
-            });
-            return filterData;
+
+    //create an array to store all types digits based on type
+    var typeList = [];
+    type.forEach((d, i) => {
+        if (d == "Figure") {
+            typeList = typeList.concat(figureIndex);
         }
-    }
+        if (d == "Table") {
+            typeList = typeList.concat(tableIndex);
+        }
+        if (d == "Algorithm") {
+            typeList = typeList.concat(algoIndex);
+        }
+        if (d == "Equation") {
+            typeList = typeList.concat(equaIndex);
+        }
+    });
+    //console.log(typeList);
+    var filterData = data.filter(function(item) {
+        return typeList.includes(parseInt(item['vis_type']));
+    });
+    return filterData;
 }
 
 /**

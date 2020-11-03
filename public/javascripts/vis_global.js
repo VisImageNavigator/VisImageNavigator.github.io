@@ -22,7 +22,6 @@ var currentYearRange = [1990, 2019]; //store the current year range
 var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
 var currentFigures = ['Figure', 'Table'];
 var currentAuthors = 'All';
-var currentAlgEquas = [];
 var img_per_page = 200;
 var paper_per_page = 20;
 var showCaption = 0; //if show figure with caption
@@ -275,34 +274,30 @@ async function dbStart() {
             $('#table-check-label').css('background', '#fff');
             $('#table-check-label').css('border', '1px solid #95a5a6');
         }
-        currentFigures = activeFigure;
-        filterData();
-    });
-
-    //filter equations and algorithms
-    $('input[name="algoEquaOptions"]').unbind('click').click(function() {});
-    $('input[name="algoEquaOptions"]').click(function() {
-        let activeTags = [];
+        //equations and algorithms
         if ($('#algo-check').prop("checked")) {
-            $('#algo-check-label').css('background', '#34495e');
+            $('#algo-check-label').css('background', '#359bd7');
             $('#algo-check-label').css('border', '0px');
-            activeTags.push('Algorithm');
+            activeFigure.push('Algorithm');
         } else {
             $('#algo-check-label').css('background', '#fff');
             $('#algo-check-label').css('border', '1px solid #95a5a6');
         }
 
         if ($('#equa-check').prop("checked")) {
-            $('#equa-check-label').css('background', '#34495e');
+            $('#equa-check-label').css('background', '#359bd7');
             $('#equa-check-label').css('border', '0px');
-            activeTags.push('Equation');
+            activeFigure.push('Equation');
         } else {
             $('#equa-check-label').css('background', '#fff');
             $('#equa-check-label').css('border', '1px solid #95a5a6');
         }
-        currentAlgEquas = activeTags;
+
+        currentFigures = activeFigure;
         filterData();
     });
+
+
 
     //determine if used caption version
     $('input[name="captionCheck"]').unbind('click').click(function() {});
@@ -415,7 +410,6 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
-        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYear(data);
@@ -463,7 +457,6 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
-        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYearPaperMode(data);
@@ -511,7 +504,6 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
-        data = filterDataByAlgoEquaType(data, currentAlgEquas);
 
         //create the scent data
         countImageByYearPaperMode(data);

@@ -1342,6 +1342,10 @@ div.card-title {
     font-size: 16px;
 }
 
+.card-vis-img {
+    background: #fff;
+}
+
 .card-pointer {
     height: 29px;
     position: relative;
