@@ -51,7 +51,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     });
 
     //set default height
-    var img_size = 100;
+    var img_size = 94;
 
     //show the images
     for (let i = 0; i < imgData.length; i++) {
@@ -63,7 +63,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             let img_height = imgData[i].sizeH;
             let asp = img_width / img_height; //aspect ratio
             let div_width = asp * img_size;
-            let actual_width = div_width - 6;
+            let actual_width = div_width;
             let conf = imgData[i]['Conference'];
             var sorted_score = null;
             if (showAnnotation == 1) {
@@ -76,7 +76,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             <div class="img-panel image-grid" id="img-grid-${i}-${imageID}" 
             style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
                 <div class="image-a" id="thumb${i}">
-                    <img class="vis-img" id="img-thumb-${i}-${imageID}" style="width:${actual_width}px; height:${img_size - 6}px" src = ${img_thumburl} alt="">
+                    <img class="vis-img" id="img-thumb-${i}-${imageID}" style="width:${actual_width}px; height:${img_size}px" src = ${img_thumburl} alt="">
                 </div>
             </div>  
             `;
