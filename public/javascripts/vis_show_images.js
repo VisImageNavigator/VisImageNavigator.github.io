@@ -382,7 +382,7 @@ function presentPaperCards(paperData, totalCount) {
     `;
         document.getElementById("timeline-container").appendChild(card_div);
 
-        for (let i = 1990; i < 2020; i++) {
+        for (let i = 1990; i < 2021; i++) {
             if (timelineStatus[year] == 1) {
                 $("#card-content-" + year).collapse('hide');
             }

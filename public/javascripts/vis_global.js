@@ -18,7 +18,7 @@ var visMode = 1; //1: image mode, 2: paper mode, 3: paper card mode
 var yearPageDic = {}; //store the page index of each year for images
 var yearPageDicPaper = {}; //store the 
 var currentKeywords = ''; //store the current keywords results
-var currentYearRange = [1990, 2019]; //store the current year range
+var currentYearRange = [1990, 2020]; //store the current year range
 var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
 var currentFigures = ['Figure', 'Table'];
 var currentAuthors = 'All';
@@ -323,7 +323,7 @@ async function dbStart() {
         type: "double",
         grid: true,
         min: '1990',
-        max: '2019',
+        max: '2020',
         step: 1,
         skin: "square",
         prettify: yearString,
@@ -488,6 +488,7 @@ function filterData() {
     } else if (visMode == 3) {
         //1. filtering data by conference
         var data = filterDataByConference(G_IMG_FULL_DATA, currentConferences);
+
         //2. filtering data by keywords, determine whether show year scent
         if (currentKeywords == '') {
             ifAllImage = 1;
@@ -513,6 +514,8 @@ function filterData() {
         let maxYear = currentYearRange[1];
         data = filterDataByYear(data, minYear, maxYear);
 
+
+
         //6. reset year index dictionary
         resetYearIndexDic(data);
         var paperData = extractPaperData(data);
@@ -525,6 +528,7 @@ function filterData() {
             r[a.Year] = [...r[a.Year] || [], a];
             return r;
         }, {});
+
         presentPaperCards(paperByYear, img_count);
     }
 
@@ -702,7 +706,7 @@ function stratifyPaperData(paperData) {
  * initialize global variables used in the program
  */
 function initializeGlobalVariables() {
-    for (let year = 1990; year < 2020; year++) {
+    for (let year = 1990; year < 2021; year++) {
         scentData[year] = 0;
         timelineStatus[year] = 0;
     }
@@ -712,7 +716,7 @@ function initializeGlobalVariables() {
  * when starting a new search, all status for timeline should be reset
  */
 function resetTimelineStatus() {
-    for (let year = 1990; year < 2020; year++) {
+    for (let year = 1990; year < 2021; year++) {
         timelineStatus[year] = 0;
     }
 }
