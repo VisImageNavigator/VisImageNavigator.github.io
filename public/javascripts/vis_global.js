@@ -99,6 +99,16 @@ async function dbStart() {
         }
     });
 
+    //press esc to close the paper details
+    $("body").keydown(function(e) {
+        // esc
+        if ((e.keyCode || e.which) == 27) {
+            var modal = document.getElementById('myModal');
+            modal.style.display = "none";
+        }
+
+    });
+
     btn.on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, '300');

@@ -834,7 +834,6 @@ function presentUPPapers(paperData, totalCount) {
         modal.style.display = "none";
     }
 
-    //left and right image event
 
     //show year scent
     showYearScent();
