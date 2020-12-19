@@ -1,9 +1,11 @@
 body {
-    /*padding: 50px;*/
-    /*background: #3c3b38;*/
-    /* background: #eaebeb; */
-    padding-top: 5rem;
+    /* padding-top: 5rem; */
+    /*for the stay version */
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+#mainNav {
+    margin-bottom: 18px;
 }
 
 .search-bar {
