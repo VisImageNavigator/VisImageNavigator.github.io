@@ -278,7 +278,7 @@ Page.prototype = {
         var label = document.createElement('label');
         label.className = "scroll-opt-label";
         label.htmlFor = "scroll-check";
-        label.appendChild(document.createTextNode(' fixed image position'));
+        label.appendChild(document.createTextNode(' fixed this pane'));
 
         span.appendChild(scroll_check);
         span.appendChild(label);
