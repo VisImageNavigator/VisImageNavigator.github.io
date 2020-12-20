@@ -27,7 +27,7 @@
     background-color: #F4F6F8;
 }
 
-.pagination  li.active {
+.pagination li.active {
     background: #98A6AD;
     color: white;
     cursor: not-allowed;
@@ -36,6 +36,7 @@
 .pagination li.disabled {
     cursor: not-allowed;
 }
+
 .pagination li.totalPage {
     background: transparent;
     cursor: default;
@@ -47,7 +48,6 @@
     transform: none;
     background-color: #ffffff;
 }
-
 
 .pagination li input {
     -webkit-appearance: none;
@@ -61,44 +61,45 @@
     font-size: inherit;
     outline: none;
     padding: 3px 5px;
-    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
     width: 40px;
     height: 25px;
     margin: 0 6px;
 }
 
-.pagination li input:focus{
+.pagination li input:focus {
     border-color: #98A6AD;
 }
-.pagination{
+
+.pagination {
     user-select: none;
 }
 
-.pagination ul:nth-child(2){
+.pagination ul:nth-child(2) {
     border-radius: 6px;
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-
-.pagination li.imageCountLi{
+.pagination li.imageCountLi {
     background: transparent;
     cursor: default;
     border: none;
     padding: 0 6px;
 }
+
 .pagination li.imageCountLi:hover {
     transform: none;
     background-color: #ffffff;
 }
-
 
 .pagination li select {
     /* -webkit-appearance: none; */
@@ -112,8 +113,25 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: inherit;
     outline: none;
     padding: 0px 5px;
-    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
     width: 80px;
     height: 29px;
     margin: 0 6px;
+}
+
+.scroll-opt-span {
+    font-size: 14px;
+    color: #606266;
+    padding: 0 6px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 28px;
+    line-height: 28px;
+    text-align: center;
+    height: 30px;
+}
+
+.scroll-opt-label {
+    margin-bottom: 0rem !important;
+    padding-left: 2px;
 }

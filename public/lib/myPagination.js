@@ -265,5 +265,59 @@ Page.prototype = {
         li3.className = 'totalPage';
         li3.id = 'totalPageText';
         this.ul.appendChild(li3);
+
+        //add radio box
+        var span = document.createElement('span');
+        span.className = "scroll-opt-span";
+        var scroll_check = document.createElement('input');
+        scroll_check.setAttribute("type", "checkbox");
+        scroll_check.id = "scroll-check";
+        scroll_check.name = "scroll-option";
+        scroll_check.value = "true";
+
+        var label = document.createElement('label');
+        label.className = "scroll-opt-label";
+        label.htmlFor = "scroll-check";
+        label.appendChild(document.createTextNode(' fixed image position'));
+
+        span.appendChild(scroll_check);
+        span.appendChild(label);
+        this.ul.appendChild(span);
+
+        //set the checkbox status
+        if (scrollMode == 1) {
+            scroll_check.checked = 0;
+        } else {
+            scroll_check.checked = 1;
+        }
+
+        scroll_check.addEventListener('click', event => {
+
+            if ($('#scroll-check').prop("checked")) {
+                scrollMode = 0;
+                //find the window size:
+                let bodyHeight = $(window).height();
+                //find the top position of the gallery
+                let imageGalleryTop = document.getElementById("image-gallery").offsetTop;
+                let maximumHeight = bodyHeight - imageGalleryTop - 10;
+                console.log($(window).height() - document.getElementById("image-gallery").offsetTop);
+                $("#image-gallery").css("overflow-y", "scroll");
+                $("#image-gallery").css("max-height", maximumHeight);
+                $("#image-gallery").css("border", "solid 0.5px #9aa6ad");
+
+
+            } else {
+                scrollMode = 1;
+                $("#image-gallery").css("overflow-y", "unset");
+                $("#image-gallery").css("border", "solid 0px #9aa6ad");
+                //console.log("0");
+            }
+
+        });
+
+        // this.ul.appendChild(scroll_check);
+        // this.ul.appendChild(label);
+
+
     }
 };

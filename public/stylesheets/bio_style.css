@@ -1,5 +1,5 @@
 body {
-    /* padding-top: 5rem; */
+    padding-top: 5rem;
     /*for the stay version */
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -179,6 +179,7 @@ body {
 }
 
 .paper-div {
+    padding-left: 20px;
     margin-bottom: 15px;
     width: 100%;
 }

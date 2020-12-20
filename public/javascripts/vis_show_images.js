@@ -130,7 +130,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
-        if (imgData[id]['Keywords Author'].replace(/,/g, '; ') == "") {
+        if (checkEmptyString(imgData[id]['Keywords Author'])) {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
         } else {
@@ -187,7 +187,7 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
-        if (imgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
+        if (checkEmptyString(imgData[gIndex]['Keywords Author'])) {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
         } else {
@@ -570,7 +570,7 @@ function presentUPPapers(paperData, totalCount) {
             <span class='paperAuthors'>Author(s): ${author}</span>
          */
         let keywordsClass = 'keywords-1';
-        if (keywords == '') {
+        if (checkEmptyString(keywords)) {
             keywords = 'none supplied';
             keywordsClass = 'keywords-0';
         }
@@ -744,7 +744,7 @@ function presentUPPapers(paperData, totalCount) {
             "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href", email_text);
-        if (imgDataDic[id]['Keywords Author'].replace(/,/g, '; ') == "") {
+        if (checkEmptyString(imgDataDic[id]['Keywords Author'])) {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
         } else {
@@ -801,7 +801,7 @@ function presentUPPapers(paperData, totalCount) {
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
         $("#email-btn").attr("href", email_text);
         //console.log(imgData[id]['Keywords Author'].replace(/,/g, '; ') == "");
-        if (paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ') == "") {
+        if (checkEmptyString(paperImgData[gIndex]['Keywords Author'])) {
             $("#keyword-info").css("color", "#99a6ad");
             keyword_info.innerHTML = "none supplied";
         } else {

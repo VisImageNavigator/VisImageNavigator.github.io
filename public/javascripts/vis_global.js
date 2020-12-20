@@ -25,6 +25,7 @@ var currentAuthors = 'All';
 var img_per_page = 200;
 var paper_per_page = 20;
 var showCaption = 0; //if show figure with caption
+var scrollMode = 1; //if used the scroll mode
 
 var confDic = {
     'Vis': '#FBAF3F',

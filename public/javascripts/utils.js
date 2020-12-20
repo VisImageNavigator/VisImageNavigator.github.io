@@ -155,3 +155,16 @@ function swapArrayString(arr) {
     }
     return arr;
 }
+
+/**
+ * check whether a string is empty or N/A
+ * @param {String} str 
+ */
+function checkEmptyString(str) {
+    if ((str.replace(/,/g, '; ') == "") || (str == "N/A") || (str == 'nan')) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
