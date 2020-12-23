@@ -461,7 +461,11 @@ function presentPaperCards(paperData, totalCount) {
             // console.log(imgData, height);
             for (let i = 0; i < imgData.length; i++) {
                 if ((imgData[i]['paperImageName'] != 'N/A') && (imgData[i]['url'] != "")) {
-
+                    if (parseInt(imgData[i]['vis_type']) == 19 || parseInt(imgData[i]['vis_type']) == 18) {
+                        cardImageSize = 10;
+                    } else {
+                        cardImageSize = 20;
+                    }
                     paperImgData.push(imgData[i]);
                     let img_thumburl = imgData[i].thumb_url;
                     let imageID = imgData[i].imageID;

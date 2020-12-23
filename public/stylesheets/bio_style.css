@@ -1494,7 +1494,7 @@ div.card-title {
 }
 
 .card-img-panel {
-    height: 20px;
+    /* height: 20px; */
     text-align: center;
     border-radius: 0.25rem;
     /* position: absolute;

@@ -315,8 +315,7 @@ Page.prototype = {
 
         });
 
-        // this.ul.appendChild(scroll_check);
-        // this.ul.appendChild(label);
+
 
 
     }

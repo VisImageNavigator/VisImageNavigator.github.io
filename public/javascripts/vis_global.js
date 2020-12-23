@@ -115,6 +115,17 @@ async function dbStart() {
         $('html, body').animate({ scrollTop: 0 }, '300');
     });
 
+    //detect if the window size changes
+    $(window).resize(function() {
+        if (scrollMode == 0) {
+            let bodyHeight = $(window).height();
+            //find the top position of the gallery
+            let imageGalleryTop = document.getElementById("image-gallery").offsetTop;
+            let maximumHeight = bodyHeight - imageGalleryTop - 10;
+            $("#image-gallery").css("max-height", maximumHeight);
+        }
+    });
+
 
 
     //set up multi-page interface
