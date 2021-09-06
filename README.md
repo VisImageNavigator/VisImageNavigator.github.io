@@ -7,5 +7,7 @@
  -->
 # visimagenavigator
 
+![](https://komarev.com/ghpvc/?username=VisImageNavigator)
+
 https://visimagenavigator.github.io/
 
