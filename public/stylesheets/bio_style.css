@@ -1575,3 +1575,13 @@ div.card-title {
     width: 100%;
     height: 600px;
 }
+
+#visitor-counts {
+    border-top: solid 1px #eb5247;
+    border-bottom: solid 1px #eb5247;
+    /* border-radius: 0.25rem; */
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 0.7rem;
+}
