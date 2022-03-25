@@ -128,6 +128,34 @@ function filterDataByFigureType(data, type) {
 }
 
 /**
+ * given the encoding type, filter the data
+ * the basic idea is for each data item, check if the encoding_type includes any of the selected types
+ * if there is no type selected, return the full dataset
+ * @param {*} data 
+ * @param {*} type 
+ */
+function filterDataByEncodingType(data, type){
+    if(type.length == 0){
+        return data;
+    }
+    var filterData = data.filter(function(item){
+        let isFlag = false;
+        if(item['check_encoding_type'] == 1){
+            for(let i = 0; i < type.length; i++){
+                if(item['encoding_type'].split(';').includes(type[i])){
+                    isFlag = true;
+                    break;
+                }
+            }
+        }
+        return isFlag;
+    });
+
+    return filterData;
+
+}
+
+/**
  * 
  * @param {} data 
  * @param {*} type 

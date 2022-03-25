@@ -14,7 +14,8 @@
     <link href="public/stylesheets/bio_style.css" rel="stylesheet">
     <link href="public/stylesheets/myPagination.css" rel="stylesheet">
     <link rel="stylesheet" href="public/stylesheets/ion.rangeSlider.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSVMXQL90D"></script>
@@ -53,9 +54,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark nav-bg-custom navbar-inverse fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <span class="orange-font">V</span><span class="black-font">IS</span><span class="orange-font">I</span><span class="black-font">mage</span><span class="orange-font">N</span><span class="black-font">avigator</span>
+                <span class="orange-font">V</span><span class="black-font">IS</span><span
+                    class="orange-font">I</span><span class="black-font">mage</span><span
+                    class="orange-font">N</span><span class="black-font">avigator</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -92,21 +96,26 @@
                     <select class="selectpicker" id="searchModeSelect">
                         <option value="1">in paper authors' keywords</option>
                         <option value="2">in title & abstract</option>
-                      </select>&nbsp;&nbsp;
+                    </select>&nbsp;&nbsp;
 
                     <div class="autocomplete">
-                        <input id="search-box" type="text" class="form-control search_input" placeholder="e.g. biomedical">
+                        <input id="search-box" type="text" class="form-control search_input"
+                            placeholder="e.g. biomedical">
                     </div>
 
                     <!--        <input id="search-box" type="text" class="form-control search_input" placeholder="e.g. biomedical">&nbsp;&nbsp;&nbsp;&nbsp;-->
                     <button type="button" id="search-btn" class="btn btn-success">Submit</button>&nbsp;&nbsp;&nbsp;
                     <!--  -->
                     <form class="form-inline justify-content-center">
-                        -&nbsp;<input type="range" id="image-size-slider" data-toggle="tooltip" data-html="true" title="change figure size" class="custom-range" value="25" min="12" max="100" />+
+                        -&nbsp;<input type="range" id="image-size-slider" data-toggle="tooltip" data-html="true"
+                            title="change figure size" class="custom-range" value="25" min="12" max="100" />+
                     </form>
-                    <img src="public/images/brick.png" class="mode-icon" id="image-mode" data-toggle="tooltip" data-html="true" title="Figure view"> &nbsp;&nbsp;
-                    <img src="public/images/card.png" class="mode-icon" id="card-mode" data-toggle="tooltip" data-html="true" title="Paper Card view"> &nbsp;&nbsp;
-                    <img src="public/images/list.png" class="mode-icon" id="paper-mode" data-toggle="tooltip" data-html="true" title="Paper view"> &nbsp;&nbsp;
+                    <img src="public/images/brick.png" class="mode-icon" id="image-mode" data-toggle="tooltip"
+                        data-html="true" title="Figure view"> &nbsp;&nbsp;
+                    <img src="public/images/card.png" class="mode-icon" id="card-mode" data-toggle="tooltip"
+                        data-html="true" title="Paper Card view"> &nbsp;&nbsp;
+                    <img src="public/images/list.png" class="mode-icon" id="paper-mode" data-toggle="tooltip"
+                        data-html="true" title="Paper view"> &nbsp;&nbsp;
 
                     <!-- <div class="squaredThree">
                         <input type="checkbox" name="captionCheck" id="caption-check" value="other">
@@ -132,31 +141,7 @@
 
             </div>
             <div class="col-10">
-                <!-- <div class="filter justify-content-center form-inline">
-                    
-                    <label>Sort by:</label> &nbsp;&nbsp;
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Year
-                        </button>&nbsp;&nbsp;
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Year</a>
-                            
-                        </div>
-                    </div>
-                    <label>Colored by:</label>&nbsp;&nbsp;
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Conference
-                        </button>&nbsp;&nbsp;
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Conference</a>
-                            
-                        </div>
-                    </div>
-                </div> -->
+
                 <div class="row">
                     <div class="col-12">
                         <div class="conf-legend-div form-inline">
@@ -169,45 +154,150 @@
                             <!-- <select id="authors"></select> -->
                             <div class="squaredThree">
                                 <input type="checkbox" name="visOptions" id="vis-check" value="Vis" checked>
-                                <label for="vis-check" id="vis-check-label" style="background-color: #FBAF3F" ;></label> &nbsp;Vis
+                                <label for="vis-check" id="vis-check-label" style="background-color: #FBAF3F" ;></label>
+                                &nbsp;Vis
                             </div>
                             <div class="squaredThree">
                                 <input type="checkbox" name="visOptions" id="scivis-check" value="other" checked>
-                                <label for="scivis-check" id="scivis-check-label" style="background-color: #1B75BB;"></label> &nbsp;SciVis
+                                <label for="scivis-check" id="scivis-check-label"
+                                    style="background-color: #1B75BB;"></label> &nbsp;SciVis
                             </div>
                             <div class="squaredThree">
                                 <input type="checkbox" name="visOptions" id="infovis-check" value="other" checked>
-                                <label for="infovis-check" id="infovis-check-label" style="background-color: #EF4036;"></label> &nbsp;InfoVis
+                                <label for="infovis-check" id="infovis-check-label"
+                                    style="background-color: #EF4036;"></label> &nbsp;InfoVis
                             </div>
                             <div class="squaredThree">
                                 <input type="checkbox" name="visOptions" id="vast-check" value="other" checked>
-                                <label for="vast-check" id="vast-check-label" style="background-color: #38B449;"></label> &nbsp;VAST
+                                <label for="vast-check" id="vast-check-label"
+                                    style="background-color: #38B449;"></label> &nbsp;VAST
                             </div>
                             <div id="year-slider" style="width: 24rem; padding-left: 40px; z-index: 5;">
                                 <input type="text" class="js-range-slider" name="my_range" value="" />
-                            </div>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div class="squaredThree">
-                                <input type="checkbox" name="figureOptions" id="figure-check" value="other" checked>
-                                <label for="figure-check" id="figure-check-label" style="background-color: #359bd7;" ;></label> &nbsp;Figure(s)
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" name="figureOptions" id="table-check" value="other" checked>
-                                <label for="table-check" id="table-check-label" style="background-color: #359bd7;" ;></label> &nbsp;Table(s)
-                            </div>
-                            <!-- used for algorithms and equations -->
-                            <div class="squaredThree">
-                                <input type="checkbox" name="figureOptions" id="algo-check" value="other">
-                                <label for="algo-check" id="algo-check-label" style="background-color: #fff;border: 1px solid #95a5a6;" ;></label> &nbsp;Algorithms(s)
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" name="figureOptions" id="equa-check" value="other">
-                                <label for="equa-check" id="equa-check-label" style="background-color: #fff;border: 1px solid #95a5a6;" ;></label> &nbsp;Equations(s)
-                            </div>
+
+
 
                             <!-- &nbsp;&nbsp;&nbsp;&nbsp; -->
 
 
 
+
+                        </div>
+
+
+                        <div class="figure-type-div form-inline">
+                            Image type(s):&nbsp;&nbsp;
+                            <div class="squaredThree">
+                                <input type="checkbox" name="figureOptions" id="figure-check" value="other" checked>
+                                <label for="figure-check" id="figure-check-label" style="background-color: #359bd7;"
+                                    ;></label> &nbsp;Figure(s)
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" name="figureOptions" id="table-check" value="other" checked>
+                                <label for="table-check" id="table-check-label" style="background-color: #359bd7;"
+                                    ;></label> &nbsp;Table(s)
+                            </div>
+                            <!-- used for algorithms and equations -->
+                            <div class="squaredThree">
+                                <input type="checkbox" name="figureOptions" id="algo-check" value="other">
+                                <label for="algo-check" id="algo-check-label"
+                                    style="background-color: #fff;border: 1px solid #95a5a6;" ;></label>
+                                &nbsp;Algorithms(s)
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" name="figureOptions" id="equa-check" value="other">
+                                <label for="equa-check" id="equa-check-label"
+                                    style="background-color: #fff;border: 1px solid #95a5a6;" ;></label>
+                                &nbsp;Equations(s)
+                            </div>
+                        </div>
+
+                        <div class="rendering-type-div form-inline">
+                            Encoding / rendering technique(s):&nbsp;&nbsp;
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="bar-check"
+                                    value="bar">
+                                <label for="bar-check" id="bar-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="bar-icon" data-toggle="tooltip" data-html="true"
+                                    title="Generalized Bar Chart" src="public/images/icons/bar-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="point-check"
+                                    value="point">
+                                <label for="point-check" id="point-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="point-icon" data-toggle="tooltip" data-html="true"
+                                        title="Point-based Techniques" src="public/images/icons/scatter-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="point-check"
+                                    value="point">
+                                <label for="point-check" id="point-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="point-icon" data-toggle="tooltip" data-html="true"
+                                        title="Point-based Techniques" src="public/images/icons/scatter-0.png" />
+                                </label> &nbsp;
+                            </div>
+
+                            <!-- <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="point-check" value="point">
+                                <label for="point-check" id="point-check-label" class="unselected-flat"></label> &nbsp;Point
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="line-check" value="line">
+                                <label for="line-check" id="line-check-label" class="unselected-flat"></label> &nbsp;Line
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="node-link-check" value="node-link">
+                                <label for="node-link-check" id="node-link-check-label" class="unselected-flat"></label> &nbsp;Node-link
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="area-check" value="area">
+                                <label for="area-check" id="area-check-label" class="unselected-flat"></label> &nbsp;Area
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="surface-volume-check" value="surface-volume">
+                                <label for="surface-volume-check" id="surface-volume-check-label" class="unselected-flat"></label> &nbsp;Surface-Volume
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="grid-check" value="grid">
+                                <label for="grid-check" id="grid-check-label" class="unselected-flat"></label> &nbsp;Grid
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="glyph-check" value="glyph">
+                                <label for="glyph-check" id="glyph-check-label" class="unselected-flat"></label> &nbsp;Glyph
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="schematic-check" value="schematic">
+                                <label for="schematic-check" id="schematic-check-label" class="unselected-flat"></label> &nbsp;Schematic
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="gui-check" value="gui">
+                                <label for="gui-check" id="gui-check-label" class="unselected-flat"></label> &nbsp;GUI
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="pattern-check" value="pattern">
+                                <label for="pattern-check" id="pattern-check-label" class="unselected-flat"></label> &nbsp;Pattern
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="text-check" value="text">
+                                <label for="text-check" id="text-check-label" class="unselected-flat"></label> &nbsp;Text
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="color-check" value="color">
+                                <label for="color-check" id="color-check-label" class="unselected-flat"></label> &nbsp;Color
+                            </div>
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="others-check" value="others">
+                                <label for="others-check" id="others-check-label" class="unselected-flat"></label> &nbsp;Others
+                            </div>
+
+                            <div class="squaredThree">
+                                <input type="checkbox" class="encodingTypeAll" name="encodingTypeAll" id="encoding-all" value="">
+                                <label for="encoding-all" id="encoding-all-label" class="unselected-dark"></label> &nbsp;
+                                <span id="encoding-selectall-span">Select all</span>
+                            </div> -->
 
                         </div>
 
@@ -220,8 +310,11 @@
                 <hr>
                 <div class="row">
                     <div class="col-12 gray-font" style="font-size:0.5rem;">
-                        © 2020 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained for all other uses, in any current or future media, including reprinting/republishing this material for advertising or promotional purposes, creating new collective
-                        works, for resale or redistribution to servers or lists, or reuse of any copyrighted component of this work in other works.
+                        © 2020 IEEE. Personal use of this material is permitted. Permission from IEEE must be obtained
+                        for all other uses, in any current or future media, including reprinting/republishing this
+                        material for advertising or promotional purposes, creating new collective
+                        works, for resale or redistribution to servers or lists, or reuse of any copyrighted component
+                        of this work in other works.
                     </div>
                 </div>
 
@@ -303,9 +396,12 @@
                             <span class="blue-font">Year: </span><span id="year-info" class="caption"></span><br>
                             <span class="blue-font">Paper URL : </span>
                             <a id="link-info" class="caption" target="blank"></a><br>
-                            <span class="blue-font">Paper Type: </span><span id="paper-type-info" class="caption"></span><br>
-                            <span class="blue-font">Author Keywords: </span><span id="keyword-info" class="caption"></span><br>
-                            <span class="gray-font">Imagename: </span><span id="imagename-info" class="caption"></span><br>
+                            <span class="blue-font">Paper Type: </span><span id="paper-type-info"
+                                class="caption"></span><br>
+                            <span class="blue-font">Author Keywords: </span><span id="keyword-info"
+                                class="caption"></span><br>
+                            <span class="gray-font">Imagename: </span><span id="imagename-info"
+                                class="caption"></span><br>
                             <a id="email-btn" href=""><button class="btn btn-secondary btn-sm">Update this
                                     image</button></a>
                             <!-- <input type="submit" class="btn btn-secondary btn-sm" id="mail-submit" value="Report Image Error"></button>
@@ -321,7 +417,8 @@
                         <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-previous">
                             < </button>
 
-                        <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-next">></button>
+                                <button class="btn btn-light" style="left: 60%; position: relative;"
+                                    id="modal-next">></button>
                     </div>
                 </div>
             </div>
@@ -345,7 +442,7 @@
     <!--<footer>-->
     <!--    -->
     <!--</footer>-->
-
+    <script type="text/javascript" src="public/javascripts/constant.js"></script>
     <script type="text/javascript" src="public/javascripts/vis_global.js"></script>
     <script type="text/javascript" src="public/javascripts/utils.js"></script>
     <script type="text/javascript" src="public/javascripts/image_filter.js"></script>
