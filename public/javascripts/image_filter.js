@@ -140,7 +140,7 @@ function filterDataByEncodingType(data, type){
     }
     var filterData = data.filter(function(item){
         let isFlag = false;
-        if(item['check_encoding_type'] == 1){
+        if(parseInt(item['check_encoding_type']) == 1){
             for(let i = 0; i < type.length; i++){
                 if(item['encoding_type'].split(';').includes(type[i])){
                     isFlag = true;
@@ -150,9 +150,64 @@ function filterDataByEncodingType(data, type){
         }
         return isFlag;
     });
-
     return filterData;
+}
 
+function filterDataByDimensions(data, type){
+    if(type.length == 0){
+        return data;
+    }
+    var filterData = data.filter(function(item){
+        let isFlag = false;
+        if(parseInt(item['check_dim_type']) == 1){
+            for(let i = 0; i < type.length; i++){
+                if(item['dim_type'].split(';').includes(type[i])){
+                    isFlag = true;
+                    break;
+                }
+            }
+        }
+        return isFlag;
+    });
+    return filterData;
+}
+
+function filterDataByComposition(data, type){
+    if(type.length == 0){
+        return data;
+    }
+    var filterData = data.filter(function(item){
+        let isFlag = false;
+        if(parseInt(item['check_comp_type']) == 1){
+            for(let i = 0; i < type.length; i++){
+                if(item['comp_type'].split(';').includes(type[i])){
+                    isFlag = true;
+                    break;
+                }
+            }
+        }
+        return isFlag;
+    });
+    return filterData;
+}
+
+function filterDataByNest(data, type){
+    if(type.length == 0){
+        return data;
+    }
+    var filterData = data.filter(function(item){
+        let isFlag = false;
+        if(parseInt(item['check_nest_type']) == 1){
+            for(let i = 0; i < type.length; i++){
+                if(item['nest_type'].split(';').includes(type[i])){
+                    isFlag = true;
+                    break;
+                }
+            }
+        }
+        return isFlag;
+    });
+    return filterData;
 }
 
 /**

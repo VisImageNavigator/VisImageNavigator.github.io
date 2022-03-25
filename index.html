@@ -232,73 +232,200 @@
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="point-check"
-                                    value="point">
-                                <label for="point-check" id="point-check-label" class="unselected-flat">
-                                    <img class="coding-icon" id="point-icon" data-toggle="tooltip" data-html="true"
-                                        title="Point-based Techniques" src="public/images/icons/scatter-0.png" />
+                                <input type="checkbox" class="encodingType" name="encodingType" id="line-check"
+                                    value="line">
+                                <label for="line-check" id="line-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="line-icon" data-toggle="tooltip" data-html="true"
+                                        title="Line-based Visualization" src="public/images/icons/line-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="node-link-check"
+                                    value="node-link">
+                                <label for="node-link-check" id="node-link-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="node-link-icon" data-toggle="tooltip" data-html="true"
+                                        title="Node-link Trees/Graphs, and Networks, Meshes" src="public/images/icons/nodelinkcir-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="area-check"
+                                    value="area">
+                                <label for="area-check" id="area-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="area-icon" data-toggle="tooltip" data-html="true"
+                                        title="Generalized Area Chart" src="public/images/icons/area-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="surface-volume-check"
+                                    value="surface-volume">
+                                <label for="surface-volume-check" id="surface-volume-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="surface-volume-icon" data-toggle="tooltip" data-html="true"
+                                        title="Surface-based Techniques & Volumes" src="public/images/icons/surface-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="grid-check"
+                                    value="grid">
+                                <label for="grid-check" id="grid-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="grid-icon" data-toggle="tooltip" data-html="true"
+                                        title="Generalized Matrix / Grid" src="public/images/icons/matrix-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="glyph-check"
+                                    value="glyph">
+                                <label for="glyph-check" id="glyph-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="glyph-icon" data-toggle="tooltip" data-html="true"
+                                        title="Glyph-based Techniques" src="public/images/icons/glyph-0.png" />
                                 </label> &nbsp;
                             </div>
 
-                            <!-- <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="point-check" value="point">
-                                <label for="point-check" id="point-check-label" class="unselected-flat"></label> &nbsp;Point
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="schematic-check"
+                                    value="schematic">
+                                <label for="schematic-check" id="schematic-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="schematic-icon" data-toggle="tooltip" data-html="true"
+                                        title="Schematic rep., sche. imgs., sche. concept illu." 
+                                        src="public/images/icons/flowchart-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="line-check" value="line">
-                                <label for="line-check" id="line-check-label" class="unselected-flat"></label> &nbsp;Line
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="gui-check"
+                                    value="gui">
+                                <label for="gui-check" id="gui-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="gui-icon" data-toggle="tooltip" data-html="true"
+                                        title="GUI (Screenshots) / User Interface Depiction
+                                        " src="public/images/icons/GUI-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="node-link-check" value="node-link">
-                                <label for="node-link-check" id="node-link-check-label" class="unselected-flat"></label> &nbsp;Node-link
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="pattern-check"
+                                    value="pattern">
+                                <label for="pattern-check" id="pattern-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="pattern-icon" data-toggle="tooltip" data-html="true"
+                                        title="Continuous-pattern-based Visualization" src="public/images/icons/continuous-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="area-check" value="area">
-                                <label for="area-check" id="area-check-label" class="unselected-flat"></label> &nbsp;Area
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="text-check"
+                                    value="text">
+                                <label for="text-check" id="text-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="text-icon" data-toggle="tooltip" data-html="true"
+                                        title="Text-based Encoding" src="public/images/icons/text-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="surface-volume-check" value="surface-volume">
-                                <label for="surface-volume-check" id="surface-volume-check-label" class="unselected-flat"></label> &nbsp;Surface-Volume
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="color-check"
+                                    value="color">
+                                <label for="color-check" id="color-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="color-icon" data-toggle="tooltip" data-html="true"
+                                        title="Continuous color-based encoding" src="public/images/icons/color-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="grid-check" value="grid">
-                                <label for="grid-check" id="grid-check-label" class="unselected-flat"></label> &nbsp;Grid
+                            <div class="codingType">
+                                <input type="checkbox" class="encodingType" name="encodingType" id="others-check"
+                                    value="others">
+                                <label for="others-check" id="others-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="others-icon" data-toggle="tooltip" data-html="true"
+                                        title="Others" src="public/images/icons/cannottell-0.png" />
+                                </label> &nbsp;
                             </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="glyph-check" value="glyph">
-                                <label for="glyph-check" id="glyph-check-label" class="unselected-flat"></label> &nbsp;Glyph
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="schematic-check" value="schematic">
-                                <label for="schematic-check" id="schematic-check-label" class="unselected-flat"></label> &nbsp;Schematic
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="gui-check" value="gui">
-                                <label for="gui-check" id="gui-check-label" class="unselected-flat"></label> &nbsp;GUI
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="pattern-check" value="pattern">
-                                <label for="pattern-check" id="pattern-check-label" class="unselected-flat"></label> &nbsp;Pattern
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="text-check" value="text">
-                                <label for="text-check" id="text-check-label" class="unselected-flat"></label> &nbsp;Text
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="color-check" value="color">
-                                <label for="color-check" id="color-check-label" class="unselected-flat"></label> &nbsp;Color
-                            </div>
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="others-check" value="others">
-                                <label for="others-check" id="others-check-label" class="unselected-flat"></label> &nbsp;Others
-                            </div>
+                        </div>
 
-                            <div class="squaredThree">
-                                <input type="checkbox" class="encodingTypeAll" name="encodingTypeAll" id="encoding-all" value="">
-                                <label for="encoding-all" id="encoding-all-label" class="unselected-dark"></label> &nbsp;
-                                <span id="encoding-selectall-span">Select all</span>
-                            </div> -->
+                        <div class="rendering-type-div form-inline">
+                            Dimensionality of the rendering:&nbsp;&nbsp;
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="2d-check"
+                                    value="2d">
+                                <label for="2d-check" id="2d-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="2d-icon" data-toggle="tooltip" data-html="true"
+                                    title="2D" src="public/images/icons/2D-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="3d-check"
+                                    value="3d">
+                                <label for="3d-check" id="3d-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="3d-icon" data-toggle="tooltip" data-html="true"
+                                    title="3D" src="public/images/icons/3D-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="othersdim-check"
+                                    value="othersdim">
+                                <label for="othersdim-check" id="othersdim-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="othersdim-icon" data-toggle="tooltip" data-html="true"
+                                        title="I cannot tell" src="public/images/icons/cannottell-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            
+                        </div>
 
+                        <div class="rendering-type-div form-inline">
+                            Multiple composite / views (juxtaposition):&nbsp;&nbsp;
+                            <div class="codingType">
+                                <input type="checkbox" class="compType" name="compType" id="manual-check"
+                                    value="manual">
+                                <label for="manual-check" id="manual-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="manual-icon" data-toggle="tooltip" data-html="true"
+                                    title="Yes, manually-arranged" src="public/images/icons/yes-manu-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="compType" name="compType" id="machine-check"
+                                    value="machine">
+                                <label for="machine-check" id="machine-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="machine-icon" data-toggle="tooltip" data-html="true"
+                                    title="Yes, machine-arranged" src="public/images/icons/yes-mach-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="compType" name="compType" id="onevis-check"
+                                    value="onevis">
+                                <label for="onevis-check" id="onevis-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="onevis-icon" data-toggle="tooltip" data-html="true"
+                                    title="No (just one vis)" src="public/images/icons/one-vis-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="compType" name="compType" id="otherscomp-check"
+                                    value="otherscomp">
+                                <label for="otherscomp-check" id="otherscomp-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="otherscomp-icon" data-toggle="tooltip" data-html="true"
+                                        title="I cannot tell" src="public/images/icons/cannottell-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            
+                        </div>
+
+                        <div class="rendering-type-div form-inline">
+                            Multiple nested or layered visualization :&nbsp;&nbsp;
+                            <div class="codingType">
+                                <input type="checkbox" class="nestType" name="nestType" id="no-check"
+                                    value="no">
+                                <label for="no-check" id="no-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="no-icon" data-toggle="tooltip" data-html="true"
+                                    title="No" src="public/images/icons/comp-n-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="nestType" name="nestType" id="yes-check"
+                                    value="yes">
+                                <label for="yes-check" id="yes-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="yes-icon" data-toggle="tooltip" data-html="true"
+                                    title="Yes" src="public/images/icons/comp-y-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="nestType" name="nestType" id="maybe-check"
+                                    value="maybe">
+                                <label for="maybe-check" id="maybe-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="maybe-icon" data-toggle="tooltip" data-html="true"
+                                    title="Maybe" src="public/images/icons/maybe-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            
+                            
                         </div>
 
                     </div>

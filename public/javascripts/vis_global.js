@@ -26,6 +26,10 @@ var currentFigures = ['Figure', 'Table'];
 //     'schematic', 'gui', 'pattern', 'text',
 //     'color', 'others'];
 var currentEncodingTypes = [];
+var currentDimTypes = [];
+var currentCompositeTypes = [];
+var currentNestTypes = [];
+
 var currentAuthors = 'All';
 var img_per_page = 200;
 var paper_per_page = 20;
@@ -345,39 +349,100 @@ async function dbStart() {
         filterData();
     });
 
-    $('input[name="encodingTypeAll"]').unbind('click').click(function () { });
-    $('input[name="encodingTypeAll"]').click(function () {
-
-        if ($(this).is(":checked")) {
-            $('#encoding-all-label').attr('class', 'selected-dark');
-            currentEncodingTypes = ['bar', 'point', 'line', 'node-link',
-                'area', 'surface-volume', 'grid', 'glyph',
-                'schematic', 'gui', 'pattern', 'text',
-                'color', 'others'];
-            $('.encodingType').each(function () {
-                let value = this.value;
-                $('#' + value + '-check').prop('checked', true);
+    $('input[name="dimType"]').unbind('click').click(function () { });
+    $('input[name="dimType"]').click(function () {
+        let activeDimType = [];
+        $('.dimType').each(function () {
+            let value = this.value;
+            if ($('#' + value + '-check').is(":checked")) {
+                activeDimType.push(value);
                 $('#' + value + '-check-label').attr('class', 'selected-flat');
-            });
-            $('#encoding-selectall-span').html("Unselect all");
-            filterData();
-        }
-        else {
-            $('#encoding-all-label').attr('class', 'unselected-dark');
-            currentEncodingTypes = [];
-            $('.encodingType').each(function () {
-                let value = this.value;
-                $('#' + value + '-check').prop('checked', false);
+                $('#' + value + '-icon').attr('src', iconsAcUrlDic[value]);
+            }
+            else {
                 $('#' + value + '-check-label').attr('class', 'unselected-flat');
-            });
-            $('#encoding-selectall-span').html("Select all");
-            filterData();
-        }
+                $('#' + value + '-icon').attr('src', iconsUrlDic[value]);
+            }
+        });
+        currentDimTypes = activeDimType;
+        //console.log(currentDimTypes);
+        filterData();
     });
+
+    $('input[name="compType"]').unbind('click').click(function () { });
+    $('input[name="compType"]').click(function () {
+        let activeCompType = [];
+        $('.compType').each(function () {
+            let value = this.value;
+            if ($('#' + value + '-check').is(":checked")) {
+                activeCompType.push(value);
+                $('#' + value + '-check-label').attr('class', 'selected-flat');
+                $('#' + value + '-icon').attr('src', iconsAcUrlDic[value]);
+            }
+            else {
+                $('#' + value + '-check-label').attr('class', 'unselected-flat');
+                $('#' + value + '-icon').attr('src', iconsUrlDic[value]);
+            }
+        });
+        currentCompositeTypes = activeCompType;
+        //console.log(currentCompositeTypes);
+        filterData();
+    });
+
+    $('input[name="nestType"]').unbind('click').click(function () { });
+    $('input[name="nestType"]').click(function () {
+        let activeNestType = [];
+        $('.nestType').each(function () {
+            let value = this.value;
+            if ($('#' + value + '-check').is(":checked")) {
+                activeNestType.push(value);
+                $('#' + value + '-check-label').attr('class', 'selected-flat');
+                $('#' + value + '-icon').attr('src', iconsAcUrlDic[value]);
+            }
+            else {
+                $('#' + value + '-check-label').attr('class', 'unselected-flat');
+                $('#' + value + '-icon').attr('src', iconsUrlDic[value]);
+            }
+        });
+        currentNestTypes = activeNestType;
+        //console.log(currentNestTypes);
+        filterData();
+    });
+
+    // $('input[name="encodingTypeAll"]').unbind('click').click(function () { });
+    // $('input[name="encodingTypeAll"]').click(function () {
+
+    //     if ($(this).is(":checked")) {
+    //         $('#encoding-all-label').attr('class', 'selected-dark');
+    //         currentEncodingTypes = ['bar', 'point', 'line', 'node-link',
+    //             'area', 'surface-volume', 'grid', 'glyph',
+    //             'schematic', 'gui', 'pattern', 'text',
+    //             'color', 'others'];
+    //         $('.encodingType').each(function () {
+    //             let value = this.value;
+    //             $('#' + value + '-check').prop('checked', true);
+    //             $('#' + value + '-check-label').attr('class', 'selected-flat');
+    //         });
+    //         $('#encoding-selectall-span').html("Unselect all");
+    //         filterData();
+    //     }
+    //     else {
+    //         $('#encoding-all-label').attr('class', 'unselected-dark');
+    //         currentEncodingTypes = [];
+    //         $('.encodingType').each(function () {
+    //             let value = this.value;
+    //             $('#' + value + '-check').prop('checked', false);
+    //             $('#' + value + '-check-label').attr('class', 'unselected-flat');
+    //         });
+    //         $('#encoding-selectall-span').html("Select all");
+    //         filterData();
+    //     }
+    // });
 
 
 
     //determine if used caption version
+    
     $('input[name="captionCheck"]').unbind('click').click(function () { });
     $('input[name="captionCheck"]').click(function () {
         if ($('#caption-check').prop("checked")) {
@@ -490,6 +555,9 @@ function filterData() {
         data = filterDataByFigureType(data, currentFigures);
 
         data = filterDataByEncodingType(data, currentEncodingTypes);
+        data = filterDataByDimensions(data, currentDimTypes);
+        data = filterDataByComposition(data, currentCompositeTypes);
+        data = filterDataByNest(data, currentNestTypes);
 
         //create the scent data
         countImageByYear(data);
