@@ -12,18 +12,7 @@ const iconsUrlDic = {
     'pattern': 'public/images/icons/continuous-0.png',
     'text': 'public/images/icons/text-0.png',
     'color': 'public/images/icons/color-0.png',
-    'others': 'public/images/icons/cannottell-0.png',
-    '2d': 'public/images/icons/2D-0.png',
-    '3d': 'public/images/icons/3D-0.png',
-    'othersdim': 'public/images/icons/cannottell-0.png',
-    'manual':'public/images/icons/yes-manu-0.png',
-    'machine':'public/images/icons/yes-mach-0.png',
-    'onevis':'public/images/icons/one-vis-0.png',
-    'otherscomp':'public/images/icons/cannottell-0.png',
-    'manual':'public/images/icons/yes-manu-0.png',
-    'yes':'public/images/icons/comp-y-0.png',
-    'no':'public/images/icons/comp-n-0.png',
-    'maybe':'public/images/icons/maybe-0.png'
+    'others': 'public/images/icons/other-0.png',
 };
 
 const iconsAcUrlDic = {
@@ -40,15 +29,5 @@ const iconsAcUrlDic = {
     'pattern': 'public/images/icons/continuous-1.png',
     'text': 'public/images/icons/text-1.png',
     'color': 'public/images/icons/color-1.png',
-    'others': 'public/images/icons/cannottell-1.png',
-    '2d': 'public/images/icons/2D-1.png',
-    '3d': 'public/images/icons/3D-1.png',
-    'othersdim': 'public/images/icons/cannottell-1.png',
-    'manual':'public/images/icons/yes-manu-1.png',
-    'machine':'public/images/icons/yes-mach-1.png',
-    'onevis':'public/images/icons/one-vis-1.png',
-    'otherscomp':'public/images/icons/cannottell-1.png',
-    'yes':'public/images/icons/comp-y-1.png',
-    'no':'public/images/icons/comp-n-1.png',
-    'maybe':'public/images/icons/maybe-1.png'
+    'others': 'public/images/icons/other-1.png',
 };
