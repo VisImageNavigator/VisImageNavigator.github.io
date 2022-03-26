@@ -560,6 +560,8 @@ input[type=submit] {
 
 
 /* end .squaredThree */
+
+/* codingType */
 .codingType {
     position: relative;
     float: left;
@@ -568,7 +570,6 @@ input[type=submit] {
     margin-right: 10px;
 }
 
-/* codingType */
 .codingType input[type=checkbox] {
     visibility: hidden;
 }
@@ -590,6 +591,41 @@ input[type=submit] {
     width: 24px;
     position: absolute;
 }
+
+/* codingType ends */
+
+.radioIcon {
+    position: relative;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+/* radioIcon */
+.radioIcon input[type=radio] {
+    visibility: hidden;
+}
+
+.radioIcon input[type=radio]+label {
+    background: #fff;
+    height: 28px;
+    width: 28px;
+    top: 0px;
+    display: inline-block;
+    padding: 0 0 0 0px;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+
+.radioIcon .mode-icon{
+    height: 24px;
+    width: 24px;
+    position: absolute;
+}
+
+/* radioIcon ends */
 
 
 .label-text {

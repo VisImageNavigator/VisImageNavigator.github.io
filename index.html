@@ -220,7 +220,7 @@
                                     value="bar">
                                 <label for="bar-check" id="bar-check-label" class="unselected-flat">
                                     <img class="coding-icon" id="bar-icon" data-toggle="tooltip" data-html="true"
-                                    title="Generalized Bar Chart" src="public/images/icons/bar-0.png" />
+                                        title="Generalized Bar Chart" src="public/images/icons/bar-0.png" />
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
@@ -244,7 +244,8 @@
                                     value="node-link">
                                 <label for="node-link-check" id="node-link-check-label" class="unselected-flat">
                                     <img class="coding-icon" id="node-link-icon" data-toggle="tooltip" data-html="true"
-                                        title="Node-link Trees/Graphs, and Networks, Meshes" src="public/images/icons/nodelinkcir-0.png" />
+                                        title="Node-link Trees/Graphs, and Networks, Meshes"
+                                        src="public/images/icons/nodelinkcir-0.png" />
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
@@ -256,11 +257,13 @@
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
-                                <input type="checkbox" class="encodingType" name="encodingType" id="surface-volume-check"
-                                    value="surface-volume">
-                                <label for="surface-volume-check" id="surface-volume-check-label" class="unselected-flat">
-                                    <img class="coding-icon" id="surface-volume-icon" data-toggle="tooltip" data-html="true"
-                                        title="Surface-based Techniques & Volumes" src="public/images/icons/surface-0.png" />
+                                <input type="checkbox" class="encodingType" name="encodingType"
+                                    id="surface-volume-check" value="surface-volume">
+                                <label for="surface-volume-check" id="surface-volume-check-label"
+                                    class="unselected-flat">
+                                    <img class="coding-icon" id="surface-volume-icon" data-toggle="tooltip"
+                                        data-html="true" title="Surface-based Techniques & Volumes"
+                                        src="public/images/icons/surface-0.png" />
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
@@ -285,7 +288,7 @@
                                     value="schematic">
                                 <label for="schematic-check" id="schematic-check-label" class="unselected-flat">
                                     <img class="coding-icon" id="schematic-icon" data-toggle="tooltip" data-html="true"
-                                        title="Schematic rep., sche. imgs., sche. concept illu." 
+                                        title="Schematic rep., sche. imgs., sche. concept illu."
                                         src="public/images/icons/flowchart-0.png" />
                                 </label> &nbsp;
                             </div>
@@ -293,8 +296,7 @@
                                 <input type="checkbox" class="encodingType" name="encodingType" id="gui-check"
                                     value="gui">
                                 <label for="gui-check" id="gui-check-label" class="unselected-flat">
-                                    <img class="coding-icon" id="gui-icon" data-toggle="tooltip" data-html="true"
-                                        title="GUI (Screenshots) / User Interface Depiction
+                                    <img class="coding-icon" id="gui-icon" data-toggle="tooltip" data-html="true" title="GUI (Screenshots) / User Interface Depiction
                                         " src="public/images/icons/GUI-0.png" />
                                 </label> &nbsp;
                             </div>
@@ -303,7 +305,8 @@
                                     value="pattern">
                                 <label for="pattern-check" id="pattern-check-label" class="unselected-flat">
                                     <img class="coding-icon" id="pattern-icon" data-toggle="tooltip" data-html="true"
-                                        title="Continuous-pattern-based Visualization" src="public/images/icons/continuous-0.png" />
+                                        title="Continuous-pattern-based Visualization"
+                                        src="public/images/icons/continuous-0.png" />
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
@@ -330,13 +333,74 @@
                                         title="Others" src="public/images/icons/other-0.png" />
                                 </label> &nbsp;
                             </div>
+                            &nbsp; &nbsp; &nbsp;
+                            <div class="radioIcon">
+                                <input type="radio" class="encodingMode" name="encodingMode" id="encodingMode-union"
+                                    value="union">
+                                <label for="encodingMode-union" id="encodingMode-union-label" class="selected-flat">
+                                    <img class="mode-icon" id="encodingMode-union-icon" data-toggle="tooltip" data-html="true"
+                                        title="union" src="public/images/icons/union-1.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="radioIcon">
+                                <input type="radio" class="encodingMode" name="encodingMode" id="encodingMode-intersect"
+                                    value="intersect" disabled>
+                                <label for="encodingMode-intersect" id="encodingMode-intersect-label" class="unselected-flat">
+                                    <img class="mode-icon" id="encodingMode-intersect-icon" data-toggle="tooltip" data-html="true"
+                                        title="intersect" src="public/images/icons/intersect-0.png" />
+                                </label> &nbsp;
+                            </div>
                         </div>
 
-                        
 
-                        
+                        <div class="rendering-type-div form-inline">
+                            Dimensionality of the rendering:&nbsp;&nbsp;
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="2d-check" value="2d">
+                                <label for="2d-check" id="2d-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="2d-icon" data-toggle="tooltip" data-html="true"
+                                        title="2D" src="public/images/icons/2D-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="3d-check" value="3d">
+                                <label for="3d-check" id="3d-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="3d-icon" data-toggle="tooltip" data-html="true"
+                                        title="3D" src="public/images/icons/3D-0.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="codingType">
+                                <input type="checkbox" class="dimType" name="dimType" id="othersdim-check"
+                                    value="othersdim">
+                                <label for="othersdim-check" id="othersdim-check-label" class="unselected-flat">
+                                    <img class="coding-icon" id="othersdim-icon" data-toggle="tooltip" data-html="true"
+                                        title="I cannot tell" src="public/images/icons/cannottell-0.png" />
+                                </label> &nbsp;
+                            </div>
 
-                        
+                            &nbsp; &nbsp; &nbsp;
+                            <div class="radioIcon">
+                                <input type="radio" class="dimMode" name="dimMode" id="dimMode-union"
+                                    value="union">
+                                <label for="dimMode-union" id="dimMode-union-label" class="selected-flat">
+                                    <img class="mode-icon" id="dimMode-union-icon" data-toggle="tooltip" data-html="true"
+                                        title="union" src="public/images/icons/union-1.png" />
+                                </label> &nbsp;
+                            </div>
+                            <div class="radioIcon">
+                                <input type="radio" class="dimMode" name="dimMode" id="dimMode-intersect"
+                                    value="intersect" disabled>
+                                <label for="dimMode-intersect" id="dimMode-intersect-label" class="unselected-flat">
+                                    <img class="mode-icon" id="dimMode-intersect-icon" data-toggle="tooltip" data-html="true"
+                                        title="intersect" src="public/images/icons/intersect-0.png" />
+                                </label> &nbsp;
+                            </div>
+                        </div>
+
+
+
+
+
 
                     </div>
 
