@@ -69,7 +69,7 @@ $(document).ready(function () {
  */
 async function dbStart() {
 
-    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_3.0.5.csv");
+    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_3.0.6.csv");
     G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv");
     //G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
