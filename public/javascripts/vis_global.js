@@ -90,27 +90,7 @@ async function dbStart() {
 
     countImageByYear(G_IMG_DATA); //update image data
 
-    //initialize the year slider
-    $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        grid: true,
-        min: '1990',
-        max: '2020',
-        step: 1,
-        skin: "square",
-        prettify: yearString,
-        onChange: function (data) {
-
-        },
-        onFinish: function (data) {
-            // fired on every range slider update
-            let leftVal = data.from;
-            let rightVal = data.to;
-            currentYearRange[0] = leftVal;
-            currentYearRange[1] = rightVal;
-            filterData();
-        },
-    });
+    
 
     //params of image numbers
     var img_count = G_IMG_DATA.length;
@@ -178,37 +158,6 @@ async function dbStart() {
             presentImg(currentData, 0, 0, 1, 0);
         }
     });
-
-
-    //DEBUG:
-    //visMode = 3;
-
-
-    //present images
-    if (visMode == 1) {
-        ifAllImage = 1;
-        filterData();
-        //var currentData = G_IMG_DATA.slice(img_per_page * 0, img_per_page * 1);
-        //presentImg(currentData, 0, 0, 1, 0);
-    } else if (visMode == 2) {
-        ifAllImage = 0;
-        let img_count = G_PAP_DATA.length;
-        let img_per_page = 20;
-        let total_pages = Math.ceil(img_count / img_per_page);
-        pageUI.pageTotal = total_pages;
-        pageUI.pageAmount = img_per_page;
-        pageUI.dataTotal = img_count;
-        pageUI.getPage = function (page) {
-            let currentData = G_PAP_DATA.slice(img_per_page * (page - 1), img_per_page * page);
-            presentUPPapers(currentData, img_count);
-        };
-        pageUI.init();
-        var currentData = G_PAP_DATA.slice(img_per_page * 0, img_per_page * 1);
-        presentUPPapers(currentData, img_count);
-    } else if (visMode == 3) {
-        filterData();
-    }
-
 
     //set up keywords
     G_KEYWORDS = getAllKeywords(G_IMG_FULL_DATA);
@@ -505,6 +454,54 @@ async function dbStart() {
     $("#paper-mode").tooltip();
     $("#card-mode").tooltip();
     //$("#image-size-slider").tooltip();
+
+    //initialize the year slider
+    $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: '1990',
+        max: '2020',
+        step: 1,
+        skin: "square",
+        prettify: yearString,
+        onChange: function (data) {
+
+        },
+        onFinish: function (data) {
+            // fired on every range slider update
+            let leftVal = data.from;
+            let rightVal = data.to;
+            currentYearRange[0] = leftVal;
+            currentYearRange[1] = rightVal;
+            filterData();
+        },
+    });
+
+
+    //present images
+    if (visMode == 1) {
+        ifAllImage = 1;
+        filterData();
+        //var currentData = G_IMG_DATA.slice(img_per_page * 0, img_per_page * 1);
+        //presentImg(currentData, 0, 0, 1, 0);
+    } else if (visMode == 2) {
+        ifAllImage = 0;
+        let img_count = G_PAP_DATA.length;
+        let img_per_page = 20;
+        let total_pages = Math.ceil(img_count / img_per_page);
+        pageUI.pageTotal = total_pages;
+        pageUI.pageAmount = img_per_page;
+        pageUI.dataTotal = img_count;
+        pageUI.getPage = function (page) {
+            let currentData = G_PAP_DATA.slice(img_per_page * (page - 1), img_per_page * page);
+            presentUPPapers(currentData, img_count);
+        };
+        pageUI.init();
+        var currentData = G_PAP_DATA.slice(img_per_page * 0, img_per_page * 1);
+        presentUPPapers(currentData, img_count);
+    } else if (visMode == 3) {
+        filterData();
+    }
 }
 
 
