@@ -76,7 +76,9 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
             <div class="img-panel image-grid" id="img-grid-${i}-${imageID}" 
             style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
                 <div class="image-a" id="thumb${i}">
-                    <img class="vis-img" id="img-thumb-${i}-${imageID}" style="width:${actual_width}px; height:${img_size}px" src = ${img_thumburl} alt="">
+                    <img class="vis-img" id="img-thumb-${i}-${imageID}" 
+                    style="width:${actual_width}px; height:${img_size}px" 
+                    src = "public/images/placeHolder.png" data-src = ${img_thumburl} alt="">
                 </div>
             </div>  
             `;
@@ -85,9 +87,12 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
 
     }
 
+    lazyLoad();
 
 
-    //show the thumbnail
+
+
+    //show the thumbnail in a large window
     var modal = document.getElementById('myModal');
     var modalImg = document.getElementById("ori-img");
     var paper_info = document.getElementById("paper-info");
@@ -274,6 +279,33 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
 }
 
 /**
+ * only load images when scroll down to a specific position
+ */
+function lazyLoad() {
+    const imageToLazy = document.querySelectorAll('img[data-src]');
+    const loadImage = function (image) {
+        image.setAttribute('src', image.getAttribute('data-src'));
+        image.addEventListener('load', function () {
+            image.removeAttribute("data-src");
+        })
+    }
+
+
+    const intersectionObserver = new IntersectionObserver(function (items, observer) {
+        items.forEach(function (item) {
+            if (item.isIntersecting) {
+                loadImage(item.target);
+                observer.unobserve(item.target);
+            }
+        });
+    });
+
+    imageToLazy.forEach(function (image) {
+        intersectionObserver.observe(image);
+    })
+}
+
+/**
  * create the paperCard
  * lazy loading: https://web.dev/browser-level-image-lazy-loading/
  * @param {*} paperData 
@@ -322,7 +354,7 @@ function presentPaperCards(paperData, totalCount) {
     }
 
 
-    console.log(paperData);
+    //console.log(paperData);
 
     let years = Object.keys(paperData);
 
@@ -487,17 +519,23 @@ function presentPaperCards(paperData, totalCount) {
         <div class="card-img-panel card-image-grid" id="img-grid-${imageID}" 
         style="border: solid 0px ${confDic[conf]}; width:${div_width}px; ">
             <div class="image-a" id="thumb${i}">
-                <img class="card-vis-img" loading="lazy"  id="img-thumb-${imageID}" style="width:${actual_width}px; height:${cardImageSize - 2}px" src = ${img_thumburl} alt="">
+                <img class="card-vis-img"  
+                id="img-thumb-${imageID}" style="width:${actual_width}px;
+                 height:${cardImageSize - 2}px" 
+                 src = "public/images/placeHolder.png" data-src = ${img_thumburl} alt="">
             </div>
         </div>  
-
         `;
                     //console.log("p-"+paperIndex);
                     document.getElementById("papercard-div-" + doi).appendChild(image_div);
 
                 }
             }
+
+            
         })
+
+        lazyLoad();
 
 
         //show year scent
@@ -657,7 +695,9 @@ function presentUPPapers(paperData, totalCount) {
             <div class="img-panel image-grid" id="img-grid-${img_count}-${imageID}" 
             style="border: solid 3px ${confDic[conf]}; width:${div_width}px; ">
                 <div class="image-a" id="thumb${i}">
-                    <img class="vis-img" id="img-thumb-${img_count}-${imageID}" style="width:${actual_width}px; height:${img_size - 6}px" src = ${img_thumburl} alt="">
+                    <img class="vis-img" id="img-thumb-${img_count}-${imageID}" 
+                    style="width:${actual_width}px; height:${img_size - 6}px" 
+                    src = "public/images/placeHolder.png" data-src = ${img_thumburl} alt="">
                 </div>
             </div>  
             `;
@@ -671,6 +711,7 @@ function presentUPPapers(paperData, totalCount) {
             }
 
         }
+        lazyLoad();
         imgPerPagePaper = img_count;
     }
 

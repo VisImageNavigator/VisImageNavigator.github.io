@@ -153,6 +153,25 @@ function filterDataByEncodingType(data, type){
     return filterData;
 }
 
+/**
+ * filter data by hardness
+ * @param {*} data 
+ * @param {*} hardness 
+ * @returns 
+ */
+function filterDataByHardness(data, hardness) {
+    if(hardness == ''){
+        return data;
+    }
+    else{
+        var filterData = data.filter(function(item) {
+            return hardness == item['hardness_type'];
+        });
+        return filterData;
+    }
+}
+
+
 function filterDataByDimensions(data, type){
     if(type.length == 0){
         return data;
