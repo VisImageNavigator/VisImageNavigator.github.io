@@ -417,37 +417,7 @@ async function dbStart() {
         filterData();
     });
 
-    // $('input[name="encodingTypeAll"]').unbind('click').click(function () { });
-    // $('input[name="encodingTypeAll"]').click(function () {
-
-    //     if ($(this).is(":checked")) {
-    //         $('#encoding-all-label').attr('class', 'selected-dark');
-    //         currentEncodingTypes = ['bar', 'point', 'line', 'node-link',
-    //             'area', 'surface-volume', 'grid', 'glyph',
-    //             'schematic', 'gui', 'pattern', 'text',
-    //             'color', 'others'];
-    //         $('.encodingType').each(function () {
-    //             let value = this.value;
-    //             $('#' + value + '-check').prop('checked', true);
-    //             $('#' + value + '-check-label').attr('class', 'selected-flat');
-    //         });
-    //         $('#encoding-selectall-span').html("Unselect all");
-    //         filterData();
-    //     }
-    //     else {
-    //         $('#encoding-all-label').attr('class', 'unselected-dark');
-    //         currentEncodingTypes = [];
-    //         $('.encodingType').each(function () {
-    //             let value = this.value;
-    //             $('#' + value + '-check').prop('checked', false);
-    //             $('#' + value + '-check-label').attr('class', 'unselected-flat');
-    //         });
-    //         $('#encoding-selectall-span').html("Select all");
-    //         filterData();
-    //     }
-    // });
-
-
+    
 
     //determine if used caption version
     
