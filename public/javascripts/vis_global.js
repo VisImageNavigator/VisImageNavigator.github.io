@@ -83,10 +83,34 @@ async function dbStart() {
         return flag;
     });
 
+
+
     //initialize variables
     initializeGlobalVariables();
 
     countImageByYear(G_IMG_DATA); //update image data
+
+    //initialize the year slider
+    $(".js-range-slider").ionRangeSlider({
+        type: "double",
+        grid: true,
+        min: '1990',
+        max: '2020',
+        step: 1,
+        skin: "square",
+        prettify: yearString,
+        onChange: function (data) {
+
+        },
+        onFinish: function (data) {
+            // fired on every range slider update
+            let leftVal = data.from;
+            let rightVal = data.to;
+            currentYearRange[0] = leftVal;
+            currentYearRange[1] = rightVal;
+            filterData();
+        },
+    });
 
     //params of image numbers
     var img_count = G_IMG_DATA.length;
@@ -440,26 +464,7 @@ async function dbStart() {
     function yearString(number) {
         return number.toString();
     }
-    $(".js-range-slider").ionRangeSlider({
-        type: "double",
-        grid: true,
-        min: '1990',
-        max: '2020',
-        step: 1,
-        skin: "square",
-        prettify: yearString,
-        onChange: function (data) {
-
-        },
-        onFinish: function (data) {
-            // fired on every range slider update
-            let leftVal = data.from;
-            let rightVal = data.to;
-            currentYearRange[0] = leftVal;
-            currentYearRange[1] = rightVal;
-            filterData();
-        },
-    });
+    
 
 
     //switch mode, image mode or paper mode
