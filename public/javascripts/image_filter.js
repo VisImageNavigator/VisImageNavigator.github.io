@@ -154,6 +154,31 @@ function filterDataByEncodingType(data, type){
 }
 
 /**
+ * filter dataset by functional type
+ * @param {*} data 
+ * @param {*} type 
+ * @returns 
+ */
+function filterDataByFunctionType(data, type){
+    if(type.length == 0){
+        return data;
+    }
+    var filterData = data.filter(function(item){
+        let isFlag = false;
+        if(parseInt(item['check_encoding_type']) == 1){
+            for(let i = 0; i < type.length; i++){
+                if(item['encoding_type'].split(';').includes(type[i])){
+                    isFlag = true;
+                    break;
+                }
+            }
+        }
+        return isFlag;
+    });
+    return filterData;
+}
+
+/**
  * filter data by hardness
  * @param {*} data 
  * @param {*} hardness 

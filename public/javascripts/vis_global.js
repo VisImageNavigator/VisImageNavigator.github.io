@@ -27,6 +27,7 @@ var currentFigures = ['Figure', 'Table'];
 //     'color', 'others'];
 var currentEncodingTypes = [];
 var currentDimTypes = [];
+var currentFunctionTypes = [];
 var currentCompositeTypes = [];
 var currentNestTypes = [];
 var hardnessMode = '';
@@ -350,6 +351,26 @@ async function dbStart() {
         filterData();
     });
 
+    $('input[name="functionType"]').unbind('click').click(function () { });
+    $('input[name="functionType"]').click(function () {
+        let activeFunctionType = [];
+        $('.functionType').each(function () {
+            let value = this.value;
+            if ($('#' + value + '-check').is(":checked")) {
+                activeFunctionType.push(value);
+                $('#' + value + '-check-label').attr('class', 'selected-flat');
+                $('#' + value + '-icon').attr('src', iconsAcUrlDic[value]);
+            }
+            else {
+                $('#' + value + '-check-label').attr('class', 'unselected-flat');
+                $('#' + value + '-icon').attr('src', iconsUrlDic[value]);
+            }
+        });
+        currentFunctionTypes = activeFunctionType;
+        //console.log(currentFunctionTypes);
+        filterData();
+    });
+
     $('input[name="compType"]').unbind('click').click(function () { });
     $('input[name="compType"]').click(function () {
         let activeCompType = [];
@@ -535,6 +556,7 @@ function filterData() {
         data = filterDataByFigureType(data, currentFigures);
 
         data = filterDataByEncodingType(data, currentEncodingTypes);
+        data = filterDataByFunctionType(data, currentFunctionTypes);
         data = filterDataByHardness(data, hardnessMode);
         data = filterDataByDimensions(data, currentDimTypes);
         data = filterDataByComposition(data, currentCompositeTypes);
@@ -587,6 +609,7 @@ function filterData() {
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
         data = filterDataByEncodingType(data, currentEncodingTypes);
+        data = filterDataByFunctionType(data, currentFunctionTypes);
         data = filterDataByHardness(data, hardnessMode);
         data = filterDataByDimensions(data, currentDimTypes);
         //create the scent data
@@ -637,6 +660,7 @@ function filterData() {
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
         data = filterDataByEncodingType(data, currentEncodingTypes);
+        data = filterDataByFunctionType(data, currentFunctionTypes);
         data = filterDataByHardness(data, hardnessMode);
         data = filterDataByDimensions(data, currentDimTypes);
         //create the scent data
