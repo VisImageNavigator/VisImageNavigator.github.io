@@ -17,6 +17,22 @@ body {
     border-color: #ced4da;
 }
 
+.btn-circle.btn-sm {
+    width: 20px;
+    height: 20px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    font-size: 1.0rem;
+    line-height: 0.2 !important;
+    text-align: center;
+    margin-top: 3px;
+}
+
+#helper-link{
+    color: white;
+    text-decoration: none;
+}
+
 #link-info {
     word-wrap: break-word;
 }
