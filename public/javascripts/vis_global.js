@@ -37,6 +37,7 @@ var img_per_page = 200;
 var paper_per_page = 20;
 var showCaption = 0; //if show figure with caption
 var scrollMode = 1; //if used the scroll mode
+var randomMode = 0; //if randomize the order of all images
 
 var confDic = {
     'Vis': '#FBAF3F',
@@ -570,6 +571,13 @@ function filterData() {
         let maxYear = currentYearRange[1];
         data = filterDataByYear(data, minYear, maxYear);
 
+        //randomize the data
+        if(randomMode){
+            shuffleArray(data);
+        }else{
+            data = sortImageByYear(data);
+        }
+
         //6. reset year index dictionary
         resetYearIndexDic(data);
 
@@ -789,8 +797,8 @@ function resetYearIndexDicPaper(data) {
  */
 function sortImageByYear(arr) {
     arr.sort(function (a, b) {
-        let imageIDA = a.recodeRank;
-        let imageIDB = b.recodeRank;
+        let imageIDA = parseInt(a.rank);
+        let imageIDB = parseInt(b.rank);
         return imageIDA - imageIDB;
     });
     return arr;

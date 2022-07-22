@@ -157,6 +157,7 @@ function swapArrayString(arr) {
 }
 
 /**
+ * 
  * check whether a string is empty or N/A
  * @param {String} str 
  */
@@ -167,4 +168,17 @@ function checkEmptyString(str) {
         return false;
     }
 
+}
+
+/**
+ * randomize an array
+ * Durstenfeld shuffle
+ * https://stackoverflow.com/a/12646864
+ * @param {*} array 
+ */
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }

@@ -129,9 +129,30 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 28px;
     text-align: center;
     height: 30px;
+    cursor: pointer;
 }
 
 .scroll-opt-label {
     margin-bottom: 0rem !important;
     padding-left: 2px;
+    cursor: pointer;
+}
+
+.random-opt-span {
+    font-size: 14px;
+    color: #606266;
+    padding: 0 6px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 28px;
+    line-height: 28px;
+    text-align: center;
+    height: 30px;
+    cursor: pointer;
+}
+
+.random-opt-label {
+    margin-bottom: 0rem !important;
+    padding-left: 2px;
+    cursor: pointer;
 }

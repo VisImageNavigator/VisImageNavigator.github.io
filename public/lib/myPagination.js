@@ -284,6 +284,24 @@ Page.prototype = {
         span.appendChild(label);
         this.ul.appendChild(span);
 
+        //add radio box for random order
+        var span2 = document.createElement('span');
+        span2.className = "scroll-opt-span";
+        var random_check = document.createElement('input');
+        random_check.setAttribute("type", "checkbox");
+        random_check.id = "random-check";
+        random_check.name = "random-option";
+        random_check.value = "false";
+
+        var label2 = document.createElement('label');
+        label2.className = "random-opt-label";
+        label2.htmlFor = "random-check";
+        label2.appendChild(document.createTextNode('  random order'));
+
+        span2.appendChild(random_check);
+        span2.appendChild(label2);
+        this.ul.appendChild(span2);
+
         //set the checkbox status
         if (scrollMode == 1) {
             scroll_check.checked = 0;
@@ -311,6 +329,25 @@ Page.prototype = {
                 $("#image-gallery").css("overflow-y", "unset");
                 $("#image-gallery").css("border", "solid 0px #9aa6ad");
                 //console.log("0");
+            }
+
+        });
+
+        //set the checkbox status
+        if (randomMode == 0) {
+            random_check.checked = 0;
+        } else {
+            random_check.checked = 1;
+        }
+
+        random_check.addEventListener('click', event => {
+
+            if ($('#random-check').prop("checked")) {
+                randomMode = 1;
+                filterData();
+            } else {
+                randomMode = 0;
+                filterData();
             }
 
         });
