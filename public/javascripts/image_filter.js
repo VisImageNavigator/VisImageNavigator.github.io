@@ -133,24 +133,57 @@ function filterDataByFigureType(data, type) {
  * if there is no type selected, return the full dataset
  * @param {*} data 
  * @param {*} type 
+ * @param {*} mode: //-0: empty; 1: select single; 2: select multiple; 3: select both
  */
-function filterDataByEncodingType(data, type){
+function filterDataByEncodingType(data, type, mode){
     if(type.length == 0){
         return data;
     }
-    var filterData = data.filter(function(item){
-        let isFlag = false;
-        if(parseInt(item['check_encoding_type']) == 1){
-            for(let i = 0; i < type.length; i++){
-                if(item['encoding_type'].split(';').includes(type[i])){
-                    isFlag = true;
-                    break;
+    let filterData;
+    if (mode == 1){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type']==type[i]){
+                        isFlag = true;
+                        break;
+                    }
                 }
             }
-        }
-        return isFlag;
-    });
+            return isFlag;
+        });
+    }else if(mode == 2){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type']!=type[i] && item['encoding_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+    else if(mode == 3 || mode == 0){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+
     return filterData;
+    
 }
 
 /**
@@ -159,22 +192,53 @@ function filterDataByEncodingType(data, type){
  * @param {*} type 
  * @returns 
  */
-function filterDataByFunctionType(data, type){
+function filterDataByFunctionType(data, type, mode){
     if(type.length == 0){
         return data;
     }
-    var filterData = data.filter(function(item){
-        let isFlag = false;
-        if(parseInt(item['check_encoding_type']) == 1){
-            for(let i = 0; i < type.length; i++){
-                if(item['encoding_type'].split(';').includes(type[i])){
-                    isFlag = true;
-                    break;
+    let filterData;
+    if (mode == 1){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type']==type[i]){
+                        isFlag = true;
+                        break;
+                    }
                 }
             }
-        }
-        return isFlag;
-    });
+            return isFlag;
+        });
+    }else if(mode == 2){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type']!=type[i] && item['encoding_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+    else if(mode == 3 || mode == 0){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_encoding_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['encoding_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+
     return filterData;
 }
 
@@ -196,23 +260,60 @@ function filterDataByHardness(data, hardness) {
     }
 }
 
-
-function filterDataByDimensions(data, type){
+/**
+ * 
+ * @param {*} data 
+ * @param {*} type 
+ * @param {*} mode - 0: empty; 1: select single; 2: select multiple; 3: select both
+ * @returns 
+ */
+function filterDataByDimensions(data, type, mode){
     if(type.length == 0){
         return data;
     }
-    var filterData = data.filter(function(item){
-        let isFlag = false;
-        if(parseInt(item['check_dim_type']) == 1){
-            for(let i = 0; i < type.length; i++){
-                if(item['dim_type'].split(';').includes(type[i])){
-                    isFlag = true;
-                    break;
+    let filterData;
+    if (mode == 1){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_dim_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['dim_type']==type[i]){
+                        isFlag = true;
+                        break;
+                    }
                 }
             }
-        }
-        return isFlag;
-    });
+            return isFlag;
+        });
+    }else if(mode == 2){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_dim_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['dim_type']!=type[i] && item['dim_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+    else if(mode == 3 || mode == 0){
+        filterData = data.filter(function(item){
+            let isFlag = false;
+            if(parseInt(item['check_dim_type']) == 1){
+                for(let i = 0; i < type.length; i++){
+                    if(item['dim_type'].split(';').includes(type[i])){
+                        isFlag = true;
+                        break;
+                    }
+                }
+            }
+            return isFlag;
+        });
+    }
+
     return filterData;
 }
 

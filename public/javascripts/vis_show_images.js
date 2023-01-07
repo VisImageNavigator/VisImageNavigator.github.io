@@ -102,6 +102,9 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
     var type_info = document.getElementById("paper-type-info");
     var keyword_info = document.getElementById("keyword-info");
     var imagename_info = document.getElementById('imagename-info');
+    let capImg = document.getElementById('cap-img');
+    let encoding_info = document.getElementById('encoding-type-info');
+    let dimension_info = document.getElementById('dim-type-info');
     $('.image-a').click(function(e) {
         var id = this.id.slice(5);
         gIndex = parseInt(id);
@@ -141,6 +144,26 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgData[id]['Keywords Author'].replace(/,/g, '; ');
+        }
+        if(imgData[id].cap_url == 'none'){
+            capImg.src = 'public/images/no-caption.png'
+        }
+        else{
+            capImg.src = imgData[id].cap_url;
+        }
+        if (checkEmptyString(imgData[id]['encoding_type'])) {
+            $("#encoding-type-info").css("color", "#99a6ad");
+            encoding_info.innerHTML = "none supplied";
+        } else {
+            $("#encoding-type-info").css("color", "#eeeeee");
+            encoding_info.innerHTML = imgData[id]['encoding_type'];
+        }
+        if (checkEmptyString(imgData[id]['dim_type'])) {
+            $("#dim-type-info").css("color", "#99a6ad");
+            dimension_info.innerHTML = "none supplied";
+        } else {
+            $("#dim-type-info").css("color", "#eeeeee");
+            dimension_info.innerHTML = imgData[id]['dim_type'].replace('othersdim','I cannot tell');
         }
 
         //previous and next button
@@ -198,6 +221,26 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgData[gIndex]['Keywords Author'].replace(/,/g, '; ');
+        }
+        if(imgData[gIndex].cap_url == 'none'){
+            capImg.src = 'public/images/no-caption.png'
+        }
+        else{
+            capImg.src = imgData[gIndex].cap_url;
+        }
+        if (checkEmptyString(imgData[gIndex]['encoding_type'])) {
+            $("#encoding-type-info").css("color", "#99a6ad");
+            encoding_info.innerHTML = "none supplied";
+        } else {
+            $("#encoding-type-info").css("color", "#eeeeee");
+            encoding_info.innerHTML = imgData[gIndex]['encoding_type'];
+        }
+        if (checkEmptyString(imgData[gIndex]['dim_type'])) {
+            $("#dim-type-info").css("color", "#99a6ad");
+            dimension_info.innerHTML = "none supplied";
+        } else {
+            $("#dim-type-info").css("color", "#eeeeee");
+            dimension_info.innerHTML = imgData[gIndex]['dim_type'].replace('othersdim','I cannot tell');
         }
 
         //previous and next button
@@ -757,6 +800,9 @@ function presentUPPapers(paperData, totalCount) {
     var type_info = document.getElementById("paper-type-info");
     var keyword_info = document.getElementById("keyword-info");
     var imagename_info = document.getElementById('imagename-info')
+    let capImg = document.getElementById('cap-img');
+    let encoding_info = document.getElementById('encoding-type-info');
+    let dimension_info = document.getElementById('dim-type-info');
     $('.vis-img').click(function(e) {
         var id = this.id.split('-')[3];
         let currentIndex = this.id.split('-')[2];
@@ -795,6 +841,26 @@ function presentUPPapers(paperData, totalCount) {
         } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = imgDataDic[id]['Keywords Author'].replace(/,/g, '; ');
+        }
+        if(imgDataDic[id].cap_url == 'none'){
+            capImg.src = 'public/images/no-caption.png'
+        }
+        else{
+            capImg.src = imgDataDic[id].cap_url;
+        }
+        if (checkEmptyString(imgDataDic[id]['encoding_type'])) {
+            $("#encoding-type-info").css("color", "#99a6ad");
+            encoding_info.innerHTML = "none supplied";
+        } else {
+            $("#encoding-type-info").css("color", "#eeeeee");
+            encoding_info.innerHTML = imgDataDic[id]['encoding_type'];
+        }
+        if (checkEmptyString(imgDataDic[id]['dim_type'])) {
+            $("#dim-type-info").css("color", "#99a6ad");
+            dimension_info.innerHTML = "none supplied";
+        } else {
+            $("#dim-type-info").css("color", "#eeeeee");
+            dimension_info.innerHTML = imgDataDic[id]['dim_type'].replace('othersdim','I cannot tell');
         }
 
         //previous and next button
@@ -852,6 +918,26 @@ function presentUPPapers(paperData, totalCount) {
         } else {
             $("#keyword-info").css("color", "#eeeeee");
             keyword_info.innerHTML = paperImgData[gIndex]['Keywords Author'].replace(/,/g, '; ');
+        }
+        if(paperImgData[gIndex].cap_url == 'none'){
+            capImg.src = 'public/images/no-caption.png'
+        }
+        else{
+            capImg.src = paperImgData[gIndex].cap_url;
+        }
+        if (checkEmptyString(paperImgData[gIndex]['encoding_type'])) {
+            $("#encoding-type-info").css("color", "#99a6ad");
+            encoding_info.innerHTML = "none supplied";
+        } else {
+            $("#encoding-type-info").css("color", "#eeeeee");
+            encoding_info.innerHTML = paperImgData[gIndex]['encoding_type'];
+        }
+        if (checkEmptyString(paperImgData[gIndex]['dim_type'])) {
+            $("#dim-type-info").css("color", "#99a6ad");
+            dimension_info.innerHTML = "none supplied";
+        } else {
+            $("#dim-type-info").css("color", "#eeeeee");
+            dimension_info.innerHTML = paperImgData[gIndex]['dim_type'].replace('othersdim','I cannot tell');
         }
 
         //previous and next button

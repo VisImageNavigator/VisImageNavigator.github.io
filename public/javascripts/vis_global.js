@@ -26,8 +26,11 @@ var currentFigures = ['Figure', 'Table'];
 //     'schematic', 'gui', 'pattern', 'text',
 //     'color', 'others'];
 var currentEncodingTypes = [];
+var currentEncodingMode = 3; //-0: empty; 1: select single; 2: select multiple; 3: select both
 var currentDimTypes = [];
+var currentDimMode = 3; //-0: empty; 1: select single; 2: select multiple; 3: select both
 var currentFunctionTypes = [];
+var currentFunctionMode = 3; //-0: empty; 1: select single; 2: select multiple; 3: select both
 var currentCompositeTypes = [];
 var currentNestTypes = [];
 var hardnessMode = '';
@@ -312,6 +315,8 @@ async function dbStart() {
 
     $(".coding-icon").tooltip();
     $(".mode-icon").tooltip();
+    $('#single-query-mode').tooltip();
+    $('#multiple-query-mode').tooltip();
     $('input[name="encodingType"]').unbind('click').click(function () { });
     $('input[name="encodingType"]').click(function () {
         let activeEncodingType = [];
@@ -329,6 +334,28 @@ async function dbStart() {
         });
         currentEncodingTypes = activeEncodingType;
         //console.log(currentEncodingTypes);
+        filterData();
+    });
+    $('input[name="encodingMode"]').click(function () {
+        let activeEncodingMode = [];
+        $('.encodingMode').each(function () {
+            let value = this.value;
+            if ($('#encoding-' + value + '-type').is(":checked")) {
+                activeEncodingMode.push(value);
+            }
+        });
+        if(activeEncodingMode.length == 0){
+            currentEncodingMode = 0;
+        }
+        else if(activeEncodingMode.length == 2){
+            currentEncodingMode = 3;
+        }
+        else if(activeEncodingMode.length == 1 && activeEncodingMode[0] == 'single'){
+            currentEncodingMode = 1;
+        }
+        else if(activeEncodingMode.length == 1 && activeEncodingMode[0] == 'multiple'){
+            currentEncodingMode = 2;
+        }
         filterData();
     });
 
@@ -351,6 +378,28 @@ async function dbStart() {
         //console.log(currentDimTypes);
         filterData();
     });
+    $('input[name="dimMode"]').click(function () {
+        let activeDimMode = [];
+        $('.dimMode').each(function () {
+            let value = this.value;
+            if ($('#dimMode-' + value + '-type').is(":checked")) {
+                activeDimMode.push(value);
+            }
+        });
+        if(activeDimMode.length == 0){
+            currentDimMode = 0;
+        }
+        else if(activeDimMode.length == 2){
+            currentDimMode = 3;
+        }
+        else if(activeDimMode.length == 1 && activeDimMode[0] == 'single'){
+            currentDimMode = 1;
+        }
+        else if(activeDimMode.length == 1 && activeDimMode[0] == 'multiple'){
+            currentDimMode = 2;
+        }
+        filterData();
+    });
 
     $('input[name="functionType"]').unbind('click').click(function () { });
     $('input[name="functionType"]').click(function () {
@@ -369,6 +418,28 @@ async function dbStart() {
         });
         currentFunctionTypes = activeFunctionType;
         //console.log(currentFunctionTypes);
+        filterData();
+    });
+    $('input[name="functionMode"]').click(function () {
+        let activeFunctionMode = [];
+        $('.functionMode').each(function () {
+            let value = this.value;
+            if ($('#functionMode-' + value + '-type').is(":checked")) {
+                activeFunctionMode.push(value);
+            }
+        });
+        if(activeFunctionMode.length == 0){
+            currentFunctionMode = 0;
+        }
+        else if(activeFunctionMode.length == 2){
+            currentFunctionMode = 3;
+        }
+        else if(activeFunctionMode.length == 1 && activeFunctionMode[0] == 'single'){
+            currentFunctionMode = 1;
+        }
+        else if(activeFunctionMode.length == 1 && activeFunctionMode[0] == 'multiple'){
+            currentFunctionMode = 2;
+        }
         filterData();
     });
 
@@ -556,10 +627,10 @@ function filterData() {
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
 
-        data = filterDataByEncodingType(data, currentEncodingTypes);
-        data = filterDataByFunctionType(data, currentFunctionTypes);
+        data = filterDataByEncodingType(data, currentEncodingTypes, currentEncodingMode);
+        data = filterDataByFunctionType(data, currentFunctionTypes, currentFunctionMode);
         data = filterDataByHardness(data, hardnessMode);
-        data = filterDataByDimensions(data, currentDimTypes);
+        data = filterDataByDimensions(data, currentDimTypes, currentDimMode);
         data = filterDataByComposition(data, currentCompositeTypes);
         data = filterDataByNest(data, currentNestTypes);
 
@@ -616,10 +687,10 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
-        data = filterDataByEncodingType(data, currentEncodingTypes);
-        data = filterDataByFunctionType(data, currentFunctionTypes);
+        data = filterDataByEncodingType(data, currentEncodingTypes, currentEncodingMode);
+        data = filterDataByFunctionType(data, currentFunctionTypes, currentFunctionMode);
         data = filterDataByHardness(data, hardnessMode);
-        data = filterDataByDimensions(data, currentDimTypes);
+        data = filterDataByDimensions(data, currentDimTypes, currentDimMode);
         //create the scent data
         countImageByYearPaperMode(data);
 
@@ -667,10 +738,10 @@ function filterData() {
         }
         //4. filtering data by figure type (figure or table)
         data = filterDataByFigureType(data, currentFigures);
-        data = filterDataByEncodingType(data, currentEncodingTypes);
-        data = filterDataByFunctionType(data, currentFunctionTypes);
+        data = filterDataByEncodingType(data, currentEncodingTypes, currentEncodingMode);
+        data = filterDataByFunctionType(data, currentFunctionTypes, currentFunctionMode);
         data = filterDataByHardness(data, hardnessMode);
-        data = filterDataByDimensions(data, currentDimTypes);
+        data = filterDataByDimensions(data, currentDimTypes, currentDimMode);
         //create the scent data
         countImageByYearPaperMode(data);
 

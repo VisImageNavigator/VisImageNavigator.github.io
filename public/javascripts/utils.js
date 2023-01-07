@@ -162,7 +162,7 @@ function swapArrayString(arr) {
  * @param {String} str 
  */
 function checkEmptyString(str) {
-    if ((str.replace(/,/g, '; ') == "") || (str == "N/A") || (str == 'nan')) {
+    if ((str.replace(/,/g, '; ') == "") || (str == "N/A") || (str == 'nan') || (str == 'NA')) {
         return true;
     } else {
         return false;

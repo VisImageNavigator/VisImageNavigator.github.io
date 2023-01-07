@@ -267,7 +267,7 @@
                                 </label> &nbsp;
                             </div>
 
-                            
+
                             <div class="codingType">
                                 <input type="checkbox" class="encodingType" name="encodingType" id="pattern-check"
                                     value="pattern">
@@ -302,22 +302,39 @@
                                 </label> &nbsp;
                             </div>
 
-                            <a id="helper-link" target="_blank" href="https://docs.google.com/document/d/1YlnYs5OHS0VflE6RAWdPX3lRm3iXnRQyo7RKfWrqoV0/edit">
-                                <button type="button" id="query-mode-box-union" class="btn btn-primary btn-circle btn-sm">?</button>
+                            <a id="helper-link" target="_blank"
+                                href="https://docs.google.com/document/d/1YlnYs5OHS0VflE6RAWdPX3lRm3iXnRQyo7RKfWrqoV0/edit">
+                                <button type="button" id="query-mode-box-union"
+                                    class="btn btn-primary btn-circle btn-sm">?</button>
                             </a>
-                            
-                                
-                             &nbsp;&nbsp;
+
+
+                            &nbsp;&nbsp;
+
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input encodingMode" name="encodingMode"
+                                    id="encoding-single-type" value="single" checked>
+                                <label class="form-check-label" for="encoding-single-type">Single</label>
+                            </div>&nbsp;
+                            <button type="button" id="single-query-mode"
+                                class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-html="true" title="When single is selected, the interface will display images that are ONLY coded as this label (single label).">?</button>&nbsp;&nbsp;
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input encodingMode" name="encodingMode"
+                                    id="encoding-multiple-type" value="multiple" checked>
+                                <label class="form-check-label" for="encoding-multiple-type">Multiple</label>
+                            </div>&nbsp;
+                            <button type="button" id="multiple-query-mode"
+                                class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-html="true" title="When multiple is selected, the interface will display images that are coded as multiple labels (including selected labels)">?</button>
 
                             &nbsp; &nbsp; &nbsp;
-                            <div class="radioIcon">
+                            <!-- <div class="radioIcon">
                                 <input type="radio" class="encodingMode" name="encodingMode" id="encodingMode-union"
                                     value="union">
-                                <!-- <label for="encodingMode-union" id="encodingMode-union-label" class="selected-flat">
+                                <label for="encodingMode-union" id="encodingMode-union-label" class="selected-flat">
                                     <img class="mode-icon" id="encodingMode-union-icon" data-toggle="tooltip"
                                         data-html="true" title="union" src="public/images/icons/union-1.png" />
-                                </label> &nbsp;&nbsp;&nbsp;&nbsp; -->
-                            </div>
+                                </label> &nbsp;&nbsp;&nbsp;&nbsp;
+                            </div> -->
 
                             Coders' perceived difficulty level(s): &nbsp;
                             <select class="selectpicker" id="hardnessSelect">
@@ -329,6 +346,8 @@
 
                             </select>&nbsp;&nbsp;
                         </div>
+
+
 
 
                         <div class="rendering-type-div form-inline">
@@ -355,6 +374,20 @@
                                         title="I cannot tell" src="public/images/icons/cannottell-0.png" />
                                 </label> &nbsp;
                             </div>
+
+                            &nbsp;&nbsp;&nbsp;
+
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input dimMode" name="dimMode"
+                                    id="dimMode-single-type" value="single" checked>
+                                <label class="form-check-label" for="dimMode-single-type">Single</label>
+                            </div>&nbsp;
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input dimMode" name="dimMode"
+                                    id="dimMode-multiple-type" value="multiple" checked>
+                                <label class="form-check-label" for="dimMode-multiple-type">Multiple</label>
+                            </div>&nbsp;
+                            
 
                             &nbsp; &nbsp; &nbsp;
                             <div class="radioIcon">
@@ -394,6 +427,17 @@
                                 </label> &nbsp;
                             </div>
 
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input functionMode" name="functionMode"
+                                    id="functionMode-single-type" value="single" checked>
+                                <label class="form-check-label" for="functionMode-single-type">Single</label>
+                            </div>&nbsp;
+                            <div class="form-check form-inline">
+                                <input type="checkbox" class="form-check-input functionMode" name="functionMode"
+                                    id="functionMode-multiple-type" value="multiple" checked>
+                                <label class="form-check-label" for="functionMode-multiple-type">Multiple</label>
+                            </div>&nbsp;
+
                             &nbsp; &nbsp; &nbsp;
                             <div class="radioIcon">
                                 <input type="radio" class="dimMode" name="dimMode" id="dimMode-union" value="union">
@@ -402,7 +446,7 @@
                                         data-html="true" title="union" src="public/images/icons/union-1.png" />
                                 </label> &nbsp; -->
                             </div>
-                            
+
                         </div>
 
 
@@ -475,8 +519,8 @@
         <!-- The Modal to show original img-->
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
-            <div class="container" style="width: 100%; height: 90%">
-                <div class="row" style="height: 95%;">
+            <div class="container" style="width: 100%; height: 95%">
+                <div class="row" style="height: 90%;">
                     <div class="col-md-8" style="height: 90%;">
                         <div id="img-box">
                             <div class="imageContainer magnify-img" id="vis-img-box">
@@ -503,6 +547,10 @@
                                 class="caption"></span><br>
                             <span class="blue-font">Author Keywords: </span><span id="keyword-info"
                                 class="caption"></span><br>
+                            <span class="blue-font">Visualization types: </span><span id="encoding-type-info"
+                                class="caption"></span><br>
+                            <span class="blue-font">Dimensionality of the rendering: </span><span id="dim-type-info"
+                                class="caption"></span><br>
                             <span class="gray-font">Imagename: </span><span id="imagename-info"
                                 class="caption"></span><br>
                             <a id="email-btn" href=""><button class="btn btn-secondary btn-sm">Update this
@@ -515,7 +563,9 @@
                             </form> -->
                         </div>
                     </div>
-                    <div class="col-md-8"></div>
+                    <div class="col-md-8">
+                        <img class="caption-img" id="cap-img" src="">
+                    </div>
                     <div class="col-md-4">
                         <button class="btn btn-light" style="left: 60%; position: relative;" id="modal-previous">
                             < </button>
@@ -523,6 +573,10 @@
                                 <button class="btn btn-light" style="left: 60%; position: relative;"
                                     id="modal-next">></button>
                     </div>
+                </div>
+                <div class="row" style="height: 10%;">
+
+
                 </div>
             </div>
 
@@ -551,10 +605,10 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <script type="text/javascript" src="public/javascripts/constant.js?v3.0.20"></script>
-    <script type="text/javascript" src="public/javascripts/vis_global.js?v3.0.21"></script>
-    <script type="text/javascript" src="public/javascripts/utils.js?v3.0.20"></script>
-    <script type="text/javascript" src="public/javascripts/image_filter.js?v3.0.20"></script>
-    <script type="text/javascript" src="public/javascripts/vis_show_images.js?v3.0.20"></script>
+    <script type="text/javascript" src="public/javascripts/vis_global.js?v3.0.22"></script>
+    <script type="text/javascript" src="public/javascripts/utils.js?v3.0.22"></script>
+    <script type="text/javascript" src="public/javascripts/image_filter.js?v3.0.22"></script>
+    <script type="text/javascript" src="public/javascripts/vis_show_images.js?v3.0.22"></script>
 
 
 </body>
