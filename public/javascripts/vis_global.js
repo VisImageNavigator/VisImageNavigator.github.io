@@ -75,7 +75,7 @@ $(document).ready(function () {
  */
 async function dbStart() {
 
-    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_03172023.csv");
+    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_07112024.csv");
     G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv");
     //G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
@@ -95,7 +95,7 @@ async function dbStart() {
 
     countImageByYear(G_IMG_DATA); //update image data
 
-    
+
 
     //params of image numbers
     var img_count = G_IMG_DATA.length;
@@ -344,16 +344,16 @@ async function dbStart() {
                 activeEncodingMode.push(value);
             }
         });
-        if(activeEncodingMode.length == 0){
+        if (activeEncodingMode.length == 0) {
             currentEncodingMode = 0;
         }
-        else if(activeEncodingMode.length == 2){
+        else if (activeEncodingMode.length == 2) {
             currentEncodingMode = 3;
         }
-        else if(activeEncodingMode.length == 1 && activeEncodingMode[0] == 'single'){
+        else if (activeEncodingMode.length == 1 && activeEncodingMode[0] == 'single') {
             currentEncodingMode = 1;
         }
-        else if(activeEncodingMode.length == 1 && activeEncodingMode[0] == 'multiple'){
+        else if (activeEncodingMode.length == 1 && activeEncodingMode[0] == 'multiple') {
             currentEncodingMode = 2;
         }
         filterData();
@@ -386,16 +386,16 @@ async function dbStart() {
                 activeDimMode.push(value);
             }
         });
-        if(activeDimMode.length == 0){
+        if (activeDimMode.length == 0) {
             currentDimMode = 0;
         }
-        else if(activeDimMode.length == 2){
+        else if (activeDimMode.length == 2) {
             currentDimMode = 3;
         }
-        else if(activeDimMode.length == 1 && activeDimMode[0] == 'single'){
+        else if (activeDimMode.length == 1 && activeDimMode[0] == 'single') {
             currentDimMode = 1;
         }
-        else if(activeDimMode.length == 1 && activeDimMode[0] == 'multiple'){
+        else if (activeDimMode.length == 1 && activeDimMode[0] == 'multiple') {
             currentDimMode = 2;
         }
         filterData();
@@ -428,16 +428,16 @@ async function dbStart() {
                 activeFunctionMode.push(value);
             }
         });
-        if(activeFunctionMode.length == 0){
+        if (activeFunctionMode.length == 0) {
             currentFunctionMode = 0;
         }
-        else if(activeFunctionMode.length == 2){
+        else if (activeFunctionMode.length == 2) {
             currentFunctionMode = 3;
         }
-        else if(activeFunctionMode.length == 1 && activeFunctionMode[0] == 'single'){
+        else if (activeFunctionMode.length == 1 && activeFunctionMode[0] == 'single') {
             currentFunctionMode = 1;
         }
-        else if(activeFunctionMode.length == 1 && activeFunctionMode[0] == 'multiple'){
+        else if (activeFunctionMode.length == 1 && activeFunctionMode[0] == 'multiple') {
             currentFunctionMode = 2;
         }
         filterData();
@@ -483,10 +483,10 @@ async function dbStart() {
         filterData();
     });
 
-    
+
 
     //determine if used caption version
-    
+
     $('input[name="captionCheck"]').unbind('click').click(function () { });
     $('input[name="captionCheck"]').click(function () {
         if ($('#caption-check').prop("checked")) {
@@ -506,7 +506,7 @@ async function dbStart() {
     function yearString(number) {
         return number.toString();
     }
-    
+
 
 
     //switch mode, image mode or paper mode
@@ -643,9 +643,9 @@ function filterData() {
         data = filterDataByYear(data, minYear, maxYear);
 
         //randomize the data
-        if(randomMode){
+        if (randomMode) {
             shuffleArray(data);
-        }else{
+        } else {
             data = sortImageByYear(data);
         }
 
