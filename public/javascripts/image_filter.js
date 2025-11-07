@@ -50,7 +50,7 @@ function getAllAuthors(data) {
  */
 function filterDataByKeywords(data, keyword) {
     if (searchMode == 1) {
-        var filterData = data.filter(function(item) {
+        var filterData = data.filter(function (item) {
             //console.log(item['Keywords Author']);
             return item['Keywords Author'].toLowerCase().includes(keyword);
         });
@@ -61,25 +61,31 @@ function filterDataByKeywords(data, keyword) {
         //1. using regex: \b token \b to filter paper dois
         //regex testing: https://regex101.com/
         var filterPaper = G_PAPER.filter((item) => {
-                let paragraph = (item['Title'] + ' ' + item['Abstract']).toLowerCase();
-                let regex = new RegExp("\\b" + keyword + "\\b");
-                //let regex = new RegExp(keyword);
-                let found = paragraph.match(regex);
-                return found != null;
-            })
+            let paragraph = (item['Title'] + ' ' + item['Abstract']).toLowerCase();
+            let regex = new RegExp("\\b" + keyword + "\\b");
+            //let regex = new RegExp(keyword);
+            let found = paragraph.match(regex);
+            return found != null;
+        })
             .map((obj) => {
                 return obj['DOI'];
             });
         //console.log(filterPaper);
         //2. based on paper dois to get the images
-        var filterData = data.filter(function(item) {
+        var filterData = data.filter(function (item) {
             //console.log(item['Keywords Author']);
             return filterPaper.includes(item['Paper DOI']);
         });
         //console.log(filterData);
         return filterData;
     }
-
+    else if (searchMode == 3) {
+        var filterData = data.filter(function (item) {
+            //console.log(item['Keywords Author']);
+            return item['filename'].toLowerCase().includes(keyword);
+        });
+        return filterData;
+    }
 
 }
 
@@ -89,7 +95,7 @@ function filterDataByKeywords(data, keyword) {
  * @param {*} author 
  */
 function filterDataByAuthors(data, author) {
-    var filterData = data.filter(function(item) {
+    var filterData = data.filter(function (item) {
         let authorList = swapArrayString(item['Author'].split(';'));
         return authorList.includes(author);
     });
@@ -121,7 +127,7 @@ function filterDataByFigureType(data, type) {
         }
     });
     //console.log(typeList);
-    var filterData = data.filter(function(item) {
+    var filterData = data.filter(function (item) {
         return typeList.includes(parseInt(item['vis_type']));
     });
     return filterData;
@@ -135,17 +141,17 @@ function filterDataByFigureType(data, type) {
  * @param {*} type 
  * @param {*} mode: //-0: empty; 1: select single; 2: select multiple; 3: select both
  */
-function filterDataByEncodingType(data, type, mode){
-    if(type.length == 0){
+function filterDataByEncodingType(data, type, mode) {
+    if (type.length == 0) {
         return data;
     }
     let filterData;
-    if (mode == 1){
-        filterData = data.filter(function(item){
+    if (mode == 1) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type']==type[i]){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'] == type[i]) {
                         isFlag = true;
                         break;
                     }
@@ -153,12 +159,12 @@ function filterDataByEncodingType(data, type, mode){
             }
             return isFlag;
         });
-    }else if(mode == 2){
-        filterData = data.filter(function(item){
+    } else if (mode == 2) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type']!=type[i] && item['encoding_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'] != type[i] && item['encoding_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -167,12 +173,12 @@ function filterDataByEncodingType(data, type, mode){
             return isFlag;
         });
     }
-    else if(mode == 3 || mode == 0){
-        filterData = data.filter(function(item){
+    else if (mode == 3 || mode == 0) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -183,7 +189,7 @@ function filterDataByEncodingType(data, type, mode){
     }
 
     return filterData;
-    
+
 }
 
 /**
@@ -192,17 +198,17 @@ function filterDataByEncodingType(data, type, mode){
  * @param {*} type 
  * @returns 
  */
-function filterDataByFunctionType(data, type, mode){
-    if(type.length == 0){
+function filterDataByFunctionType(data, type, mode) {
+    if (type.length == 0) {
         return data;
     }
     let filterData;
-    if (mode == 1){
-        filterData = data.filter(function(item){
+    if (mode == 1) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type']==type[i]){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'] == type[i]) {
                         isFlag = true;
                         break;
                     }
@@ -210,12 +216,12 @@ function filterDataByFunctionType(data, type, mode){
             }
             return isFlag;
         });
-    }else if(mode == 2){
-        filterData = data.filter(function(item){
+    } else if (mode == 2) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type']!=type[i] && item['encoding_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'] != type[i] && item['encoding_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -224,12 +230,12 @@ function filterDataByFunctionType(data, type, mode){
             return isFlag;
         });
     }
-    else if(mode == 3 || mode == 0){
-        filterData = data.filter(function(item){
+    else if (mode == 3 || mode == 0) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_encoding_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['encoding_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_encoding_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['encoding_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -249,11 +255,11 @@ function filterDataByFunctionType(data, type, mode){
  * @returns 
  */
 function filterDataByHardness(data, hardness) {
-    if(hardness == ''){
+    if (hardness == '') {
         return data;
     }
-    else{
-        var filterData = data.filter(function(item) {
+    else {
+        var filterData = data.filter(function (item) {
             return hardness == item['hardness_type'];
         });
         return filterData;
@@ -267,17 +273,17 @@ function filterDataByHardness(data, hardness) {
  * @param {*} mode - 0: empty; 1: select single; 2: select multiple; 3: select both
  * @returns 
  */
-function filterDataByDimensions(data, type, mode){
-    if(type.length == 0){
+function filterDataByDimensions(data, type, mode) {
+    if (type.length == 0) {
         return data;
     }
     let filterData;
-    if (mode == 1){
-        filterData = data.filter(function(item){
+    if (mode == 1) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_dim_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['dim_type']==type[i]){
+            if (parseInt(item['check_dim_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['dim_type'] == type[i]) {
                         isFlag = true;
                         break;
                     }
@@ -285,12 +291,12 @@ function filterDataByDimensions(data, type, mode){
             }
             return isFlag;
         });
-    }else if(mode == 2){
-        filterData = data.filter(function(item){
+    } else if (mode == 2) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_dim_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['dim_type']!=type[i] && item['dim_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_dim_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['dim_type'] != type[i] && item['dim_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -299,12 +305,12 @@ function filterDataByDimensions(data, type, mode){
             return isFlag;
         });
     }
-    else if(mode == 3 || mode == 0){
-        filterData = data.filter(function(item){
+    else if (mode == 3 || mode == 0) {
+        filterData = data.filter(function (item) {
             let isFlag = false;
-            if(parseInt(item['check_dim_type']) == 1){
-                for(let i = 0; i < type.length; i++){
-                    if(item['dim_type'].split(';').includes(type[i])){
+            if (parseInt(item['check_dim_type']) == 1) {
+                for (let i = 0; i < type.length; i++) {
+                    if (item['dim_type'].split(';').includes(type[i])) {
                         isFlag = true;
                         break;
                     }
@@ -317,15 +323,15 @@ function filterDataByDimensions(data, type, mode){
     return filterData;
 }
 
-function filterDataByComposition(data, type){
-    if(type.length == 0){
+function filterDataByComposition(data, type) {
+    if (type.length == 0) {
         return data;
     }
-    var filterData = data.filter(function(item){
+    var filterData = data.filter(function (item) {
         let isFlag = false;
-        if(parseInt(item['check_comp_type']) == 1){
-            for(let i = 0; i < type.length; i++){
-                if(item['comp_type'].split(';').includes(type[i])){
+        if (parseInt(item['check_comp_type']) == 1) {
+            for (let i = 0; i < type.length; i++) {
+                if (item['comp_type'].split(';').includes(type[i])) {
                     isFlag = true;
                     break;
                 }
@@ -336,15 +342,15 @@ function filterDataByComposition(data, type){
     return filterData;
 }
 
-function filterDataByNest(data, type){
-    if(type.length == 0){
+function filterDataByNest(data, type) {
+    if (type.length == 0) {
         return data;
     }
-    var filterData = data.filter(function(item){
+    var filterData = data.filter(function (item) {
         let isFlag = false;
-        if(parseInt(item['check_nest_type']) == 1){
-            for(let i = 0; i < type.length; i++){
-                if(item['nest_type'].split(';').includes(type[i])){
+        if (parseInt(item['check_nest_type']) == 1) {
+            for (let i = 0; i < type.length; i++) {
+                if (item['nest_type'].split(';').includes(type[i])) {
                     isFlag = true;
                     break;
                 }
@@ -362,26 +368,26 @@ function filterDataByNest(data, type){
  */
 function filterDataByAlgoEquaType(data, type) {
     if (type.length == 2) {
-        var filterData = data.filter(function(item) {
+        var filterData = data.filter(function (item) {
             let boolean = parseInt(item['vis_type']) == 18 || parseInt(item['vis_type']) == 19;
             return boolean;
         });
         return filterData;
     } else if (type.length == 0) {
-        var filterData = data.filter(function(item) {
+        var filterData = data.filter(function (item) {
             let boolean = parseInt(item['vis_type']) != 18 && parseInt(item['vis_type']) != 19;
             return boolean;
         });
         return filterData;
     } else if (type.length == 1) {
         if (type[0] == 'Algorithm') {
-            var filterData = data.filter(function(item) {
+            var filterData = data.filter(function (item) {
                 let boolean = parseInt(item['vis_type']) == 18;
                 return boolean;
             });
             return filterData;
         } else if (type[0] == 'Equation') {
-            var filterData = data.filter(function(item) {
+            var filterData = data.filter(function (item) {
                 let boolean = (parseInt(item['vis_type']) == 19);
                 return boolean;
             });
@@ -396,7 +402,7 @@ function filterDataByAlgoEquaType(data, type) {
  * @param {selected conferences} confs 
  */
 function filterDataByConference(data, confs) {
-    var filterData = data.filter(function(item) {
+    var filterData = data.filter(function (item) {
         return confs.includes(item['Conference']);
     });
     return filterData;
@@ -408,7 +414,7 @@ function filterDataByConference(data, confs) {
  * @param {*} maxYear 
  */
 function filterDataByYear(data, minYear, maxYear) {
-    var filterData = data.filter(function(item) {
+    var filterData = data.filter(function (item) {
         return (minYear <= item['Year']) & (item['Year'] <= maxYear);
     });
     return filterData;

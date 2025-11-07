@@ -72,6 +72,7 @@
                     <select class="selectpicker" id="searchModeSelect">
                         <option value="1">in paper authors' keywords</option>
                         <option value="2">in title & abstract</option>
+                        <option value="3">by filename</option>
                     </select>&nbsp;&nbsp;
 
                     <div class="autocomplete">
@@ -254,7 +255,7 @@
                                         title="Glyph-based Techniques" src="public/images/icons/glyph-0.png" />
                                 </label> &nbsp;
                             </div>
-<!-- 
+                            <!-- 
 
                             <div class="codingType">
                                 <input type="checkbox" class="encodingType" name="encodingType" id="pattern-check"
@@ -278,7 +279,8 @@
                                     value="color">
                                 <label for="color-check" id="color-check-label" class="unselected-flat">
                                     <img class="coding-icon" id="color-icon" data-toggle="tooltip" data-html="true"
-                                        title="Continuous color and grey-scale representations" src="public/images/icons/color-0.png" />
+                                        title="Continuous color and grey-scale representations"
+                                        src="public/images/icons/color-0.png" />
                                 </label> &nbsp;
                             </div>
                             <div class="codingType">
@@ -304,15 +306,17 @@
                                     id="encoding-single-type" value="single" checked>
                                 <label class="form-check-label" for="encoding-single-type">Single</label>
                             </div>&nbsp;
-                            <button type="button" id="single-query-mode"
-                                class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-html="true" title="When single is selected, the interface will display images that are ONLY coded as this label (single label).">?</button>&nbsp;&nbsp;
+                            <button type="button" id="single-query-mode" class="btn btn-primary btn-circle btn-sm"
+                                data-toggle="tooltip" data-html="true"
+                                title="When single is selected, the interface will display images that are ONLY coded as this label (single label).">?</button>&nbsp;&nbsp;
                             <div class="form-check form-inline">
                                 <input type="checkbox" class="form-check-input encodingMode" name="encodingMode"
                                     id="encoding-multiple-type" value="multiple" checked>
                                 <label class="form-check-label" for="encoding-multiple-type">Multiple</label>
                             </div>&nbsp;
-                            <button type="button" id="multiple-query-mode"
-                                class="btn btn-primary btn-circle btn-sm" data-toggle="tooltip" data-html="true" title="When multiple is selected, the interface will display images that are coded as multiple labels (including selected labels)">?</button>
+                            <button type="button" id="multiple-query-mode" class="btn btn-primary btn-circle btn-sm"
+                                data-toggle="tooltip" data-html="true"
+                                title="When multiple is selected, the interface will display images that are coded as multiple labels (including selected labels)">?</button>
 
                             &nbsp; &nbsp; &nbsp;
                             <!-- <div class="radioIcon">
@@ -375,7 +379,7 @@
                                     id="dimMode-multiple-type" value="multiple" checked>
                                 <label class="form-check-label" for="dimMode-multiple-type">Multiple</label>
                             </div>&nbsp;
-                            
+
 
                             &nbsp; &nbsp; &nbsp;
                             <div class="radioIcon">
