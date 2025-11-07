@@ -82,7 +82,7 @@ function filterDataByKeywords(data, keyword) {
     else if (searchMode == 3) {
         var filterData = data.filter(function (item) {
             //console.log(item['Keywords Author']);
-            return item['filename'].toLowerCase().includes(keyword);
+            return item['filename'].toLowerCase().includes(keyword.toLowerCase());
         });
         return filterData;
     }
