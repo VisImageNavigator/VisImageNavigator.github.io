@@ -18,7 +18,7 @@ var visMode = 1; //1: image mode, 2: paper mode, 3: paper card mode
 var yearPageDic = {}; //store the page index of each year for images
 var yearPageDicPaper = {}; //store the 
 var currentKeywords = ''; //store the current keywords results
-var currentYearRange = [1990, 2020]; //store the current year range
+var currentYearRange = [1990, 2024]; //store the current year range
 var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
 var currentFigures = ['Figure', 'Table'];
 // var currentEncodingTypes = ['bar', 'point', 'line', 'node-link',
@@ -75,7 +75,7 @@ $(document).ready(function () {
  */
 async function dbStart() {
 
-    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_07112024.csv");
+    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_20260901.csv");
     G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv");
     //G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
@@ -553,7 +553,7 @@ async function dbStart() {
         type: "double",
         grid: true,
         min: '1990',
-        max: '2020',
+        max: '2024',
         step: 1,
         skin: "square",
         prettify: yearString,
