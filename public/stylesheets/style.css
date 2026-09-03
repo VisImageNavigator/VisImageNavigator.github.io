@@ -1559,7 +1559,8 @@ div.card-title {
     float: left;
 }
 
-.conf-div-Vis {
+.conf-div-Vis,
+.conf-div-VIS {
     border: 2px #FBAF3F solid;
 }
 

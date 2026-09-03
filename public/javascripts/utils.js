@@ -182,3 +182,16 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
+/**
+ * the image's dataset file name, e.g. VisC.6.1.png or VIS2021J.270.51.png
+ * the 2021+ images are hosted by file id, so their url tail is not a name
+ * @param {*} record a row of the image dataset
+ */
+function imageFileName(record) {
+    if (record['filename']) {
+        return record['filename'];
+    }
+    let urlArr = record.url.split('/');
+    return urlArr[urlArr.length - 1];
+}

@@ -19,7 +19,8 @@ var yearPageDic = {}; //store the page index of each year for images
 var yearPageDicPaper = {}; //store the 
 var currentKeywords = ''; //store the current keywords results
 var currentYearRange = [1990, 2024]; //store the current year range
-var currentConferences = ['Vis', 'SciVis', 'InfoVis', 'VAST'];
+// 'VIS' is the 2021+ journal track; 'Vis' is the 1990-2011 conference.
+var currentConferences = ['Vis', 'VIS', 'SciVis', 'InfoVis', 'VAST'];
 var currentFigures = ['Figure', 'Table'];
 // var currentEncodingTypes = ['bar', 'point', 'line', 'node-link',
 //     'area', 'surface-volume', 'grid', 'glyph',
@@ -44,6 +45,7 @@ var randomMode = 0; //if randomize the order of all images
 
 var confDic = {
     'Vis': '#FBAF3F',
+    'VIS': '#FBAF3F',
     'InfoVis': '#EF4036',
     'SciVis': '#1B75BB',
     'VAST': '#38B449'
@@ -75,8 +77,8 @@ $(document).ready(function () {
  */
 async function dbStart() {
 
-    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_20260901.csv");
-    G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv");
+    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_20260901.csv?v3.0.26");
+    G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv?v3.0.26");
     //G_PAPER = stratifyPaperData(G_PAPER);
     G_IMG_DATA = sortImageByYear(G_IMG_DATA); //sort images by year, then sort by conference, the sort by first page.
     //group images to paper dataset
@@ -227,7 +229,7 @@ async function dbStart() {
         if ($('#vis-check').prop("checked")) {
             $('#vis-check-label').css('background', confDic['Vis']);
             $('#vis-check-label').css('border', '0px');
-            activeConf.push('Vis');
+            activeConf.push('Vis', 'VIS');
         } else {
             $('#vis-check-label').css('background', '#fff');
             $('#vis-check-label').css('border', '1px solid #95a5a6');

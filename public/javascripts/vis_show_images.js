@@ -129,10 +129,9 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         link_info.innerHTML = imgData[id]['paper_url'].toString();
         year_info.innerHTML = imgData[id]['Year'];
         type_info.innerHTML = imgData[id]['Paper type'];
-        let urlArr = imgData[id].url.split('/');
-        imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let oriImageName = imageFileName(imgData[id]);
+        imagename_info.innerHTML = oriImageName;
         //set email content
-        let oriImageName = urlArr[urlArr.length - 1].toString();
         let email_text = "mailto:chen.8028@osu.edu?subject=" +
             "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
@@ -207,9 +206,8 @@ function presentImg(imgData, showAnnotation, sortedKey = 0, imgSize = 1, current
         link_info.innerHTML = imgData[gIndex]['paper_url'];
         year_info.innerHTML = imgData[gIndex]['Year'];
         type_info.innerHTML = imgData[gIndex]['Paper type'];
-        let urlArr = imgData[gIndex].url.split('/');
-        let oriImageName = urlArr[urlArr.length - 1].toString();
-        imagename_info.innerHTML = urlArr[urlArr.length - 1];
+        let oriImageName = imageFileName(imgData[gIndex]);
+        imagename_info.innerHTML = oriImageName;
         let email_text = "mailto:chen.8028@osu.edu?subject=" +
             "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
@@ -485,6 +483,8 @@ function presentPaperCards(paperData, totalCount) {
             conf_div.id = conf + "-" + year;
             if (conf == "Vis") {
                 conf_div.className = "conf-div conf-div-Vis";
+            } else if (conf == "VIS") {
+                conf_div.className = "conf-div conf-div-VIS";
             } else if (conf == "SciVis") {
                 conf_div.className = "conf-div conf-div-SciVis";
             } else if (conf == "InfoVis") {
@@ -827,9 +827,8 @@ function presentUPPapers(paperData, totalCount) {
         link_info.innerHTML = imgDataDic[id]['paper_url'];
         year_info.innerHTML = imgDataDic[id]['Year'];
         type_info.innerHTML = imgDataDic[id]['Paper type'];
-        let urlArr = imgDataDic[id].url.split('/');
-        imagename_info.innerHTML = urlArr[urlArr.length - 1];
-        let oriImageName = urlArr[urlArr.length - 1].toString();
+        let oriImageName = imageFileName(imgDataDic[id]);
+        imagename_info.innerHTML = oriImageName;
         //set email content
         let email_text = "mailto:chen.8028@osu.edu?subject=" +
             "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
@@ -904,9 +903,8 @@ function presentUPPapers(paperData, totalCount) {
         link_info.innerHTML = paperImgData[gIndex]['paper_url'];
         year_info.innerHTML = paperImgData[gIndex]['Year'];
         type_info.innerHTML = paperImgData[gIndex]['Paper type'];
-        let urlArr = paperImgData[gIndex].url.split('/');
-        imagename_info.innerHTML = urlArr[urlArr.length - 1];
-        let oriImageName = urlArr[urlArr.length - 1].toString();
+        let oriImageName = imageFileName(paperImgData[gIndex]);
+        imagename_info.innerHTML = oriImageName;
         let email_text = "mailto:chen.8028@osu.edu?subject=" +
             "VisImageNavigator: Update " + oriImageName + "&body=Dear Jian,%0D%0A%0D%0AMay I request to update the image file " +
             oriImageName + " please?%0D%0A%0D%0A best regards,%0D%0A"
