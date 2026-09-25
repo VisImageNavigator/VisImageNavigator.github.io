@@ -79,8 +79,8 @@ const CURATED_TYPE_MAX_YEAR = 2020;
 
 async function dbStart() {
 
-    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_20260922.csv?v3.0.27");
-    G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv?v3.0.27");
+    G_IMG_DATA = await d3.csv("public/dataset/vispubData30_updated_20260925.csv?v3.0.29");
+    G_PAPER = await d3.csv("public/dataset/paperData_3.0.3.csv?v3.0.29");
     //G_PAPER = stratifyPaperData(G_PAPER);
     //type labels (visualization / dimensionality / functional / hardness) are only curated through 2020;
     //hide them for newer images so they are neither shown nor matched by the type filters
