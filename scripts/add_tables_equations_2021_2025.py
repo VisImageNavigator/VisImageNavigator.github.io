@@ -45,12 +45,16 @@ def page_key(row):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--src", default=SRC_IMAGE_CSV, help="image dataset to extend")
+    ap.add_argument("--dst", default=NEW_IMAGE_CSV, help="image dataset to write")
+    ap.add_argument("--crops", default=CROPS)
+    ap.add_argument("--papers", default=PAPERS)
     args = ap.parse_args()
 
-    crops = list(csv.DictReader(open(CROPS, encoding="utf-8", newline="")))
-    papers = {prev.normalize_doi(p["DOI"]): p for p in csv.DictReader(open(PAPERS, encoding="utf-8", newline=""))}
+    crops = list(csv.DictReader(open(args.crops, encoding="utf-8", newline="")))
+    papers = {prev.normalize_doi(p["DOI"]): p for p in csv.DictReader(open(args.papers, encoding="utf-8", newline=""))}
 
-    with open(SRC_IMAGE_CSV, encoding="utf-8-sig", newline="") as fh:
+    with open(args.src, encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
         fields = reader.fieldnames
         existing = list(reader)
@@ -61,13 +65,13 @@ def main():
     paper_row, page_label = {}, {}
     labels_used = collections.defaultdict(set)
     for r in existing:
-        if int(r["Year"]) < 2021:
+        if int(r["Year"]) < 2020:
             continue
         doi = prev.normalize_doi(r["Paper DOI"])
         paper_row.setdefault(doi, {c: r[c] for c in paper_cols})
         page_label.setdefault(doi, r["filename"].split(".")[1])
         labels_used[(r["Year"], r["PaperType"])].add(r["filename"].split(".")[1])
-    have = {r["paperImageName"] for r in existing if int(r["Year"]) >= 2021}
+    have = {r["paperImageName"] for r in existing if int(r["Year"]) >= 2020}
     year_index = collections.Counter()
     for r in existing:
         year_index[r["Year"]] = max(year_index[r["Year"]], int(float(r["year-index"] or 0)))
@@ -150,8 +154,8 @@ def main():
         sys.exit("duplicate filenames: %s" % dup[:5])
 
     if not args.dry_run:
-        prev.write_atomic(NEW_IMAGE_CSV, fields, old + recent_all, encoding="utf-8-sig")
-        print("wrote %s (%d rows)" % (os.path.relpath(NEW_IMAGE_CSV, REPO), len(old) + len(recent_all)))
+        prev.write_atomic(args.dst, fields, old + recent_all, encoding="utf-8-sig")
+        print("wrote %s (%d rows)" % (os.path.relpath(args.dst, REPO), len(old) + len(recent_all)))
 
     meta = {doi: dict(papers[doi], Award=papers[doi].get("Award", "")) for doi in new_papers}
     added = prev.extend_paper_csv(meta, new_papers, args.dry_run)

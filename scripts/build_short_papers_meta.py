@@ -6,12 +6,18 @@ Input:  ~/Downloads/VIN_short_papers_work/meta_raw.json   ({toc: {year: [...]}, 
 Output: ~/Downloads/VIN_short_papers/papers_short_2021_2025.csv   (VisPubData sheet columns)
         ~/Downloads/VIN_short_papers_work/figure_manifest.csv     (one row per figure to download)
 
-Usage: python3 scripts/build_short_papers_meta.py
+Usage: python3 scripts/build_short_papers_meta.py [--out DIR --work DIR --tag 2020]
+       (defaults are the 2021-2025 batch; the 2020 batch uses ~/Downloads/VIN_short_papers_2020{,_work})
 """
-import csv, html, json, os, re
+import argparse, csv, html, json, os, re
 
-OUT = os.path.expanduser("~/Downloads/VIN_short_papers")
-WORK = os.path.expanduser("~/Downloads/VIN_short_papers_work")
+ap = argparse.ArgumentParser()
+ap.add_argument("--out", default="~/Downloads/VIN_short_papers")
+ap.add_argument("--work", default="~/Downloads/VIN_short_papers_work")
+ap.add_argument("--tag", default="2021_2025", help="suffix of papers_short_<tag>.csv")
+ARGS = ap.parse_args()
+OUT = os.path.expanduser(ARGS.out)
+WORK = os.path.expanduser(ARGS.work)
 RAW = os.path.join(WORK, "meta_raw.json")
 
 PAPER_FIELDS = ["Conference", "Year", "Title", "DOI", "Link", "FirstPage", "LastPage", "PaperType",
@@ -50,7 +56,8 @@ def main():
         m, year = v["meta"], v["year"]
         authors = m.get("authors") or []
         doi = m.get("doi", "")
-        fig_list = v["figs"] if isinstance(v["figs"], list) else []
+        raw_figs = v["figs"].get("figures") if isinstance(v["figs"], dict) else v["figs"]
+        fig_list = raw_figs if isinstance(raw_figs, list) else []
         papers.append({
             "Conference": "VIS",
             "Year": year,
@@ -74,7 +81,7 @@ def main():
             label = (f.get("label") or "").strip()
             num = re.search(r"\d+", label)
             kind = label.split(" ")[0].rstrip(".:").lower()
-            image_type = {"figure": "F", "fig": "F", "listing": "L", "code": "L"}.get(kind, "O")
+            image_type = {"figure": "F", "fig": "F", "listing": "L", "code": "L", "example": "L"}.get(kind, "O")
             g = f.get("graphic") or {}
             figs.append({
                 "Year": year, "DOI": doi, "ArticleNumber": ar, "FirstPage": m.get("startPage", ""),
@@ -87,7 +94,7 @@ def main():
                 "HiresFile": g.get("hires", ""), "LargeFile": g.get("large", ""),
             })
 
-    with open(os.path.join(OUT, "papers_short_2021_2025.csv"), "w", encoding="utf-8", newline="") as fh:
+    with open(os.path.join(OUT, "papers_short_%s.csv" % ARGS.tag), "w", encoding="utf-8", newline="") as fh:
         w = csv.DictWriter(fh, PAPER_FIELDS, extrasaction="ignore")
         w.writeheader()
         w.writerows(papers)

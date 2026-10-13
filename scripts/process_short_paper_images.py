@@ -9,13 +9,18 @@ Output: ~/Downloads/VIN_short_papers/<year>/*.png
         ~/Downloads/VIN_short_papers/image_manifest.csv       (manifest + Width/Height/Variant/Status)
         ~/Downloads/VIN_short_papers/sheet_rows_short_papers.csv  (newImage2021-2025 tab, 21 columns)
 
-Usage: python3 scripts/process_short_paper_images.py
+Usage: python3 scripts/process_short_paper_images.py [--out DIR --work DIR --tag 2020]
 """
-import csv, glob, io, os, zipfile
+import argparse, csv, glob, io, os, zipfile
 from PIL import Image
 
-OUT = os.path.expanduser("~/Downloads/VIN_short_papers")
-WORK = os.path.expanduser("~/Downloads/VIN_short_papers_work")
+ap = argparse.ArgumentParser()
+ap.add_argument("--out", default="~/Downloads/VIN_short_papers")
+ap.add_argument("--work", default="~/Downloads/VIN_short_papers_work")
+ap.add_argument("--tag", default="2021_2025")
+ARGS = ap.parse_args()
+OUT = os.path.expanduser(ARGS.out)
+WORK = os.path.expanduser(ARGS.work)
 SHEET_FIELDS = ["", "Paper URL", "Year", "Title", "PaperType", "DOI", "ImageFileName", "imageURL",
                 "ManuelLabels", "Zefeng Lables", "Image", "Image Type", "Coder1", "VisType_Coder1",
                 "Dr.ChenCodingVisType", "Verifier", "VisType_Verifier", "Start Page", "End Page",
@@ -25,7 +30,7 @@ SHEET_FIELDS = ["", "Paper URL", "Year", "Title", "PaperType", "DOI", "ImageFile
 def main():
     manifest = list(csv.DictReader(open(os.path.join(WORK, "figure_manifest.csv"), encoding="utf-8")))
     papers = {p["ArticleNumber"]: p for p in
-              csv.DictReader(open(os.path.join(OUT, "papers_short_2021_2025.csv"), encoding="utf-8"))}
+              csv.DictReader(open(os.path.join(OUT, "papers_short_%s.csv" % ARGS.tag), encoding="utf-8"))}
     by_key = {(m["ArticleNumber"], m["FigId"]): m for m in manifest}
 
     got = {}

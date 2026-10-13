@@ -46,12 +46,16 @@ def page_key(row):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--src", default=SRC_IMAGE_CSV, help="image dataset to extend")
+    ap.add_argument("--dst", default=NEW_IMAGE_CSV, help="image dataset to write")
+    ap.add_argument("--papers", default=PAPERS)
+    ap.add_argument("--images", default=IMAGES)
     args = ap.parse_args()
 
-    papers = {p["DOI"]: p for p in csv.DictReader(open(PAPERS, encoding="utf-8", newline=""))}
-    images = list(csv.DictReader(open(IMAGES, encoding="utf-8", newline="")))
+    papers = {p["DOI"]: p for p in csv.DictReader(open(args.papers, encoding="utf-8", newline=""))}
+    images = list(csv.DictReader(open(args.images, encoding="utf-8", newline="")))
 
-    with open(SRC_IMAGE_CSV, encoding="utf-8-sig", newline="") as fh:
+    with open(args.src, encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
         fields = reader.fieldnames
         existing = list(reader)
@@ -123,8 +127,8 @@ def main():
         sys.exit("duplicate filenames: %s" % dup[:5])
 
     if not args.dry_run:
-        prev.write_atomic(NEW_IMAGE_CSV, fields, old + recent_all, encoding="utf-8-sig")
-        print("wrote %s (%d rows)" % (os.path.relpath(NEW_IMAGE_CSV, REPO), len(old) + len(recent_all)))
+        prev.write_atomic(args.dst, fields, old + recent_all, encoding="utf-8-sig")
+        print("wrote %s (%d rows)" % (os.path.relpath(args.dst, REPO), len(old) + len(recent_all)))
 
     meta = {doi: dict(p, Award="") for doi, p in papers.items()}
     added = prev.extend_paper_csv(meta, {r["Paper DOI"] for r in new_rows}, args.dry_run)
